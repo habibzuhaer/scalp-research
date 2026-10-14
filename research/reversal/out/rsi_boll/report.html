@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RSI + Bollinger — сигналы, стопы, тикеры</title>
+<style>
+:root {
+  --bg:#0b1220; --panel:#121a2b; --line:#243044; --text:#e8eef8;
+  --muted:#8fa3bf; --accent:#3dd6c6; --warn:#f0b429; --bad:#e85d6a; --good:#3ecf8e;
+  --font:"IBM Plex Sans","Segoe UI",sans-serif; --mono:"IBM Plex Mono",Consolas,monospace;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0; font-family:var(--font); color:var(--text); line-height:1.55;
+  background:
+    radial-gradient(900px 500px at 10% -10%, #1a3a45 0%, transparent 50%),
+    radial-gradient(700px 400px at 100% 0%, #2a2240 0%, transparent 45%),
+    var(--bg);
+}
+.wrap { max-width:1180px; margin:0 auto; padding:28px 20px 64px; }
+h1 { font-size:1.75rem; margin:0 0 8px; letter-spacing:-0.02em; }
+h2 { font-size:1.2rem; margin:36px 0 12px; border-bottom:1px solid var(--line); padding-bottom:8px; }
+h3 { font-size:1.02rem; margin:22px 0 10px; color:var(--accent); }
+.lead { color:var(--muted); max-width:70ch; margin:0 0 20px; }
+.grid { display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+.card {
+  background:rgba(18,26,43,.92); border:1px solid var(--line); border-radius:12px; padding:14px 16px;
+}
+.card strong { display:block; font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-bottom:6px; }
+.card .v { font-size:1.35rem; font-weight:650; font-variant-numeric:tabular-nums; }
+.card .s { color:var(--muted); font-size:.88rem; margin-top:4px; }
+.good { color:var(--good); } .bad { color:var(--bad); } .warn { color:var(--warn); }
+.muted { color:var(--muted); } .tiny { font-size:.78rem; margin-top:2px; }
+.chip {
+  display:inline-block; font-family:var(--mono); font-size:.78rem;
+  padding:4px 8px; margin:3px; border-radius:6px; background:#1a2438; border:1px solid var(--line);
+}
+table {
+  width:100%; border-collapse:collapse; font-size:.88rem; background:rgba(18,26,43,.7);
+  border:1px solid var(--line); border-radius:10px; overflow:hidden;
+}
+th, td { padding:8px 10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+th { background:#172033; color:var(--muted); font-weight:600; font-size:.75rem; text-transform:uppercase; letter-spacing:.04em; }
+tr:last-child td { border-bottom:none; }
+tr.best { background:rgba(62,207,142,.08); }
+tr.bad { background:rgba(232,93,106,.06); }
+.num { font-variant-numeric:tabular-nums; font-family:var(--mono); font-size:.84rem; white-space:nowrap; }
+.pos { color:var(--good); } .neg { color:var(--bad); }
+code { font-family:var(--mono); font-size:.86em; color:#b8e6df; }
+.flow {
+  display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+}
+.step {
+  background:#152036; border:1px solid var(--line); border-radius:10px; padding:12px;
+  position:relative;
+}
+.step b { display:block; color:var(--accent); font-size:.75rem; margin-bottom:4px; }
+.note {
+  border-left:3px solid var(--warn); padding:10px 14px; margin:14px 0;
+  background:rgba(240,180,41,.08); border-radius:0 8px 8px 0;
+}
+.nav { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 8px; }
+.nav a {
+  color:var(--text); text-decoration:none; font-size:.88rem;
+  padding:6px 10px; border:1px solid var(--line); border-radius:8px; background:#152036;
+}
+.nav a:hover { border-color:var(--accent); color:var(--accent); }
+.scroll { overflow-x:auto; }
+footer { margin-top:40px; color:var(--muted); font-size:.85rem; }
+ul.clean { margin:8px 0; padding-left:1.2em; }
+ul.clean li { margin:4px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>RSI + Bollinger — стратегия и стопы</h1>
+  <p class="lead">
+    Пояснение сигналов покупки/продажи, все варианты стопов из прогона,
+    тикеры и насколько далеко цена ходила вверх после входа (MFE).
+    Биржа: Bybit linear. Индикаторы: RSI(14), Boll(20, 2σ), ATR(14).
+  </p>
+
+  <div class="nav">
+    <a href="#signals">Сигналы</a>
+    <a href="#stops">Все стопы</a>
+    <a href="#tickers">Тикеры</a>
+    <a href="#by-symbol">По монетам</a>
+    <a href="#pics">Картинки</a>
+    <a href="#mfe">MFE</a>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <strong>Лучший режим</strong>
+      <div class="v good">5m · ATR 1.2×</div>
+      <div class="s">sumR +28.7 · avgR +0.19 · стоп ≈1.44%</div>
+    </div>
+    <div class="card">
+      <strong>Тейк</strong>
+      <div class="v">+1.6% × 50%</div>
+      <div class="s">остаток — тайм/стоп (не RSI≥82×5)</div>
+    </div>
+    <div class="card">
+      <strong>Тикеров 5m / 15m</strong>
+      <div class="v">15 / 23</div>
+      <div class="s">волатильные + ликвидный контроль на 15m</div>
+    </div>
+    <div class="card">
+      <strong>Выход Boll+RSI≥82×5</strong>
+      <div class="v bad">0 сделок</div>
+      <div class="s">условие слишком редкое — не основной выход</div>
+    </div>
+  </div>
+
+  
+  <h2 id="pics">Как это выглядит на графике</h2>
+  <p class="muted">Схема сетапа и три реальные сделки 5m · ATR 1.2× из прогона.</p>
+  <h3>Схема</h3>
+  <img src="img/schema_setup.png" alt="schema" style="max-width:100%;border:1px solid #243044;border-radius:10px;margin:8px 0 20px"/>
+  <h3>Сильный ход — AKEUSDT (partial + хвост)</h3>
+  <img src="img/win_runner_AKEUSDT.png" alt="AKE win" style="max-width:100%;border:1px solid #243044;border-radius:10px;margin:8px 0 20px"/>
+  <h3>Типичный плюс — NESAUSDT</h3>
+  <img src="img/win_typical_NESAUSDT.png" alt="NESA win" style="max-width:100%;border:1px solid #243044;border-radius:10px;margin:8px 0 20px"/>
+  <h3>Стоп — BTRUSDT</h3>
+  <img src="img/stop_out_BTRUSDT.png" alt="BTR stop" style="max-width:100%;border:1px solid #243044;border-radius:10px;margin:8px 0 20px"/>
+
+  <h2 id="signals">1. Сигналы покупки и продажи</h2>
+
+  <h3>Покупка (long setup)</h3>
+  <div class="flow">
+    <div class="step"><b>1. Условие бара</b>RSI ≤ 27 и цена вблизи нижней Boll (±15% ширины полосы)</div>
+    <div class="step"><b>2. Серия</b>Так подряд ≥ 5 баров. Сигнал в момент, когда streak стал ровно 5</div>
+    <div class="step"><b>3. Вход</b>Open следующей свечи после сигнала</div>
+    <div class="step"><b>4. Стоп</b>См. таблицу стопов. Рекомендация: ENTRY − 1.2×ATR</div>
+    <div class="step"><b>5. Тейк1</b>+1.6% — закрыть 50% объёма</div>
+    <div class="step"><b>6. Остаток</b>Стоп или тайм: 5m=48 баров (~4ч), 15m=32 (~8ч)</div>
+  </div>
+
+  <div class="note">
+    <strong>«Вблизи Boll»</strong> — не обязательно exact touch:
+    <code>low/close ≤ lower + 0.15×(upper−lower)</code> для покупки;
+    для выхода у верхней: <code>high/close ≥ upper − 0.15×width</code>.
+  </div>
+
+  <h3>Продажа / выход (не шорт-сигнал)</h3>
+  <ul class="clean">
+    <li><strong>Стоп</strong> — закрыть всё (приоритет №1, если в том же баре и тейк).</li>
+    <li><strong>Тейк +1.6%</strong> — закрыть 50%.</li>
+    <li><strong>Тайм-стоп</strong> — закрыть остаток.</li>
+    <li><strong>RSI≥82 + верхняя Boll ×5</strong> — задумано как «полная продажа», в прогоне почти не сработало → не строить на этом основной выход.</li>
+  </ul>
+
+  <h2 id="stops">2. Все стопы — сравнение</h2>
+  <p class="muted">Зелёная строка — лучший результат. MFE = максимальный % роста high после входа.</p>
+  <div class="scroll">
+  <table>
+    <thead>
+      <tr>
+        <th>TF</th><th>Стоп</th><th>n</th><th>WR</th><th>avgR</th><th>sumR</th>
+        <th>стоп avg</th><th>стоп med</th>
+        <th>MFE avg</th><th>MFE med</th><th>MFE p90</th><th>MFE max</th>
+        <th>partial</th><th>SL</th><th>BollExit</th><th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    <tr class="best">
+      <td>5m</td>
+      <td><strong>ATR 1.2×</strong><div class="muted tiny">ENTRY − 1.2×ATR(14)</div></td>
+      <td class="num">152</td>
+      <td class="num">38.8%</td>
+      <td class="num pos">+0.189</td>
+      <td class="num pos">+28.7</td>
+      <td class="num">1.44%</td>
+      <td class="num">0.95%</td>
+      <td class="num">2.51%</td>
+      <td class="num">1.13%</td>
+      <td class="num">6.54%</td>
+      <td class="num">26.59%</td>
+      <td class="num">44%</td>
+      <td class="num">101</td>
+      <td class="num">0</td>
+      <td class="num">51</td>
+    </tr>
+    <tr class="">
+      <td>5m</td>
+      <td><strong>Фикс −1.6%</strong><div class="muted tiny">ENTRY × (1 − 1.6%)</div></td>
+      <td class="num">161</td>
+      <td class="num">43.5%</td>
+      <td class="num neg">-0.017</td>
+      <td class="num neg">-2.7</td>
+      <td class="num">1.60%</td>
+      <td class="num">1.6%</td>
+      <td class="num">2.41%</td>
+      <td class="num">1.58%</td>
+      <td class="num">6.3%</td>
+      <td class="num">12.77%</td>
+      <td class="num">48%</td>
+      <td class="num">83</td>
+      <td class="num">0</td>
+      <td class="num">78</td>
+    </tr>
+    <tr class="">
+      <td>5m</td>
+      <td><strong>Структурный</strong><div class="muted tiny">min(low за 5 buy-баров) − 0.1×ATR</div></td>
+      <td class="num">126</td>
+      <td class="num">38.1%</td>
+      <td class="num neg">-0.022</td>
+      <td class="num neg">-2.7</td>
+      <td class="num">1.42%</td>
+      <td class="num">0.9%</td>
+      <td class="num">2.3%</td>
+      <td class="num">1.12%</td>
+      <td class="num">6.32%</td>
+      <td class="num">18.18%</td>
+      <td class="num">42%</td>
+      <td class="num">87</td>
+      <td class="num">0</td>
+      <td class="num">39</td>
+    </tr>
+    <tr class="">
+      <td>15m</td>
+      <td><strong>Фикс −1.2%</strong><div class="muted tiny">ENTRY × (1 − 1.2%)</div></td>
+      <td class="num">137</td>
+      <td class="num">49.6%</td>
+      <td class="num neg">-0.021</td>
+      <td class="num neg">-2.9</td>
+      <td class="num">1.20%</td>
+      <td class="num">1.2%</td>
+      <td class="num">2.45%</td>
+      <td class="num">1.59%</td>
+      <td class="num">5.47%</td>
+      <td class="num">22.81%</td>
+      <td class="num">42%</td>
+      <td class="num">89</td>
+      <td class="num">0</td>
+      <td class="num">48</td>
+    </tr>
+    <tr class="">
+      <td>15m</td>
+      <td><strong>Фикс −1.6%</strong><div class="muted tiny">ENTRY × (1 − 1.6%)</div></td>
+      <td class="num">137</td>
+      <td class="num">38.7%</td>
+      <td class="num neg">-0.027</td>
+      <td class="num neg">-3.6</td>
+      <td class="num">1.60%</td>
+      <td class="num">1.6%</td>
+      <td class="num">2.65%</td>
+      <td class="num">1.76%</td>
+      <td class="num">5.97%</td>
+      <td class="num">22.81%</td>
+      <td class="num">46%</td>
+      <td class="num">81</td>
+      <td class="num">0</td>
+      <td class="num">56</td>
+    </tr>
+    <tr class="bad">
+      <td>5m</td>
+      <td><strong>Фикс −1.2%</strong><div class="muted tiny">ENTRY × (1 − 1.2%)</div></td>
+      <td class="num">161</td>
+      <td class="num">49.1%</td>
+      <td class="num neg">-0.048</td>
+      <td class="num neg">-7.7</td>
+      <td class="num">1.20%</td>
+      <td class="num">1.2%</td>
+      <td class="num">2.16%</td>
+      <td class="num">1.4%</td>
+      <td class="num">6.05%</td>
+      <td class="num">10.32%</td>
+      <td class="num">44%</td>
+      <td class="num">101</td>
+      <td class="num">0</td>
+      <td class="num">60</td>
+    </tr>
+    <tr class="bad">
+      <td>15m</td>
+      <td><strong>ATR 1.2×</strong><div class="muted tiny">ENTRY − 1.2×ATR(14)</div></td>
+      <td class="num">135</td>
+      <td class="num">28.9%</td>
+      <td class="num neg">-0.082</td>
+      <td class="num neg">-11.1</td>
+      <td class="num">2.44%</td>
+      <td class="num">1.51%</td>
+      <td class="num">2.71%</td>
+      <td class="num">1.59%</td>
+      <td class="num">6.59%</td>
+      <td class="num">22.81%</td>
+      <td class="num">49%</td>
+      <td class="num">93</td>
+      <td class="num">0</td>
+      <td class="num">42</td>
+    </tr>
+    <tr class="bad">
+      <td>15m</td>
+      <td><strong>Структурный</strong><div class="muted tiny">min(low за 5 buy-баров) − 0.1×ATR</div></td>
+      <td class="num">126</td>
+      <td class="num">33.3%</td>
+      <td class="num neg">-0.152</td>
+      <td class="num neg">-19.2</td>
+      <td class="num">1.66%</td>
+      <td class="num">1.02%</td>
+      <td class="num">2.37%</td>
+      <td class="num">1.51%</td>
+      <td class="num">5.71%</td>
+      <td class="num">22.81%</td>
+      <td class="num">39%</td>
+      <td class="num">88</td>
+      <td class="num">0</td>
+      <td class="num">38</td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Что означает каждый стоп</h3>
+  <div class="grid">
+    <div class="card">
+      <strong>ATR 1.2×</strong>
+      <div class="s"><code>STOP = ENTRY − 1.2 × ATR(14)</code><br/>
+      Подстраивается под монету. На 5m средний стоп ~1.44% — <span class="good">единственный плюс по sumR</span>.
+      На 15m раздувается до ~2.4% — хуже.</div>
+    </div>
+    <div class="card">
+      <strong>Фикс −1.2%</strong>
+      <div class="s"><code>STOP = ENTRY × 0.988</code><br/>
+      Простой. На 15m наименее плохой из фиксов. На 5m WR высокий, но sumR отрицательный.</div>
+    </div>
+    <div class="card">
+      <strong>Фикс −1.6%</strong>
+      <div class="s"><code>STOP = ENTRY × 0.984</code><br/>
+      Симметрия с тейком 1.6%. Чуть шире — больше места, но риск на сделку больше.</div>
+    </div>
+    <div class="card">
+      <strong>Структурный</strong>
+      <div class="s"><code>STOP = min(low 5 buy-баров) − 0.1×ATR</code><br/>
+      «Под зоной перепроданности». Нестабильная ширина, на 15m худший sumR.</div>
+    </div>
+  </div>
+
+  <h2 id="tickers">3. Тикеры в прогоне</h2>
+  <h3>5m — топ волатильных (15)</h3>
+  <div><span class="chip">AGIUSDT</span><span class="chip">AKEUSDT</span><span class="chip">ARIAUSDT</span><span class="chip">BICOUSDT</span><span class="chip">BTRUSDT</span><span class="chip">CASHCATUSDT</span><span class="chip">EDENUSDT</span><span class="chip">MOVRUSDT</span><span class="chip">NESAUSDT</span><span class="chip">ONGUSDT</span><span class="chip">ONTUSDT</span><span class="chip">TACUSDT</span><span class="chip">TMXUSDT</span><span class="chip">TUTUSDT</span><span class="chip">VELVETUSDT</span></div>
+  <h3>15m — волатильные + ликвидный контроль (23)</h3>
+  <div><span class="chip">1000PEPEUSDT</span><span class="chip">AGIUSDT</span><span class="chip">ARBUSDT</span><span class="chip">AVAXUSDT</span><span class="chip">BEATUSDT</span><span class="chip">BMTUSDT</span><span class="chip">BTRUSDT</span><span class="chip">BTWUSDT</span><span class="chip">CASHCATUSDT</span><span class="chip">DOGEUSDT</span><span class="chip">HANAUSDT</span><span class="chip">NEARUSDT</span><span class="chip">NESAUSDT</span><span class="chip">ONGUSDT</span><span class="chip">OPUSDT</span><span class="chip">PORTALUSDT</span><span class="chip">SOLUSDT</span><span class="chip">SUIUSDT</span><span class="chip">TACUSDT</span><span class="chip">TUTUSDT</span><span class="chip">VELVETUSDT</span><span class="chip">WIFUSDT</span><span class="chip">WLDUSDT</span></div>
+  <p class="muted">История: ~9000 баров 5m (~31 день), ~6000 баров 15m (~62 дня). Комиссия в тесте 0.06% × 2 стороны.</p>
+
+  <h2 id="by-symbol">4. По тикерам — 5m ATR 1.2× (рабочий режим)</h2>
+  <div class="scroll">
+  <table>
+    <thead>
+      <tr>
+        <th>Тикер</th><th>сделок</th><th>WR</th><th>sum ret%</th>
+        <th>стоп% avg</th><th>MFE avg</th><th>MFE max</th><th>partial</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td><code>NESAUSDT</code></td>
+          <td class="num">9</td>
+          <td class="num">56%</td>
+          <td class="num pos">+5.34%</td>
+          <td class="num">0.88%</td>
+          <td class="num">2.08%</td>
+          <td class="num">8.19%</td>
+          <td class="num">44%</td>
+        </tr>
+
+        <tr>
+          <td><code>VELVETUSDT</code></td>
+          <td class="num">12</td>
+          <td class="num">50%</td>
+          <td class="num pos">+5.28%</td>
+          <td class="num">1.81%</td>
+          <td class="num">3.84%</td>
+          <td class="num">9.04%</td>
+          <td class="num">58%</td>
+        </tr>
+
+        <tr>
+          <td><code>ONTUSDT</code></td>
+          <td class="num">6</td>
+          <td class="num">33%</td>
+          <td class="num pos">+2.68%</td>
+          <td class="num">0.40%</td>
+          <td class="num">1.54%</td>
+          <td class="num">5.50%</td>
+          <td class="num">33%</td>
+        </tr>
+
+        <tr>
+          <td><code>ARIAUSDT</code></td>
+          <td class="num">7</td>
+          <td class="num">43%</td>
+          <td class="num pos">+1.60%</td>
+          <td class="num">0.36%</td>
+          <td class="num">1.64%</td>
+          <td class="num">6.69%</td>
+          <td class="num">43%</td>
+        </tr>
+
+        <tr>
+          <td><code>AGIUSDT</code></td>
+          <td class="num">11</td>
+          <td class="num">45%</td>
+          <td class="num pos">+0.97%</td>
+          <td class="num">1.04%</td>
+          <td class="num">2.22%</td>
+          <td class="num">6.56%</td>
+          <td class="num">45%</td>
+        </tr>
+
+        <tr>
+          <td><code>TUTUSDT</code></td>
+          <td class="num">10</td>
+          <td class="num">40%</td>
+          <td class="num pos">+0.57%</td>
+          <td class="num">1.12%</td>
+          <td class="num">1.70%</td>
+          <td class="num">6.26%</td>
+          <td class="num">30%</td>
+        </tr>
+
+        <tr>
+          <td><code>ONGUSDT</code></td>
+          <td class="num">7</td>
+          <td class="num">43%</td>
+          <td class="num neg">-0.58%</td>
+          <td class="num">0.52%</td>
+          <td class="num">0.87%</td>
+          <td class="num">2.44%</td>
+          <td class="num">29%</td>
+        </tr>
+
+        <tr>
+          <td><code>MOVRUSDT</code></td>
+          <td class="num">8</td>
+          <td class="num">50%</td>
+          <td class="num neg">-0.66%</td>
+          <td class="num">1.18%</td>
+          <td class="num">2.07%</td>
+          <td class="num">6.09%</td>
+          <td class="num">50%</td>
+        </tr>
+
+        <tr>
+          <td><code>AKEUSDT</code></td>
+          <td class="num">12</td>
+          <td class="num">42%</td>
+          <td class="num neg">-0.71%</td>
+          <td class="num">3.60%</td>
+          <td class="num">7.50%</td>
+          <td class="num">26.59%</td>
+          <td class="num">67%</td>
+        </tr>
+
+        <tr>
+          <td><code>CASHCATUSDT</code></td>
+          <td class="num">10</td>
+          <td class="num">40%</td>
+          <td class="num neg">-0.71%</td>
+          <td class="num">1.85%</td>
+          <td class="num">2.65%</td>
+          <td class="num">6.20%</td>
+          <td class="num">60%</td>
+        </tr>
+
+        <tr>
+          <td><code>BICOUSDT</code></td>
+          <td class="num">8</td>
+          <td class="num">25%</td>
+          <td class="num neg">-1.72%</td>
+          <td class="num">0.63%</td>
+          <td class="num">1.27%</td>
+          <td class="num">3.75%</td>
+          <td class="num">25%</td>
+        </tr>
+
+        <tr>
+          <td><code>EDENUSDT</code></td>
+          <td class="num">9</td>
+          <td class="num">11%</td>
+          <td class="num neg">-2.80%</td>
+          <td class="num">0.55%</td>
+          <td class="num">0.99%</td>
+          <td class="num">3.30%</td>
+          <td class="num">22%</td>
+        </tr>
+
+        <tr>
+          <td><code>TACUSDT</code></td>
+          <td class="num">16</td>
+          <td class="num">38%</td>
+          <td class="num neg">-3.74%</td>
+          <td class="num">1.05%</td>
+          <td class="num">1.39%</td>
+          <td class="num">5.12%</td>
+          <td class="num">38%</td>
+        </tr>
+
+        <tr>
+          <td><code>BTRUSDT</code></td>
+          <td class="num">9</td>
+          <td class="num">44%</td>
+          <td class="num neg">-6.12%</td>
+          <td class="num">2.31%</td>
+          <td class="num">2.00%</td>
+          <td class="num">6.58%</td>
+          <td class="num">44%</td>
+        </tr>
+
+        <tr>
+          <td><code>TMXUSDT</code></td>
+          <td class="num">18</td>
+          <td class="num">28%</td>
+          <td class="num neg">-15.12%</td>
+          <td class="num">2.18%</td>
+          <td class="num">3.13%</td>
+          <td class="num">12.77%</td>
+          <td class="num">50%</td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>15m · фикс −1.2% (справочно)</h3>
+  <div class="scroll">
+  <table>
+    <thead>
+      <tr>
+        <th>Тикер</th><th>сделок</th><th>WR</th><th>sum ret%</th>
+        <th>стоп% avg</th><th>MFE avg</th><th>MFE max</th><th>partial</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td><code>DOGEUSDT</code></td>
+          <td class="num">6</td>
+          <td class="num">83%</td>
+          <td class="num pos">+4.94%</td>
+          <td class="num">1.20%</td>
+          <td class="num">1.55%</td>
+          <td class="num">2.78%</td>
+          <td class="num">50%</td>
+        </tr>
+
+        <tr>
+          <td><code>ONGUSDT</code></td>
+          <td class="num">9</td>
+          <td class="num">56%</td>
+          <td class="num pos">+4.58%</td>
+          <td class="num">1.20%</td>
+          <td class="num">2.88%</td>
+          <td class="num">8.37%</td>
+          <td class="num">33%</td>
+        </tr>
+
+        <tr>
+          <td><code>BMTUSDT</code></td>
+          <td class="num">3</td>
+          <td class="num">100%</td>
+          <td class="num pos">+4.41%</td>
+          <td class="num">1.20%</td>
+          <td class="num">3.73%</td>
+          <td class="num">6.21%</td>
+          <td class="num">67%</td>
+        </tr>
+
+        <tr>
+          <td><code>AGIUSDT</code></td>
+          <td class="num">10</td>
+          <td class="num">50%</td>
+          <td class="num pos">+4.28%</td>
+          <td class="num">1.20%</td>
+          <td class="num">3.28%</td>
+          <td class="num">13.36%</td>
+          <td class="num">50%</td>
+        </tr>
+
+        <tr>
+          <td><code>AVAXUSDT</code></td>
+          <td class="num">5</td>
+          <td class="num">80%</td>
+          <td class="num pos">+2.95%</td>
+          <td class="num">1.20%</td>
+          <td class="num">1.54%</td>
+          <td class="num">4.04%</td>
+          <td class="num">20%</td>
+        </tr>
+
+        <tr>
+          <td><code>ARBUSDT</code></td>
+          <td class="num">7</td>
+          <td class="num">71%</td>
+          <td class="num pos">+2.47%</td>
+          <td class="num">1.20%</td>
+          <td class="num">2.02%</td>
+          <td class="num">5.66%</td>
+          <td class="num">57%</td>
+        </tr>
+
+        <tr>
+          <td><code>BTRUSDT</code></td>
+          <td class="num">5</td>
+          <td class="num">40%</td>
+          <td class="num pos">+1.73%</td>
+          <td class="num">1.20%</td>
+          <td class="num">3.22%</td>
+          <td class="num">10.29%</td>
+          <td class="num">40%</td>
+        </tr>
+
+        <tr>
+          <td><code>SOLUSDT</code></td>
+          <td class="num">3</td>
+          <td class="num">67%</td>
+          <td class="num pos">+0.86%</td>
+          <td class="num">1.20%</td>
+          <td class="num">0.92%</td>
+          <td class="num">1.71%</td>
+          <td class="num">33%</td>
+        </tr>
+
+        <tr>
+          <td><code>WIFUSDT</code></td>
+          <td class="num">4</td>
+          <td class="num">50%</td>
+          <td class="num pos">+0.83%</td>
+          <td class="num">1.20%</td>
+          <td class="num">1.57%</td>
+          <td class="num">2.96%</td>
+          <td class="num">50%</td>
+        </tr>
+
+        <tr>
+          <td><code>OPUSDT</code></td>
+          <td class="num">4</td>
+          <td class="num">50%</td>
+          <td class="num pos">+0.23%</td>
+          <td class="num">1.20%</td>
+          <td class="num">1.36%</td>
+          <td class="num">2.38%</td>
+          <td class="num">50%</td>
+        </tr>
+
+        <tr>
+          <td><code>1000PEPEUSDT</code></td>
+          <td class="num">5</td>
+          <td class="num">40%</td>
+          <td class="num pos">+0.05%</td>
+          <td class="num">1.20%</td>
+          <td class="num">1.43%</td>
+          <td class="num">3.51%</td>
+          <td class="num">40%</td>
+        </tr>
+
+        <tr>
+          <td><code>WLDUSDT</code></td>
+          <td class="num">4</td>
+          <td class="num">50%</td>
+          <td class="num neg">-0.18%</td>
+          <td class="num">1.20%</td>
+          <td class="num">1.71%</td>
+          <td class="num">3.77%</td>
+          <td class="num">50%</td>
+        </tr>
+
+        <tr>
+          <td><code>HANAUSDT</code></td>
+          <td class="num">5</td>
+          <td class="num">40%</td>
+          <td class="num neg">-0.27%</td>
+          <td class="num">1.20%</td>
+          <td class="num">2.58%</td>
+          <td class="num">7.40%</td>
+          <td class="num">40%</td>
+        </tr>
+
+        <tr>
+          <td><code>SUIUSDT</code></td>
+          <td class="num">3</td>
+          <td class="num">33%</td>
+          <td class="num neg">-0.62%</td>
+          <td class="num">1.20%</td>
+          <td class="num">1.28%</td>
+          <td class="num">2.95%</td>
+          <td class="num">33%</td>
+        </tr>
+
+        <tr>
+          <td><code>CASHCATUSDT</code></td>
+          <td class="num">2</td>
+          <td class="num">50%</td>
+          <td class="num neg">-1.24%</td>
+          <td class="num">1.20%</td>
+          <td class="num">3.16%</td>
+          <td class="num">4.74%</td>
+          <td class="num">50%</td>
+        </tr>
+
+        <tr>
+          <td><code>NEARUSDT</code></td>
+          <td class="num">2</td>
+          <td class="num">50%</td>
+          <td class="num neg">-1.25%</td>
+          <td class="num">1.20%</td>
+          <td class="num">0.79%</td>
+          <td class="num">1.26%</td>
+          <td class="num">0%</td>
+        </tr>
+
+        <tr>
+          <td><code>PORTALUSDT</code></td>
+          <td class="num">5</td>
+          <td class="num">40%</td>
+          <td class="num neg">-2.02%</td>
+          <td class="num">1.20%</td>
+          <td class="num">2.50%</td>
+          <td class="num">4.85%</td>
+          <td class="num">40%</td>
+        </tr>
+
+        <tr>
+          <td><code>TUTUSDT</code></td>
+          <td class="num">12</td>
+          <td class="num">42%</td>
+          <td class="num neg">-2.34%</td>
+          <td class="num">1.20%</td>
+          <td class="num">3.97%</td>
+          <td class="num">22.81%</td>
+          <td class="num">42%</td>
+        </tr>
+
+        <tr>
+          <td><code>BTWUSDT</code></td>
+          <td class="num">8</td>
+          <td class="num">25%</td>
+          <td class="num neg">-2.60%</td>
+          <td class="num">1.20%</td>
+          <td class="num">3.87%</td>
+          <td class="num">13.92%</td>
+          <td class="num">25%</td>
+        </tr>
+
+        <tr>
+          <td><code>NESAUSDT</code></td>
+          <td class="num">7</td>
+          <td class="num">29%</td>
+          <td class="num neg">-3.41%</td>
+          <td class="num">1.20%</td>
+          <td class="num">3.80%</td>
+          <td class="num">9.36%</td>
+          <td class="num">29%</td>
+        </tr>
+
+        <tr>
+          <td><code>VELVETUSDT</code></td>
+          <td class="num">6</td>
+          <td class="num">50%</td>
+          <td class="num neg">-3.72%</td>
+          <td class="num">1.20%</td>
+          <td class="num">1.83%</td>
+          <td class="num">3.36%</td>
+          <td class="num">50%</td>
+        </tr>
+
+        <tr>
+          <td><code>TACUSDT</code></td>
+          <td class="num">10</td>
+          <td class="num">50%</td>
+          <td class="num neg">-4.28%</td>
+          <td class="num">1.20%</td>
+          <td class="num">1.37%</td>
+          <td class="num">3.62%</td>
+          <td class="num">50%</td>
+        </tr>
+
+        <tr>
+          <td><code>BEATUSDT</code></td>
+          <td class="num">12</td>
+          <td class="num">42%</td>
+          <td class="num neg">-8.84%</td>
+          <td class="num">1.20%</td>
+          <td class="num">1.93%</td>
+          <td class="num">4.89%</td>
+          <td class="num">42%</td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2 id="mfe">5. Как читать стоп и «макс % после входа»</h2>
+  <ul class="clean">
+    <li><strong>стоп%</strong> — насколько ниже входа стоит стоп (риск на сделку в % цены).</li>
+    <li><strong>MFE%</strong> — максимум, куда high уходил вверх после входа, до выхода из сделки.</li>
+    <li>На 5m ATR: медиана MFE ≈ <strong>1.13%</strong>, p90 ≈ <strong>6.5%</strong>, max до <strong>26%</strong> (AKE) — поэтому тейк 50% @ 1.6% + хвост имеет смысл.</li>
+    <li>~45% сделок на 5m ATR хотя бы касались зоны +1.6%.</li>
+  </ul>
+
+  <h2>6. Карточка сигнала (шаблон)</h2>
+  <div class="card">
+    <pre style="margin:0;font-family:var(--mono);font-size:.9rem;white-space:pre-wrap">BUY  &lt;SYMBOL&gt;  5m
+RSI≤27 ×5 баров @ lower BB (вблизи)
+Entry  = open следующей
+Stop   = Entry − 1.2×ATR
+Take1  = Entry × 1.016  →  закрыть 50%
+Rest   = стоп или тайм 48 баров
+НЕ ждать RSI≥82×5 как основной выход</pre>
+  </div>
+
+  <footer>
+    Файлы: <code>summary.json</code>, <code>mfe_table.csv</code>, <code>STRATEGY_SPEC.md</code>, <code>RESULTS.md</code>
+    в <code>research/reversal/out/rsi_boll/</code>. Скрипт прогона: <code>run_rsi_boll.py</code>.
+  </footer>
+</div>
+</body>
+</html>

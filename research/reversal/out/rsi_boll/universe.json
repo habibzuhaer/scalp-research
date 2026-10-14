@@ -1,0 +1,192 @@
+[
+  {
+    "symbol": "AGIUSDT",
+    "tf": "5m",
+    "bars": 9000
+  },
+  {
+    "symbol": "AKEUSDT",
+    "tf": "5m",
+    "bars": 9000
+  },
+  {
+    "symbol": "ARIAUSDT",
+    "tf": "5m",
+    "bars": 9000
+  },
+  {
+    "symbol": "BICOUSDT",
+    "tf": "5m",
+    "bars": 9000
+  },
+  {
+    "symbol": "BTRUSDT",
+    "tf": "5m",
+    "bars": 9000
+  },
+  {
+    "symbol": "CASHCATUSDT",
+    "tf": "5m",
+    "bars": 9000
+  },
+  {
+    "symbol": "EDENUSDT",
+    "tf": "5m",
+    "bars": 9000
+  },
+  {
+    "symbol": "MOVRUSDT",
+    "tf": "5m",
+    "bars": 9000
+  },
+  {
+    "symbol": "NESAUSDT",
+    "tf": "5m",
+    "bars": 9000
+  },
+  {
+    "symbol": "ONGUSDT",
+    "tf": "5m",
+    "bars": 9000
+  },
+  {
+    "symbol": "ONTUSDT",
+    "tf": "5m",
+    "bars": 9000
+  },
+  {
+    "symbol": "TACUSDT",
+    "tf": "5m",
+    "bars": 9000
+  },
+  {
+    "symbol": "TMXUSDT",
+    "tf": "5m",
+    "bars": 9000
+  },
+  {
+    "symbol": "TUTUSDT",
+    "tf": "5m",
+    "bars": 9000
+  },
+  {
+    "symbol": "VELVETUSDT",
+    "tf": "5m",
+    "bars": 9000
+  },
+  {
+    "symbol": "1000PEPEUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "AGIUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "ARBUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "AVAXUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "BEATUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "BMTUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "BTRUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "BTWUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "CASHCATUSDT",
+    "tf": "15m",
+    "bars": 5597
+  },
+  {
+    "symbol": "DOGEUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "HANAUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "NEARUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "NESAUSDT",
+    "tf": "15m",
+    "bars": 4831
+  },
+  {
+    "symbol": "ONGUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "OPUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "PORTALUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "SOLUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "SUIUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "TACUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "TUTUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "VELVETUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "WIFUSDT",
+    "tf": "15m",
+    "bars": 6000
+  },
+  {
+    "symbol": "WLDUSDT",
+    "tf": "15m",
+    "bars": 6000
+  }
+]

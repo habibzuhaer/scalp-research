@@ -1,0 +1,394 @@
+//@version=6
+// Capitulation Reversal v3 — live-ready
+//
+// Изменения vs v2:
+// A) Вход по open следующего бара после сигнала (стата = реальный fill)
+// B) Пока позиция / pending — новые входы игнорируются
+// C) TP1 50% → стоп в BE на остаток; TP2 закрывает остаток
+// D) 1 подтверждение на капитуляцию; cooldown после сделки
+// E) Пресеты ТФ 3м/5м/15м (не одна формула)
+// F) Алерты с JSON: side, entry, SL, TP1, TP2, R%
+//
+// Алерты в TV: "Once Per Bar Close".
+indicator("Capitulation Reversal v3", shorttitle="CapRev3", overlay = true, max_labels_count = 500, max_lines_count = 500)
+
+// ═══════════════ ПАРАМЕТРЫ ═══════════════
+g0 = "Таймфрейм"
+tfPreset = input.string("Авто", "Пресет окон", options = ["Авто", "3м", "5м", "15м", "Вручную"], group = g0)
+
+g1 = "Капитуляция"
+lookbackIn = input.int(20, "Окно свипа (Вручную)", minval = 5, group = g1)
+divLenIn   = input.int(30, "Окно дивергенции RSI (Вручную)", minval = 5, group = g1)
+volMult    = input.float(2.5, "Объём ≥ N × средний", minval = 1.0, step = 0.1, group = g1)
+rangeMult  = input.float(1.5, "Диапазон свечи ≥ N × ATR", minval = 0.5, step = 0.1, group = g1)
+wickPct    = input.float(50.0, "Тень ≥ % диапазона", minval = 10, maxval = 95, group = g1)
+useDiv     = input.bool(true, "Требовать дивергенцию RSI", group = g1)
+rsiLen     = input.int(14, "RSI длина", minval = 2, group = g1)
+
+g2 = "Подтверждение"
+confBarsIn = input.int(3, "Баров на подтверждение (Вручную)", minval = 1, maxval = 10, group = g2)
+confMode   = input.string("Экстремум свечи", "Уровень подтверждения", options = ["Экстремум свечи", "Середина свечи"], group = g2)
+maxBarsIn  = input.int(24, "Макс. удержание, баров (Вручную)", minval = 4, group = g2)
+cooldownIn = input.int(3, "Cooldown после сделки, баров", minval = 0, maxval = 50, group = g2)
+
+g3 = "Риск и выход"
+lev         = input.float(20.0, "Плечо (фильтр стопа)", minval = 1, group = g3)
+mmr         = input.float(0.5, "Maintenance margin, %", minval = 0, step = 0.1, group = g3)
+maxLiqShare = input.float(50.0, "Стоп ≤ N % дистанции до ликвидации", minval = 10, maxval = 90, group = g3)
+stopBuf     = input.float(0.15, "Буфер стопа, ATR", minval = 0, step = 0.05, group = g3)
+riskPct     = input.float(1.0, "Риск на сделку, % депозита (в лейбле)", minval = 0.1, step = 0.1, group = g3)
+rr1         = input.float(1.0, "TP1, R", minval = 0.2, step = 0.1, group = g3)
+rr2         = input.float(2.0, "TP2, R", minval = 0.5, step = 0.1, group = g3)
+partialPct  = input.float(50.0, "Доля закрытия на TP1, %", minval = 0, maxval = 100, step = 5, group = g3)
+beOffsetR   = input.float(0.0, "BE смещение после TP1, R", minval = 0, step = 0.05, group = g3)
+bothHit     = input.string("SL", "Если SL и TP в одном баре", options = ["SL", "TP", "Пропуск"], group = g3)
+feePct      = input.float(0.055, "Комиссия тейкера, % за сторону", minval = 0, step = 0.005, group = g3)
+slipPct     = input.float(0.02, "Проскальзывание, % (в стате)", minval = 0, step = 0.01, group = g3)
+
+g4 = "Отображение"
+showEarly = input.bool(true, "Ранние маркеры капитуляции", group = g4)
+showTable = input.bool(true, "Таблица статистики", group = g4)
+showSkip  = input.bool(false, "Лейблы ПРОПУСК (плечо)", group = g4)
+
+// ═══════════════ ПРЕСЕТЫ ТФ ═══════════════
+tfMin = timeframe.in_seconds() / 60.0
+
+int lookback = lookbackIn
+int divLen = divLenIn
+int confBars = confBarsIn
+int maxBars = maxBarsIn
+int cooldownBars = cooldownIn
+
+if tfPreset == "3м"
+    lookback := 33
+    divLen := 50
+    confBars := 5
+    maxBars := 40
+else if tfPreset == "5м"
+    lookback := 20
+    divLen := 30
+    confBars := 3
+    maxBars := 24
+else if tfPreset == "15м"
+    lookback := 16
+    divLen := 24
+    confBars := 3
+    maxBars := 16
+else if tfPreset == "Авто"
+    // по времени, с полом чтобы 15м не схлопывался
+    lookback := int(math.max(12, math.round(100.0 / tfMin)))
+    divLen := int(math.round(lookback * 1.5))
+    confBars := int(math.max(3, math.min(5, math.round(15.0 / tfMin))))
+    maxBars := int(math.max(12, math.round(120.0 / tfMin)))
+
+// ═══════════════ ИНДИКАТОРЫ (до and/or — v6 lazy eval) ═══════════════
+atr    = ta.atr(14)
+volAvg = ta.sma(volume, 20)
+rsi    = ta.rsi(close, rsiLen)
+rng    = high - low
+upperW = high - math.max(open, close)
+lowerW = math.min(open, close) - low
+
+lowestPrev = ta.lowest(low, lookback)[1]
+highestPrev = ta.highest(high, lookback)[1]
+rsiLowNow  = ta.lowest(rsi, 3)
+rsiLowOld  = ta.lowest(rsi, divLen)[3]
+rsiHighNow = ta.highest(rsi, 3)
+rsiHighOld = ta.highest(rsi, divLen)[3]
+
+volOk  = volume >= volAvg[1] * volMult
+rngOk  = rng >= atr[1] * rangeMult
+wickL  = rng > 0 and lowerW / rng * 100.0 >= wickPct
+wickS  = rng > 0 and upperW / rng * 100.0 >= wickPct
+sweepL = low < lowestPrev
+sweepS = high > highestPrev
+divL   = rsiLowNow > rsiLowOld
+divS   = rsiHighNow < rsiHighOld
+
+capL = barstate.isconfirmed and sweepL and volOk and rngOk and wickL and (not useDiv or divL)
+capS = barstate.isconfirmed and sweepS and volOk and rngOk and wickS and (not useDiv or divS)
+
+// ═══════════════ СОСТОЯНИЕ КАПИТУЛЯЦИИ ═══════════════
+var int   cLBar = na
+var float cLHi  = na
+var float cLLo  = na
+var bool  cLArm = false
+var int   cSBar = na
+var float cSHi  = na
+var float cSLo  = na
+var bool  cSArm = false
+
+confL = confMode == "Середина свечи" ? (cLHi + cLLo) / 2.0 : cLHi
+confS = confMode == "Середина свечи" ? (cSHi + cSLo) / 2.0 : cSLo
+
+inWinL = cLArm and not na(cLBar) and bar_index > cLBar and bar_index <= cLBar + confBars
+inWinS = cSArm and not na(cSBar) and bar_index > cSBar and bar_index <= cSBar + confBars
+
+longSigRaw  = barstate.isconfirmed and inWinL and close > confL and close > open
+shortSigRaw = barstate.isconfirmed and inWinS and close < confS and close < open
+
+// ═══════════════ РИСК ПОД ПЛЕЧО ═══════════════
+liqPct     = 100.0 / lev - mmr
+maxStopPct = liqPct * maxLiqShare / 100.0
+
+stopL = cLLo - atr * stopBuf
+stopS = cSHi + atr * stopBuf
+distL = (close - stopL) / close * 100.0
+distS = (stopS - close) / close * 100.0
+okL   = not na(stopL) and distL > 0 and distL <= maxStopPct
+okS   = not na(stopS) and distS > 0 and distS <= maxStopPct
+
+// ═══════════════ УЧЁТ СДЕЛОК ═══════════════
+var int   tDir     = 0      // 1 long, -1 short, 0 flat
+var int   tBar     = na
+var float tEnt     = na
+var float tSL      = na
+var float tTP1     = na
+var float tTP2     = na
+var float tRiskAbs = na
+var float tDistPct = na
+var bool  tPartial = false  // TP1 уже взят
+var float tRealizedR = 0.0
+
+var int   pDir = 0          // pending fill next open
+var float pSL  = na
+var float pTP1 = na
+var float pTP2 = na
+var float pSigClose = na
+var int   pBar = na
+
+var int   coolUntil = na
+var int   nWin  = 0
+var int   nLoss = 0
+var int   nTime = 0
+var int   nBe   = 0
+var float sumR  = 0.0
+
+inCooldown = not na(coolUntil) and bar_index <= coolUntil
+busy = tDir != 0 or pDir != 0 or inCooldown
+
+buySig  = longSigRaw and okL and not busy
+sellSig = shortSigRaw and okS and not busy
+skipBuy  = longSigRaw and not okL and not busy
+skipSell = shortSigRaw and not okS and not busy
+
+feeSlipR(distPct) =>
+    distPct > 0 ? 2.0 * (feePct + slipPct) / distPct : 0.0
+
+// totalR без мутации var (в Pine UDF нельзя писать в global var)
+calcExitR(exitRGross) =>
+    cost = feeSlipR(tDistPct)
+    remShare = tPartial ? (100.0 - partialPct) / 100.0 : 1.0
+    tRealizedR + exitRGross * remShare - cost
+
+// ─── Fill pending на open текущего бара (до выходов по high/low) ───
+if barstate.isconfirmed and pDir != 0 and tDir == 0
+    fillDir = pDir
+    ent = open
+    sl = pSL
+    riskAbs = fillDir == 1 ? ent - sl : sl - ent
+    dead = riskAbs <= 0 or (fillDir == 1 and open <= sl) or (fillDir == -1 and open >= sl)
+    if dead
+        label.new(bar_index, open, "CANCEL fill", style = label.style_xcross, color = color.gray, textcolor = color.gray, size = size.tiny)
+        pDir := 0
+    else
+        tp1 = fillDir == 1 ? ent + riskAbs * rr1 : ent - riskAbs * rr1
+        tp2 = fillDir == 1 ? ent + riskAbs * rr2 : ent - riskAbs * rr2
+        distPct = riskAbs / ent * 100.0
+        tDir := fillDir
+        tBar := bar_index
+        tEnt := ent
+        tSL := sl
+        tTP1 := tp1
+        tTP2 := tp2
+        tRiskAbs := riskAbs
+        tDistPct := distPct
+        tPartial := false
+        tRealizedR := 0.0
+        pDir := 0
+        line.new(bar_index, sl, bar_index + 12, sl, color = color.red, style = line.style_dashed)
+        line.new(bar_index, tp1, bar_index + 12, tp1, color = color.lime, style = line.style_dashed)
+        line.new(bar_index, tp2, bar_index + 12, tp2, color = color.aqua, style = line.style_dashed)
+        label.new(bar_index, ent, fillDir == 1 ? "FILL BUY" : "FILL SELL", style = fillDir == 1 ? label.style_label_up : label.style_label_down, color = fillDir == 1 ? color.green : color.red, textcolor = color.white, size = size.tiny)
+
+// ─── Управление позицией (включая бар входа после fill по open) ───
+if barstate.isconfirmed and tDir != 0 and bar_index >= tBar
+    hitSL = tDir == 1 ? low <= tSL : high >= tSL
+    hitTP1 = not tPartial and (tDir == 1 ? high >= tTP1 : low <= tTP1)
+    // TP2 доступен после partial; если partial=0 — полный выход на TP1
+    hitTP2 = tPartial and (tDir == 1 ? high >= tTP2 : low <= tTP2)
+
+    conflict = hitSL and (hitTP1 or hitTP2)
+    takeSL = false
+    takeTP1 = false
+    takeTP2 = false
+    takeSkip = false
+    if conflict
+        if bothHit == "SL"
+            takeSL := true
+        else if bothHit == "TP"
+            if hitTP2
+                takeTP2 := true
+            else
+                takeTP1 := true
+        else
+            takeSkip := true
+    else if hitSL
+        takeSL := true
+    else if hitTP1
+        takeTP1 := true
+    else if hitTP2
+        takeTP2 := true
+
+    if not takeSkip
+        if takeSL
+            isBe = tPartial and math.abs(tSL - tEnt) <= syminfo.mintick * 2
+            reason = isBe ? "BE" : "SL"
+            exitGross = isBe ? beOffsetR : (tPartial ? 0.0 : -1.0)
+            sumR += calcExitR(exitGross)
+            if isBe
+                nBe += 1
+            else
+                nLoss += 1
+            label.new(bar_index, tSL, reason, style = label.style_xcross, color = isBe ? color.olive : color.red, textcolor = isBe ? color.olive : color.red, size = size.tiny)
+            coolUntil := bar_index + cooldownBars
+            tDir := 0
+            tPartial := false
+            tRealizedR := 0.0
+        else if takeTP2
+            sumR += calcExitR(rr2)
+            nWin += 1
+            label.new(bar_index, tTP2, "TP2", style = label.style_xcross, color = color.lime, textcolor = color.lime, size = size.tiny)
+            coolUntil := bar_index + cooldownBars
+            tDir := 0
+            tPartial := false
+            tRealizedR := 0.0
+        else if takeTP1
+            if partialPct >= 99.9 or partialPct <= 0.1
+                sumR += calcExitR(rr1)
+                nWin += 1
+                label.new(bar_index, tTP1, "TP1", style = label.style_xcross, color = color.lime, textcolor = color.lime, size = size.tiny)
+                coolUntil := bar_index + cooldownBars
+                tDir := 0
+                tPartial := false
+                tRealizedR := 0.0
+            else
+                tRealizedR := rr1 * (partialPct / 100.0)
+                tPartial := true
+                tSL := tDir == 1 ? tEnt + tRiskAbs * beOffsetR : tEnt - tRiskAbs * beOffsetR
+                label.new(bar_index, tTP1, "TP1 partial", style = label.style_xcross, color = color.lime, textcolor = color.lime, size = size.tiny)
+                line.new(bar_index, tSL, bar_index + 8, tSL, color = color.olive, style = line.style_dotted)
+        else if bar_index - tBar >= maxBars
+            exitGross = tRiskAbs > 0 ? (tDir == 1 ? (close - tEnt) / tRiskAbs : (tEnt - close) / tRiskAbs) : 0.0
+            sumR += calcExitR(exitGross)
+            nTime += 1
+            label.new(bar_index, close, "TO", style = label.style_xcross, color = color.orange, textcolor = color.orange, size = size.tiny)
+            coolUntil := bar_index + cooldownBars
+            tDir := 0
+            tPartial := false
+            tRealizedR := 0.0
+
+// ═══════════════ СИГНАЛ → PENDING (fill next bar open) ═══════════════
+if buySig
+    riskAbs = close - stopL
+    tp1 = close + riskAbs * rr1
+    tp2 = close + riskAbs * rr2
+    needLev = distL > 0 ? riskPct / distL : na
+    txt = str.format("BUY signal\nnext open ≈ fill\nSL {0} (-{1}%)\nTP1 {2} | TP2 {3}\nплечо≈{4}x", str.tostring(stopL, format.mintick), str.tostring(distL, "#.##"), str.tostring(tp1, format.mintick), str.tostring(tp2, format.mintick), str.tostring(needLev, "#.#"))
+    label.new(bar_index, na, txt, yloc = yloc.belowbar, style = label.style_label_up, color = color.green, textcolor = color.white, size = size.small)
+    pDir := 1
+    pSL := stopL
+    pTP1 := tp1
+    pTP2 := tp2
+    pSigClose := close
+    pBar := bar_index
+    cLArm := false
+    cLBar := na
+
+if sellSig
+    riskAbs = stopS - close
+    tp1 = close - riskAbs * rr1
+    tp2 = close - riskAbs * rr2
+    needLev = distS > 0 ? riskPct / distS : na
+    txt = str.format("SELL signal\nnext open ≈ fill\nSL {0} (+{1}%)\nTP1 {2} | TP2 {3}\nплечо≈{4}x", str.tostring(stopS, format.mintick), str.tostring(distS, "#.##"), str.tostring(tp1, format.mintick), str.tostring(tp2, format.mintick), str.tostring(needLev, "#.#"))
+    label.new(bar_index, na, txt, yloc = yloc.abovebar, style = label.style_label_down, color = color.red, textcolor = color.white, size = size.small)
+    pDir := -1
+    pSL := stopS
+    pTP1 := tp1
+    pTP2 := tp2
+    pSigClose := close
+    pBar := bar_index
+    cSArm := false
+    cSBar := na
+
+if showSkip and skipBuy
+    label.new(bar_index, na, str.format("ПРОПУСК BUY\nстоп {0}% > {1}%", str.tostring(distL, "#.##"), str.tostring(maxStopPct, "#.##")), yloc = yloc.belowbar, style = label.style_label_up, color = color.gray, textcolor = color.white, size = size.tiny)
+    cLArm := false
+    cLBar := na
+
+if showSkip and skipSell
+    label.new(bar_index, na, str.format("ПРОПУСК SELL\nстоп {0}% > {1}%", str.tostring(distS, "#.##"), str.tostring(maxStopPct, "#.##")), yloc = yloc.abovebar, style = label.style_label_down, color = color.gray, textcolor = color.white, size = size.tiny)
+    cSArm := false
+    cSBar := na
+
+// сжигаем сетап без лейбла, если skip скрыт
+if not showSkip and skipBuy
+    cLArm := false
+    cLBar := na
+if not showSkip and skipSell
+    cSArm := false
+    cSBar := na
+
+// ═══════════════ ОБНОВЛЕНИЕ КАПИТУЛЯЦИИ ═══════════════
+if cLArm and not na(cLBar) and (close < cLLo or bar_index >= cLBar + confBars)
+    cLArm := false
+    cLBar := na
+if cSArm and not na(cSBar) and (close > cSHi or bar_index >= cSBar + confBars)
+    cSArm := false
+    cSBar := na
+
+if capL
+    cLBar := bar_index
+    cLHi := high
+    cLLo := low
+    cLArm := true
+if capS
+    cSBar := bar_index
+    cSHi := high
+    cSLo := low
+    cSArm := true
+
+plotshape(showEarly and capL, title = "Капитуляция вниз", style = shape.triangleup, location = location.belowbar, color = color.new(color.yellow, 0), size = size.tiny)
+plotshape(showEarly and capS, title = "Капитуляция вверх", style = shape.triangledown, location = location.abovebar, color = color.new(color.yellow, 0), size = size.tiny)
+
+// ═══════════════ ТАБЛИЦА ═══════════════
+var table tbl = table.new(position.top_right, 2, 6, bgcolor = color.new(color.black, 25), border_width = 1, border_color = color.gray)
+if showTable and barstate.islast
+    nAll = nWin + nLoss + nBe
+    wr = nWin + nLoss > 0 ? nWin * 100.0 / (nWin + nLoss) : 0.0
+    table.cell(tbl, 0, 0, "Сделок", text_color = color.white, text_size = size.small)
+    table.cell(tbl, 1, 0, str.tostring(nAll + nTime), text_color = color.white, text_size = size.small)
+    table.cell(tbl, 0, 1, "WR TP/SL", text_color = color.white, text_size = size.small)
+    table.cell(tbl, 1, 1, str.tostring(wr, "#.#") + "%", text_color = color.white, text_size = size.small)
+    table.cell(tbl, 0, 2, "TP/SL/BE/TO", text_color = color.white, text_size = size.small)
+    table.cell(tbl, 1, 2, str.format("{0}/{1}/{2}/{3}", nWin, nLoss, nBe, nTime), text_color = color.white, text_size = size.small)
+    table.cell(tbl, 0, 3, "Σ R (fee+slip)", text_color = color.white, text_size = size.small)
+    table.cell(tbl, 1, 3, str.tostring(sumR, "#.##"), text_color = sumR >= 0 ? color.lime : color.red, text_size = size.small)
+    table.cell(tbl, 0, 4, "Окно/подтв/hold", text_color = color.white, text_size = size.small)
+    table.cell(tbl, 1, 4, str.format("{0}/{1}/{2}", lookback, confBars, maxBars), text_color = color.white, text_size = size.small)
+    table.cell(tbl, 0, 5, "Пресет", text_color = color.white, text_size = size.small)
+    table.cell(tbl, 1, 5, tfPreset, text_color = color.white, text_size = size.small)
+
+// ═══════════════ АЛЕРТЫ (JSON) ═══════════════
+buyJson = str.format('{"side":"buy","ticker":"{0}","tf":"{1}","signal_close":{2},"sl":{3},"tp1":{4},"tp2":{5},"stop_pct":{6},"rr1":{7},"rr2":{8},"fill":"next_open"}', syminfo.ticker, timeframe.period, close, stopL, close + (close - stopL) * rr1, close + (close - stopL) * rr2, distL, rr1, rr2)
+sellJson = str.format('{"side":"sell","ticker":"{0}","tf":"{1}","signal_close":{2},"sl":{3},"tp1":{4},"tp2":{5},"stop_pct":{6},"rr1":{7},"rr2":{8},"fill":"next_open"}', syminfo.ticker, timeframe.period, close, stopS, close - (stopS - close) * rr1, close - (stopS - close) * rr2, distS, rr1, rr2)
+
+alertcondition(buySig, title = "BUY сигнал", message = "CapRev3 BUY {{ticker}} {{interval}}")
+alertcondition(sellSig, title = "SELL сигнал", message = "CapRev3 SELL {{ticker}} {{interval}}")
+alertcondition(capL or capS, title = "Капитуляция (ранний)", message = "CapRev3 капитуляция {{ticker}} {{interval}}")
+
+// Динамический алерт с JSON — ставить "Any alert() function call", Once Per Bar Close
+if barstate.isconfirmed and buySig
+    alert("CapRev3 " + buyJson, alert.freq_once_per_bar_close)
+if barstate.isconfirmed and sellSig
+    alert("CapRev3 " + sellJson, alert.freq_once_per_bar_close)

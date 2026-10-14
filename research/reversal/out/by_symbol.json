@@ -1,0 +1,515 @@
+[
+  {
+    "symbol": "BTWUSDT",
+    "tf": "15m",
+    "strategy": "PIN_HAMMER",
+    "trades": 161,
+    "winrate": 0.5341614906832298,
+    "sum_R": 52.121419210019575,
+    "avg_R": 0.3237355230435998
+  },
+  {
+    "symbol": "BTWUSDT",
+    "tf": "15m",
+    "strategy": "ENGULF",
+    "trades": 609,
+    "winrate": 0.41050903119868637,
+    "sum_R": 24.403859844354933,
+    "avg_R": 0.04007201944885867
+  },
+  {
+    "symbol": "CASHCATUSDT",
+    "tf": "5m",
+    "strategy": "SWEEP",
+    "trades": 122,
+    "winrate": 0.4180327868852459,
+    "sum_R": 12.365578126077384,
+    "avg_R": 0.10135719775473266
+  },
+  {
+    "symbol": "ONGUSDT",
+    "tf": "15m",
+    "strategy": "SWEEP",
+    "trades": 67,
+    "winrate": 0.4925373134328358,
+    "sum_R": 8.765059953331402,
+    "avg_R": 0.13082179034822988
+  },
+  {
+    "symbol": "MOVRUSDT",
+    "tf": "5m",
+    "strategy": "SWEEP",
+    "trades": 62,
+    "winrate": 0.46774193548387094,
+    "sum_R": 6.153558474111686,
+    "avg_R": 0.09925094313083364
+  },
+  {
+    "symbol": "BTWUSDT",
+    "tf": "15m",
+    "strategy": "SWEEP",
+    "trades": 55,
+    "winrate": 0.43636363636363634,
+    "sum_R": 5.768477347522891,
+    "avg_R": 0.10488140631859802
+  },
+  {
+    "symbol": "VELVETUSDT",
+    "tf": "5m",
+    "strategy": "SWEEP",
+    "trades": 78,
+    "winrate": 0.4230769230769231,
+    "sum_R": -3.038667636837757,
+    "avg_R": -0.03895727739535586
+  },
+  {
+    "symbol": "NESAUSDT",
+    "tf": "5m",
+    "strategy": "SWEEP",
+    "trades": 66,
+    "winrate": 0.3939393939393939,
+    "sum_R": -8.546359411964922,
+    "avg_R": -0.12949029412068064
+  },
+  {
+    "symbol": "BMTUSDT",
+    "tf": "15m",
+    "strategy": "PIN_HAMMER",
+    "trades": 178,
+    "winrate": 0.4044943820224719,
+    "sum_R": -9.028755882048312,
+    "avg_R": -0.05072334765195681
+  },
+  {
+    "symbol": "TMXUSDT",
+    "tf": "5m",
+    "strategy": "SWEEP",
+    "trades": 73,
+    "winrate": 0.3424657534246575,
+    "sum_R": -10.163939889164915,
+    "avg_R": -0.13923205327623173
+  },
+  {
+    "symbol": "BMTUSDT",
+    "tf": "15m",
+    "strategy": "SWEEP",
+    "trades": 74,
+    "winrate": 0.36486486486486486,
+    "sum_R": -13.020052750869018,
+    "avg_R": -0.17594665879552726
+  },
+  {
+    "symbol": "AGIUSDT",
+    "tf": "15m",
+    "strategy": "SWEEP",
+    "trades": 76,
+    "winrate": 0.40789473684210525,
+    "sum_R": -15.667419657851589,
+    "avg_R": -0.20615025865594197
+  },
+  {
+    "symbol": "TUTUSDT",
+    "tf": "5m",
+    "strategy": "SWEEP",
+    "trades": 121,
+    "winrate": 0.4132231404958678,
+    "sum_R": -15.769199640685224,
+    "avg_R": -0.13032396397260515
+  },
+  {
+    "symbol": "BEATUSDT",
+    "tf": "15m",
+    "strategy": "SWEEP",
+    "trades": 86,
+    "winrate": 0.313953488372093,
+    "sum_R": -17.8143958772296,
+    "avg_R": -0.20714413810732094
+  },
+  {
+    "symbol": "BEATUSDT",
+    "tf": "15m",
+    "strategy": "PIN_HAMMER",
+    "trades": 196,
+    "winrate": 0.3622448979591837,
+    "sum_R": -21.423881280898406,
+    "avg_R": -0.10930551673927759
+  },
+  {
+    "symbol": "BTRUSDT",
+    "tf": "5m",
+    "strategy": "SWEEP",
+    "trades": 96,
+    "winrate": 0.375,
+    "sum_R": -25.9996044028004,
+    "avg_R": -0.27082921252917086
+  },
+  {
+    "symbol": "ONGUSDT",
+    "tf": "15m",
+    "strategy": "PIN_HAMMER",
+    "trades": 200,
+    "winrate": 0.39,
+    "sum_R": -32.08232366763192,
+    "avg_R": -0.1604116183381596
+  },
+  {
+    "symbol": "ONGUSDT",
+    "tf": "5m",
+    "strategy": "SWEEP",
+    "trades": 106,
+    "winrate": 0.39622641509433965,
+    "sum_R": -34.531499234820295,
+    "avg_R": -0.3257688607058518
+  },
+  {
+    "symbol": "AGIUSDT",
+    "tf": "5m",
+    "strategy": "SWEEP",
+    "trades": 97,
+    "winrate": 0.32989690721649484,
+    "sum_R": -36.10796735288396,
+    "avg_R": -0.3722470861122058
+  },
+  {
+    "symbol": "MOVRUSDT",
+    "tf": "5m",
+    "strategy": "ENGULF",
+    "trades": 504,
+    "winrate": 0.4007936507936508,
+    "sum_R": -36.77778454815493,
+    "avg_R": -0.07297179473840265
+  },
+  {
+    "symbol": "BICOUSDT",
+    "tf": "5m",
+    "strategy": "SWEEP",
+    "trades": 132,
+    "winrate": 0.36363636363636365,
+    "sum_R": -48.54756180233348,
+    "avg_R": -0.367784559108587
+  },
+  {
+    "symbol": "ARIAUSDT",
+    "tf": "5m",
+    "strategy": "SWEEP",
+    "trades": 88,
+    "winrate": 0.2727272727272727,
+    "sum_R": -51.17166603858658,
+    "avg_R": -0.5814962049839384
+  },
+  {
+    "symbol": "ONTUSDT",
+    "tf": "5m",
+    "strategy": "SWEEP",
+    "trades": 82,
+    "winrate": 0.3048780487804878,
+    "sum_R": -51.88102978391387,
+    "avg_R": -0.6326954851696813
+  },
+  {
+    "symbol": "BEATUSDT",
+    "tf": "15m",
+    "strategy": "ENGULF",
+    "trades": 549,
+    "winrate": 0.3551912568306011,
+    "sum_R": -59.11471897242842,
+    "avg_R": -0.10767708373848528
+  },
+  {
+    "symbol": "AGIUSDT",
+    "tf": "15m",
+    "strategy": "PIN_HAMMER",
+    "trades": 193,
+    "winrate": 0.33678756476683935,
+    "sum_R": -59.45754035653148,
+    "avg_R": -0.3080701572877279
+  },
+  {
+    "symbol": "TACUSDT",
+    "tf": "5m",
+    "strategy": "SWEEP",
+    "trades": 96,
+    "winrate": 0.23958333333333334,
+    "sum_R": -62.0790257083696,
+    "avg_R": -0.6466565177955167
+  },
+  {
+    "symbol": "EDENUSDT",
+    "tf": "5m",
+    "strategy": "SWEEP",
+    "trades": 122,
+    "winrate": 0.3114754098360656,
+    "sum_R": -62.53811987330738,
+    "avg_R": -0.5126075399451424
+  },
+  {
+    "symbol": "NESAUSDT",
+    "tf": "5m",
+    "strategy": "PIN_HAMMER",
+    "trades": 253,
+    "winrate": 0.34782608695652173,
+    "sum_R": -72.24913256604893,
+    "avg_R": -0.2855696939369523
+  },
+  {
+    "symbol": "TMXUSDT",
+    "tf": "5m",
+    "strategy": "ENGULF",
+    "trades": 546,
+    "winrate": 0.3498168498168498,
+    "sum_R": -72.76676379860753,
+    "avg_R": -0.13327246116961086
+  },
+  {
+    "symbol": "CASHCATUSDT",
+    "tf": "5m",
+    "strategy": "ENGULF",
+    "trades": 872,
+    "winrate": 0.3543577981651376,
+    "sum_R": -72.8338478272452,
+    "avg_R": -0.08352505484775825
+  },
+  {
+    "symbol": "CASHCATUSDT",
+    "tf": "5m",
+    "strategy": "PIN_HAMMER",
+    "trades": 343,
+    "winrate": 0.3177842565597668,
+    "sum_R": -87.25393377501855,
+    "avg_R": -0.25438464657439813
+  },
+  {
+    "symbol": "TUTUSDT",
+    "tf": "5m",
+    "strategy": "PIN_HAMMER",
+    "trades": 279,
+    "winrate": 0.33691756272401435,
+    "sum_R": -108.13669533986415,
+    "avg_R": -0.3875867216482586
+  },
+  {
+    "symbol": "ONGUSDT",
+    "tf": "5m",
+    "strategy": "PIN_HAMMER",
+    "trades": 292,
+    "winrate": 0.3732876712328767,
+    "sum_R": -108.45302474279845,
+    "avg_R": -0.37141446829725494
+  },
+  {
+    "symbol": "ONGUSDT",
+    "tf": "15m",
+    "strategy": "ENGULF",
+    "trades": 523,
+    "winrate": 0.34608030592734224,
+    "sum_R": -112.17258605192403,
+    "avg_R": -0.21447913203044747
+  },
+  {
+    "symbol": "BMTUSDT",
+    "tf": "15m",
+    "strategy": "ENGULF",
+    "trades": 559,
+    "winrate": 0.33810375670840787,
+    "sum_R": -119.68526919106857,
+    "avg_R": -0.21410602717543573
+  },
+  {
+    "symbol": "ONTUSDT",
+    "tf": "5m",
+    "strategy": "PIN_HAMMER",
+    "trades": 216,
+    "winrate": 0.3611111111111111,
+    "sum_R": -122.01877725756056,
+    "avg_R": -0.5649017465627804
+  },
+  {
+    "symbol": "TACUSDT",
+    "tf": "5m",
+    "strategy": "PIN_HAMMER",
+    "trades": 310,
+    "winrate": 0.33548387096774196,
+    "sum_R": -130.52953801379493,
+    "avg_R": -0.4210630258509514
+  },
+  {
+    "symbol": "AGIUSDT",
+    "tf": "15m",
+    "strategy": "ENGULF",
+    "trades": 522,
+    "winrate": 0.31800766283524906,
+    "sum_R": -137.09431141707088,
+    "avg_R": -0.26263278049247296
+  },
+  {
+    "symbol": "EDENUSDT",
+    "tf": "5m",
+    "strategy": "PIN_HAMMER",
+    "trades": 275,
+    "winrate": 0.34545454545454546,
+    "sum_R": -138.55275620437038,
+    "avg_R": -0.5038282043795287
+  },
+  {
+    "symbol": "VELVETUSDT",
+    "tf": "5m",
+    "strategy": "ENGULF",
+    "trades": 439,
+    "winrate": 0.2984054669703872,
+    "sum_R": -139.60893094125356,
+    "avg_R": -0.3180157880210787
+  },
+  {
+    "symbol": "TMXUSDT",
+    "tf": "5m",
+    "strategy": "PIN_HAMMER",
+    "trades": 437,
+    "winrate": 0.30892448512585813,
+    "sum_R": -140.64757391703296,
+    "avg_R": -0.321847995233485
+  },
+  {
+    "symbol": "TACUSDT",
+    "tf": "5m",
+    "strategy": "ENGULF",
+    "trades": 694,
+    "winrate": 0.35878962536023057,
+    "sum_R": -147.17637022336598,
+    "avg_R": -0.21206969772819306
+  },
+  {
+    "symbol": "MOVRUSDT",
+    "tf": "5m",
+    "strategy": "PIN_HAMMER",
+    "trades": 361,
+    "winrate": 0.3545706371191136,
+    "sum_R": -149.17831713856984,
+    "avg_R": -0.4132363355639054
+  },
+  {
+    "symbol": "NESAUSDT",
+    "tf": "5m",
+    "strategy": "ENGULF",
+    "trades": 484,
+    "winrate": 0.30785123966942146,
+    "sum_R": -163.4557715212068,
+    "avg_R": -0.33771853620084047
+  },
+  {
+    "symbol": "AGIUSDT",
+    "tf": "5m",
+    "strategy": "PIN_HAMMER",
+    "trades": 341,
+    "winrate": 0.3020527859237537,
+    "sum_R": -164.8173488763901,
+    "avg_R": -0.48333533394835804
+  },
+  {
+    "symbol": "ARIAUSDT",
+    "tf": "5m",
+    "strategy": "PIN_HAMMER",
+    "trades": 335,
+    "winrate": 0.3373134328358209,
+    "sum_R": -164.8658444215519,
+    "avg_R": -0.49213684901955795
+  },
+  {
+    "symbol": "BTRUSDT",
+    "tf": "5m",
+    "strategy": "PIN_HAMMER",
+    "trades": 382,
+    "winrate": 0.31413612565445026,
+    "sum_R": -190.25968198503284,
+    "avg_R": -0.49806199472521684
+  },
+  {
+    "symbol": "BICOUSDT",
+    "tf": "5m",
+    "strategy": "PIN_HAMMER",
+    "trades": 274,
+    "winrate": 0.27007299270072993,
+    "sum_R": -193.3462319910956,
+    "avg_R": -0.7056431824492541
+  },
+  {
+    "symbol": "VELVETUSDT",
+    "tf": "5m",
+    "strategy": "PIN_HAMMER",
+    "trades": 356,
+    "winrate": 0.26685393258426965,
+    "sum_R": -208.0983398298436,
+    "avg_R": -0.5845458983984371
+  },
+  {
+    "symbol": "TUTUSDT",
+    "tf": "5m",
+    "strategy": "ENGULF",
+    "trades": 827,
+    "winrate": 0.3373639661426844,
+    "sum_R": -215.98053803307715,
+    "avg_R": -0.2611614728332251
+  },
+  {
+    "symbol": "EDENUSDT",
+    "tf": "5m",
+    "strategy": "ENGULF",
+    "trades": 842,
+    "winrate": 0.3669833729216152,
+    "sum_R": -220.6626772520404,
+    "avg_R": -0.26206968794779145
+  },
+  {
+    "symbol": "ARIAUSDT",
+    "tf": "5m",
+    "strategy": "ENGULF",
+    "trades": 715,
+    "winrate": 0.34265734265734266,
+    "sum_R": -251.48120910117652,
+    "avg_R": -0.35172197077087625
+  },
+  {
+    "symbol": "AGIUSDT",
+    "tf": "5m",
+    "strategy": "ENGULF",
+    "trades": 802,
+    "winrate": 0.3179551122194514,
+    "sum_R": -291.0605436353951,
+    "avg_R": -0.36291838358528067
+  },
+  {
+    "symbol": "ONTUSDT",
+    "tf": "5m",
+    "strategy": "ENGULF",
+    "trades": 793,
+    "winrate": 0.37578814627994955,
+    "sum_R": -302.0335882790474,
+    "avg_R": -0.38087463843511654
+  },
+  {
+    "symbol": "ONGUSDT",
+    "tf": "5m",
+    "strategy": "ENGULF",
+    "trades": 834,
+    "winrate": 0.34292565947242204,
+    "sum_R": -308.18048585052964,
+    "avg_R": -0.3695209662476375
+  },
+  {
+    "symbol": "BTRUSDT",
+    "tf": "5m",
+    "strategy": "ENGULF",
+    "trades": 766,
+    "winrate": 0.2845953002610966,
+    "sum_R": -330.30613379909835,
+    "avg_R": -0.43120905195704745
+  },
+  {
+    "symbol": "BICOUSDT",
+    "tf": "5m",
+    "strategy": "ENGULF",
+    "trades": 840,
+    "winrate": 0.31785714285714284,
+    "sum_R": -334.27006798185994,
+    "avg_R": -0.3979405571212618
+  }
+]

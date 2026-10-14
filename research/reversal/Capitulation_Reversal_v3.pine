@@ -1,0 +1,104 @@
+//@version=5
+indicator("Capitulation Reversal v3", shorttitle="CapRev3", overlay=true, max_labels_count=500, max_lines_count=500)
+
+lookback = input.int(20, "Sweep lookback", minval=5)
+divLen   = input.int(30, "RSI div window", minval=5)
+volMult  = input.float(2.5, "Vol >= N x SMA20", minval=1.0, step=0.1)
+rngMult  = input.float(1.5, "Range >= N x ATR", minval=0.5, step=0.1)
+wickPct  = input.float(50.0, "Wick >= % range", minval=10, maxval=95)
+useDiv   = input.bool(true, "Require RSI divergence")
+rsiLen   = input.int(14, "RSI length", minval=2)
+confBars = input.int(3, "Confirm bars", minval=1, maxval=10)
+useMid   = input.bool(false, "Confirm at midpoint")
+lev      = input.float(20.0, "Leverage", minval=1)
+mmr      = input.float(0.5, "Maint margin %", minval=0, step=0.1)
+maxLiq   = input.float(50.0, "Max stop % of liq distance", minval=10, maxval=90)
+stopBuf  = input.float(0.15, "Stop buffer ATR", minval=0, step=0.05)
+rr1      = input.float(1.0, "TP1 R", minval=0.2, step=0.1)
+rr2      = input.float(2.0, "TP2 R", minval=0.5, step=0.1)
+showEarly = input.bool(true, "Show capitulation marks")
+
+atrVal = ta.atr(14)
+volSma = ta.sma(volume, 20)
+rsiVal = ta.rsi(close, rsiLen)
+rng = high - low
+upW = high - math.max(open, close)
+dnW = math.min(open, close) - low
+
+volOk  = volume >= volSma[1] * volMult
+rngOk  = rng >= atrVal[1] * rngMult
+wickL  = rng > 0 and dnW / rng * 100.0 >= wickPct
+wickS  = rng > 0 and upW / rng * 100.0 >= wickPct
+sweepL = low < ta.lowest(low, lookback)[1]
+sweepS = high > ta.highest(high, lookback)[1]
+divL   = ta.lowest(rsiVal, 3) > ta.lowest(rsiVal, divLen)[3]
+divS   = ta.highest(rsiVal, 3) < ta.highest(rsiVal, divLen)[3]
+
+capL = barstate.isconfirmed and sweepL and volOk and rngOk and wickL and (not useDiv or divL)
+capS = barstate.isconfirmed and sweepS and volOk and rngOk and wickS and (not useDiv or divS)
+
+var int cBar = na
+var float cHi = na
+var float cLo = na
+var int cDir = 0
+
+if capL
+    cBar := bar_index
+    cHi := high
+    cLo := low
+    cDir := 1
+if capS
+    cBar := bar_index
+    cHi := high
+    cLo := low
+    cDir := -1
+
+if cDir != 0 and not na(cBar) and (bar_index > cBar + confBars or (cDir == 1 and close < cLo) or (cDir == -1 and close > cHi))
+    cDir := 0
+    cBar := na
+
+alive = cDir != 0 and not na(cBar) and bar_index > cBar and bar_index <= cBar + confBars
+lvl = useMid ? (nz(cHi) + nz(cLo)) * 0.5 : (cDir == 1 ? nz(cHi) : nz(cLo))
+
+longRaw  = barstate.isconfirmed and alive and cDir == 1 and close > lvl and close > open
+shortRaw = barstate.isconfirmed and alive and cDir == -1 and close < lvl and close < open
+
+maxStopPct = (100.0 / lev - mmr) * maxLiq / 100.0
+stopL = nz(cLo) - atrVal * stopBuf
+stopS = nz(cHi) + atrVal * stopBuf
+distL = (close - stopL) / close * 100.0
+distS = (stopS - close) / close * 100.0
+
+buySig  = longRaw and distL > 0 and distL <= maxStopPct
+sellSig = shortRaw and distS > 0 and distS <= maxStopPct
+
+if buySig
+    risk = close - stopL
+    tp1 = close + risk * rr1
+    tp2 = close + risk * rr2
+    label.new(bar_index, low, "BUY\nSL " + str.tostring(stopL, format.mintick) + "\nTP1 " + str.tostring(tp1, format.mintick) + "\nTP2 " + str.tostring(tp2, format.mintick), style=label.style_label_up, color=color.green, textcolor=color.white, size=size.small)
+    line.new(bar_index, stopL, bar_index + 12, stopL, color=color.red, style=line.style_dashed)
+    line.new(bar_index, tp1, bar_index + 12, tp1, color=color.lime, style=line.style_dashed)
+    line.new(bar_index, tp2, bar_index + 12, tp2, color=color.aqua, style=line.style_dashed)
+    alert("CapRev3 BUY " + syminfo.ticker + " entry=" + str.tostring(close) + " sl=" + str.tostring(stopL) + " tp1=" + str.tostring(tp1) + " tp2=" + str.tostring(tp2), alert.freq_once_per_bar_close)
+    cDir := 0
+    cBar := na
+
+if sellSig
+    risk = stopS - close
+    tp1 = close - risk * rr1
+    tp2 = close - risk * rr2
+    label.new(bar_index, high, "SELL\nSL " + str.tostring(stopS, format.mintick) + "\nTP1 " + str.tostring(tp1, format.mintick) + "\nTP2 " + str.tostring(tp2, format.mintick), style=label.style_label_down, color=color.red, textcolor=color.white, size=size.small)
+    line.new(bar_index, stopS, bar_index + 12, stopS, color=color.red, style=line.style_dashed)
+    line.new(bar_index, tp1, bar_index + 12, tp1, color=color.lime, style=line.style_dashed)
+    line.new(bar_index, tp2, bar_index + 12, tp2, color=color.aqua, style=line.style_dashed)
+    alert("CapRev3 SELL " + syminfo.ticker + " entry=" + str.tostring(close) + " sl=" + str.tostring(stopS) + " tp1=" + str.tostring(tp1) + " tp2=" + str.tostring(tp2), alert.freq_once_per_bar_close)
+    cDir := 0
+    cBar := na
+
+plotshape(showEarly and capL, title="CapL", style=shape.triangleup, location=location.belowbar, color=color.yellow, size=size.tiny)
+plotshape(showEarly and capS, title="CapS", style=shape.triangledown, location=location.abovebar, color=color.yellow, size=size.tiny)
+
+alertcondition(buySig, title="BUY", message="CapRev3 BUY {{ticker}} {{interval}}")
+alertcondition(sellSig, title="SELL", message="CapRev3 SELL {{ticker}} {{interval}}")
+alertcondition(capL or capS, title="Cap", message="CapRev3 cap {{ticker}} {{interval}}")

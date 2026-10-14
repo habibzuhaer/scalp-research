@@ -1,0 +1,243 @@
+{
+  "hypothesis": "RSI and MACD are independent signal sources (OR), not AND on same bar; sequential = RSI arms then MACD confirms",
+  "params": {
+    "MIN": 24,
+    "MAX": 74,
+    "TP": 0.01,
+    "SL": 0.06,
+    "DIFF": 0.02,
+    "FEE": 0.0006
+  },
+  "avax": {
+    "rsi_only": {
+      "n": 50,
+      "long": 14,
+      "short": 36,
+      "tp": 41,
+      "sl": 6,
+      "time": 3,
+      "win_pct": 82.0,
+      "tp_pct": 82.0,
+      "sum_ret_pct": -6.41,
+      "avg_ret_pct": -0.128,
+      "by_src": {
+        "rsi": 50
+      }
+    },
+    "rsi_only+diff": {
+      "n": 38,
+      "long": 11,
+      "short": 27,
+      "tp": 33,
+      "sl": 4,
+      "time": 1,
+      "win_pct": 86.8,
+      "tp_pct": 86.8,
+      "sum_ret_pct": 2.79,
+      "avg_ret_pct": 0.073,
+      "by_src": {
+        "rsi": 38
+      }
+    },
+    "macd_only": {
+      "n": 134,
+      "long": 66,
+      "short": 68,
+      "tp": 103,
+      "sl": 9,
+      "time": 22,
+      "win_pct": 76.9,
+      "tp_pct": 76.9,
+      "sum_ret_pct": -18.65,
+      "avg_ret_pct": -0.139,
+      "by_src": {
+        "macd": 134
+      }
+    },
+    "macd_only+diff": {
+      "n": 83,
+      "long": 41,
+      "short": 42,
+      "tp": 68,
+      "sl": 6,
+      "time": 9,
+      "win_pct": 81.9,
+      "tp_pct": 81.9,
+      "sum_ret_pct": -1.08,
+      "avg_ret_pct": -0.013,
+      "by_src": {
+        "macd": 83
+      }
+    },
+    "independent_or": {
+      "n": 145,
+      "long": 69,
+      "short": 76,
+      "tp": 111,
+      "sl": 11,
+      "time": 23,
+      "win_pct": 76.6,
+      "tp_pct": 76.6,
+      "sum_ret_pct": -26.25,
+      "avg_ret_pct": -0.181,
+      "by_src": {
+        "macd": 122,
+        "rsi": 23
+      }
+    },
+    "independent_or+diff": {
+      "n": 94,
+      "long": 43,
+      "short": 51,
+      "tp": 78,
+      "sl": 7,
+      "time": 9,
+      "win_pct": 83.0,
+      "tp_pct": 83.0,
+      "sum_ret_pct": 9.11,
+      "avg_ret_pct": 0.097,
+      "by_src": {
+        "macd": 62,
+        "rsi": 32
+      }
+    },
+    "sequential": {
+      "n": 3,
+      "long": 0,
+      "short": 3,
+      "tp": 2,
+      "sl": 1,
+      "time": 0,
+      "win_pct": 66.7,
+      "tp_pct": 66.7,
+      "sum_ret_pct": -4.36,
+      "avg_ret_pct": -1.453,
+      "by_src": {
+        "rsi->macd": 3
+      }
+    },
+    "sequential+diff": {
+      "n": 3,
+      "long": 0,
+      "short": 3,
+      "tp": 2,
+      "sl": 1,
+      "time": 0,
+      "win_pct": 66.7,
+      "tp_pct": 66.7,
+      "sum_ret_pct": -4.36,
+      "avg_ret_pct": -1.453,
+      "by_src": {
+        "rsi->macd": 3
+      }
+    },
+    "sequential_hist": {
+      "n": 3,
+      "long": 0,
+      "short": 3,
+      "tp": 2,
+      "sl": 1,
+      "time": 0,
+      "win_pct": 66.7,
+      "tp_pct": 66.7,
+      "sum_ret_pct": -4.36,
+      "avg_ret_pct": -1.453,
+      "by_src": {
+        "rsi->macd": 3
+      }
+    },
+    "sequential_hist+diff": {
+      "n": 3,
+      "long": 0,
+      "short": 3,
+      "tp": 2,
+      "sl": 1,
+      "time": 0,
+      "win_pct": 66.7,
+      "tp_pct": 66.7,
+      "sum_ret_pct": -4.36,
+      "avg_ret_pct": -1.453,
+      "by_src": {
+        "rsi->macd": 3
+      }
+    }
+  },
+  "all_15m": {
+    "rsi_only": {
+      "n": 1726,
+      "long": 527,
+      "short": 1199,
+      "tp": 1397,
+      "sl": 268,
+      "time": 61,
+      "win_pct": 81.3,
+      "tp_pct": 80.9,
+      "sum_ret_pct": -523.5,
+      "avg_ret_pct": -0.303,
+      "by_src": {
+        "rsi": 1726
+      }
+    },
+    "macd_only": {
+      "n": 6464,
+      "long": 3176,
+      "short": 3288,
+      "tp": 5275,
+      "sl": 875,
+      "time": 314,
+      "win_pct": 81.9,
+      "tp_pct": 81.6,
+      "sum_ret_pct": -1371.15,
+      "avg_ret_pct": -0.212,
+      "by_src": {
+        "macd": 6464
+      }
+    },
+    "independent_or": {
+      "n": 7426,
+      "long": 3409,
+      "short": 4017,
+      "tp": 6090,
+      "sl": 1018,
+      "time": 318,
+      "win_pct": 82.3,
+      "tp_pct": 82.0,
+      "sum_ret_pct": -1522.14,
+      "avg_ret_pct": -0.205,
+      "by_src": {
+        "macd": 6175,
+        "rsi": 1251
+      }
+    },
+    "sequential": {
+      "n": 120,
+      "long": 31,
+      "short": 89,
+      "tp": 95,
+      "sl": 20,
+      "time": 5,
+      "win_pct": 79.2,
+      "tp_pct": 79.2,
+      "sum_ret_pct": -51.97,
+      "avg_ret_pct": -0.433,
+      "by_src": {
+        "rsi->macd": 120
+      }
+    },
+    "sequential_hist": {
+      "n": 120,
+      "long": 31,
+      "short": 89,
+      "tp": 95,
+      "sl": 20,
+      "time": 5,
+      "win_pct": 79.2,
+      "tp_pct": 79.2,
+      "sum_ret_pct": -51.97,
+      "avg_ret_pct": -0.433,
+      "by_src": {
+        "rsi->macd": 120
+      }
+    }
+  }
+}

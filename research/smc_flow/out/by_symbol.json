@@ -1,0 +1,4830 @@
+{
+  "ONGUSDT_5m": {
+    "symbol": "ONGUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 128,
+          "sell": 128,
+          "bos_up": 55,
+          "bos_dn": 50,
+          "choch_up": 68,
+          "choch_dn": 68
+        },
+        "fwd_12bars_buy": {
+          "n": 128,
+          "avg_ret_pct": -0.1464,
+          "hit_pos": 0.4688,
+          "avg_mfe": 0.7468,
+          "avg_mae": -0.8573
+        },
+        "fwd_12bars_sell": {
+          "n": 128,
+          "avg_ret_pct": 0.0459,
+          "hit_pos": 0.5,
+          "avg_mfe": 0.8089,
+          "avg_mae": -0.7001
+        },
+        "flip_trades": {
+          "n": 256,
+          "winrate": 0.3438,
+          "avg_ret": -0.1987,
+          "sum_ret": -50.87,
+          "avg_mfe": 1.3084,
+          "avg_mae": -0.8448,
+          "long_n": 128,
+          "short_n": 128
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 52,
+          "sell": 46,
+          "bos_up": 55,
+          "bos_dn": 50,
+          "choch_up": 68,
+          "choch_dn": 68
+        },
+        "fwd_12bars_buy": {
+          "n": 52,
+          "avg_ret_pct": -0.2444,
+          "hit_pos": 0.4231,
+          "avg_mfe": 0.7669,
+          "avg_mae": -0.9686
+        },
+        "fwd_12bars_sell": {
+          "n": 46,
+          "avg_ret_pct": 0.1787,
+          "hit_pos": 0.6304,
+          "avg_mfe": 0.9993,
+          "avg_mae": -0.5777
+        },
+        "flip_trades": {
+          "n": 81,
+          "winrate": 0.4074,
+          "avg_ret": -0.2036,
+          "sum_ret": -16.4926,
+          "avg_mfe": 1.4327,
+          "avg_mae": -1.383,
+          "long_n": 43,
+          "short_n": 38
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 5,
+          "sell": 1,
+          "bos_up": 55,
+          "bos_dn": 50,
+          "choch_up": 68,
+          "choch_dn": 68
+        },
+        "fwd_12bars_buy": {
+          "n": 5,
+          "avg_ret_pct": -1.2664,
+          "hit_pos": 0.2,
+          "avg_mfe": 0.5518,
+          "avg_mae": -1.7065
+        },
+        "fwd_12bars_sell": {
+          "n": 1,
+          "avg_ret_pct": 2.0291,
+          "hit_pos": 1.0,
+          "avg_mfe": 2.7476,
+          "avg_mae": -0.0674
+        },
+        "flip_trades": {
+          "n": 5,
+          "winrate": 0.4,
+          "avg_ret": -0.5926,
+          "sum_ret": -2.9629,
+          "avg_mfe": 1.2392,
+          "avg_mae": -1.9534,
+          "long_n": 4,
+          "short_n": 1
+        }
+      }
+    }
+  },
+  "BTRUSDT_5m": {
+    "symbol": "BTRUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 122,
+          "sell": 122,
+          "bos_up": 46,
+          "bos_dn": 57,
+          "choch_up": 60,
+          "choch_dn": 60
+        },
+        "fwd_12bars_buy": {
+          "n": 122,
+          "avg_ret_pct": -0.2251,
+          "hit_pos": 0.377,
+          "avg_mfe": 1.6126,
+          "avg_mae": -1.7186
+        },
+        "fwd_12bars_sell": {
+          "n": 122,
+          "avg_ret_pct": 0.1711,
+          "hit_pos": 0.3852,
+          "avg_mfe": 1.9533,
+          "avg_mae": -1.6058
+        },
+        "flip_trades": {
+          "n": 244,
+          "winrate": 0.2623,
+          "avg_ret": -0.6225,
+          "sum_ret": -151.9008,
+          "avg_mfe": 2.6992,
+          "avg_mae": -2.019,
+          "long_n": 122,
+          "short_n": 122
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 54,
+          "sell": 60,
+          "bos_up": 46,
+          "bos_dn": 57,
+          "choch_up": 60,
+          "choch_dn": 60
+        },
+        "fwd_12bars_buy": {
+          "n": 54,
+          "avg_ret_pct": -0.3619,
+          "hit_pos": 0.4074,
+          "avg_mfe": 2.0797,
+          "avg_mae": -2.0626
+        },
+        "fwd_12bars_sell": {
+          "n": 60,
+          "avg_ret_pct": 0.2999,
+          "hit_pos": 0.3667,
+          "avg_mfe": 1.9404,
+          "avg_mae": -1.6527
+        },
+        "flip_trades": {
+          "n": 95,
+          "winrate": 0.3158,
+          "avg_ret": -0.84,
+          "sum_ret": -79.7975,
+          "avg_mfe": 3.2587,
+          "avg_mae": -3.2129,
+          "long_n": 46,
+          "short_n": 49
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 4,
+          "sell": 0,
+          "bos_up": 46,
+          "bos_dn": 57,
+          "choch_up": 60,
+          "choch_dn": 60
+        },
+        "fwd_12bars_buy": {
+          "n": 4,
+          "avg_ret_pct": 0.8872,
+          "hit_pos": 0.5,
+          "avg_mfe": 4.4438,
+          "avg_mae": -3.4332
+        },
+        "fwd_12bars_sell": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "flip_trades": {
+          "n": 4,
+          "winrate": 0.25,
+          "avg_ret": -0.8501,
+          "sum_ret": -3.4004,
+          "avg_mfe": 6.0606,
+          "avg_mae": -5.548,
+          "long_n": 4,
+          "short_n": 0
+        }
+      }
+    }
+  },
+  "VELVETUSDT_5m": {
+    "symbol": "VELVETUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 127,
+          "sell": 126,
+          "bos_up": 45,
+          "bos_dn": 70,
+          "choch_up": 61,
+          "choch_dn": 61
+        },
+        "fwd_12bars_buy": {
+          "n": 127,
+          "avg_ret_pct": -0.3622,
+          "hit_pos": 0.3465,
+          "avg_mfe": 1.0594,
+          "avg_mae": -1.2997
+        },
+        "fwd_12bars_sell": {
+          "n": 126,
+          "avg_ret_pct": -0.0751,
+          "hit_pos": 0.3651,
+          "avg_mfe": 1.1801,
+          "avg_mae": -1.2095
+        },
+        "flip_trades": {
+          "n": 253,
+          "winrate": 0.2925,
+          "avg_ret": -0.3561,
+          "sum_ret": -90.0966,
+          "avg_mfe": 2.1445,
+          "avg_mae": -1.3964,
+          "long_n": 127,
+          "short_n": 126
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 36,
+          "sell": 66,
+          "bos_up": 45,
+          "bos_dn": 70,
+          "choch_up": 61,
+          "choch_dn": 61
+        },
+        "fwd_12bars_buy": {
+          "n": 36,
+          "avg_ret_pct": -0.74,
+          "hit_pos": 0.3611,
+          "avg_mfe": 1.1204,
+          "avg_mae": -1.8057
+        },
+        "fwd_12bars_sell": {
+          "n": 66,
+          "avg_ret_pct": -0.4711,
+          "hit_pos": 0.2576,
+          "avg_mfe": 0.7407,
+          "avg_mae": -1.3718
+        },
+        "flip_trades": {
+          "n": 86,
+          "winrate": 0.3605,
+          "avg_ret": -0.6032,
+          "sum_ret": -51.8725,
+          "avg_mfe": 2.0649,
+          "avg_mae": -2.4981,
+          "long_n": 34,
+          "short_n": 52
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 1,
+          "sell": 5,
+          "bos_up": 45,
+          "bos_dn": 70,
+          "choch_up": 61,
+          "choch_dn": 61
+        },
+        "fwd_12bars_buy": {
+          "n": 1,
+          "avg_ret_pct": 0.165,
+          "hit_pos": 1.0,
+          "avg_mfe": 0.9901,
+          "avg_mae": -0.8251
+        },
+        "fwd_12bars_sell": {
+          "n": 5,
+          "avg_ret_pct": -0.6803,
+          "hit_pos": 0.2,
+          "avg_mfe": 0.3996,
+          "avg_mae": -1.9901
+        },
+        "flip_trades": {
+          "n": 6,
+          "winrate": 0.1667,
+          "avg_ret": -0.245,
+          "sum_ret": -1.4701,
+          "avg_mfe": 1.3842,
+          "avg_mae": -1.8497,
+          "long_n": 1,
+          "short_n": 5
+        }
+      }
+    }
+  },
+  "ARIAUSDT_5m": {
+    "symbol": "ARIAUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 122,
+          "sell": 122,
+          "bos_up": 53,
+          "bos_dn": 75,
+          "choch_up": 53,
+          "choch_dn": 53
+        },
+        "fwd_12bars_buy": {
+          "n": 122,
+          "avg_ret_pct": -0.0595,
+          "hit_pos": 0.459,
+          "avg_mfe": 0.8147,
+          "avg_mae": -0.827
+        },
+        "fwd_12bars_sell": {
+          "n": 122,
+          "avg_ret_pct": -0.1194,
+          "hit_pos": 0.4016,
+          "avg_mfe": 0.826,
+          "avg_mae": -0.8377
+        },
+        "flip_trades": {
+          "n": 244,
+          "winrate": 0.3197,
+          "avg_ret": -0.2605,
+          "sum_ret": -63.5729,
+          "avg_mfe": 1.4755,
+          "avg_mae": -0.9245,
+          "long_n": 122,
+          "short_n": 122
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 51,
+          "sell": 50,
+          "bos_up": 53,
+          "bos_dn": 75,
+          "choch_up": 53,
+          "choch_dn": 53
+        },
+        "fwd_12bars_buy": {
+          "n": 51,
+          "avg_ret_pct": -0.175,
+          "hit_pos": 0.4314,
+          "avg_mfe": 0.8172,
+          "avg_mae": -1.0642
+        },
+        "fwd_12bars_sell": {
+          "n": 50,
+          "avg_ret_pct": 0.0703,
+          "hit_pos": 0.44,
+          "avg_mfe": 0.843,
+          "avg_mae": -0.7211
+        },
+        "flip_trades": {
+          "n": 84,
+          "winrate": 0.4524,
+          "avg_ret": -0.1052,
+          "sum_ret": -8.8355,
+          "avg_mfe": 1.9736,
+          "avg_mae": -1.4036,
+          "long_n": 43,
+          "short_n": 41
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 4,
+          "sell": 3,
+          "bos_up": 53,
+          "bos_dn": 75,
+          "choch_up": 53,
+          "choch_dn": 53
+        },
+        "fwd_12bars_buy": {
+          "n": 4,
+          "avg_ret_pct": -0.7456,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.2972,
+          "avg_mae": -1.2192
+        },
+        "fwd_12bars_sell": {
+          "n": 3,
+          "avg_ret_pct": 0.9958,
+          "hit_pos": 0.6667,
+          "avg_mfe": 1.3009,
+          "avg_mae": -0.1941
+        },
+        "flip_trades": {
+          "n": 7,
+          "winrate": 0.5714,
+          "avg_ret": 0.1851,
+          "sum_ret": 1.2955,
+          "avg_mfe": 2.686,
+          "avg_mae": -1.4174,
+          "long_n": 4,
+          "short_n": 3
+        }
+      }
+    }
+  },
+  "TACUSDT_5m": {
+    "symbol": "TACUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 131,
+          "sell": 131,
+          "bos_up": 62,
+          "bos_dn": 62,
+          "choch_up": 58,
+          "choch_dn": 58
+        },
+        "fwd_12bars_buy": {
+          "n": 131,
+          "avg_ret_pct": -0.1949,
+          "hit_pos": 0.4122,
+          "avg_mfe": 1.1134,
+          "avg_mae": -1.2028
+        },
+        "fwd_12bars_sell": {
+          "n": 131,
+          "avg_ret_pct": 0.0173,
+          "hit_pos": 0.4885,
+          "avg_mfe": 1.0691,
+          "avg_mae": -1.0425
+        },
+        "flip_trades": {
+          "n": 262,
+          "winrate": 0.3168,
+          "avg_ret": -0.1776,
+          "sum_ret": -46.5407,
+          "avg_mfe": 1.7809,
+          "avg_mae": -1.1738,
+          "long_n": 131,
+          "short_n": 131
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 64,
+          "sell": 46,
+          "bos_up": 62,
+          "bos_dn": 62,
+          "choch_up": 58,
+          "choch_dn": 58
+        },
+        "fwd_12bars_buy": {
+          "n": 64,
+          "avg_ret_pct": -0.1713,
+          "hit_pos": 0.4375,
+          "avg_mfe": 1.1536,
+          "avg_mae": -1.0273
+        },
+        "fwd_12bars_sell": {
+          "n": 46,
+          "avg_ret_pct": -0.0102,
+          "hit_pos": 0.4783,
+          "avg_mfe": 1.0191,
+          "avg_mae": -0.9787
+        },
+        "flip_trades": {
+          "n": 92,
+          "winrate": 0.4783,
+          "avg_ret": 0.28,
+          "sum_ret": 25.7585,
+          "avg_mfe": 2.6074,
+          "avg_mae": -1.5999,
+          "long_n": 53,
+          "short_n": 39
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 3,
+          "sell": 2,
+          "bos_up": 62,
+          "bos_dn": 62,
+          "choch_up": 58,
+          "choch_dn": 58
+        },
+        "fwd_12bars_buy": {
+          "n": 3,
+          "avg_ret_pct": -0.2634,
+          "hit_pos": 0.3333,
+          "avg_mfe": 0.5677,
+          "avg_mae": -0.5943
+        },
+        "fwd_12bars_sell": {
+          "n": 2,
+          "avg_ret_pct": -1.4968,
+          "hit_pos": 0.5,
+          "avg_mfe": 0.588,
+          "avg_mae": -1.7667
+        },
+        "flip_trades": {
+          "n": 5,
+          "winrate": 0.6,
+          "avg_ret": 1.507,
+          "sum_ret": 7.5349,
+          "avg_mfe": 3.8714,
+          "avg_mae": -1.8713,
+          "long_n": 3,
+          "short_n": 2
+        }
+      }
+    }
+  },
+  "CASHCATUSDT_5m": {
+    "symbol": "CASHCATUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 119,
+          "sell": 119,
+          "bos_up": 55,
+          "bos_dn": 59,
+          "choch_up": 67,
+          "choch_dn": 68
+        },
+        "fwd_12bars_buy": {
+          "n": 119,
+          "avg_ret_pct": 0.1644,
+          "hit_pos": 0.4874,
+          "avg_mfe": 2.4413,
+          "avg_mae": -2.2252
+        },
+        "fwd_12bars_sell": {
+          "n": 119,
+          "avg_ret_pct": -0.0103,
+          "hit_pos": 0.4622,
+          "avg_mfe": 2.3589,
+          "avg_mae": -2.1258
+        },
+        "flip_trades": {
+          "n": 238,
+          "winrate": 0.3782,
+          "avg_ret": -0.3504,
+          "sum_ret": -83.4022,
+          "avg_mfe": 4.0862,
+          "avg_mae": -2.6335,
+          "long_n": 119,
+          "short_n": 119
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 46,
+          "sell": 51,
+          "bos_up": 55,
+          "bos_dn": 59,
+          "choch_up": 67,
+          "choch_dn": 68
+        },
+        "fwd_12bars_buy": {
+          "n": 46,
+          "avg_ret_pct": -0.1722,
+          "hit_pos": 0.4348,
+          "avg_mfe": 1.9892,
+          "avg_mae": -2.4191
+        },
+        "fwd_12bars_sell": {
+          "n": 51,
+          "avg_ret_pct": -0.2171,
+          "hit_pos": 0.451,
+          "avg_mfe": 2.1977,
+          "avg_mae": -2.2335
+        },
+        "flip_trades": {
+          "n": 82,
+          "winrate": 0.439,
+          "avg_ret": -0.2686,
+          "sum_ret": -22.0219,
+          "avg_mfe": 4.1465,
+          "avg_mae": -4.1062,
+          "long_n": 40,
+          "short_n": 42
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 1,
+          "sell": 2,
+          "bos_up": 55,
+          "bos_dn": 59,
+          "choch_up": 67,
+          "choch_dn": 68
+        },
+        "fwd_12bars_buy": {
+          "n": 1,
+          "avg_ret_pct": 4.9323,
+          "hit_pos": 1.0,
+          "avg_mfe": 6.0852,
+          "avg_mae": -1.5662
+        },
+        "fwd_12bars_sell": {
+          "n": 2,
+          "avg_ret_pct": -1.4123,
+          "hit_pos": 0.0,
+          "avg_mfe": 4.7021,
+          "avg_mae": -2.0904
+        },
+        "flip_trades": {
+          "n": 3,
+          "winrate": 0.0,
+          "avg_ret": -1.3771,
+          "sum_ret": -4.1313,
+          "avg_mfe": 8.2528,
+          "avg_mae": -5.2204,
+          "long_n": 1,
+          "short_n": 2
+        }
+      }
+    }
+  },
+  "TMXUSDT_5m": {
+    "symbol": "TMXUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 108,
+          "sell": 107,
+          "bos_up": 27,
+          "bos_dn": 77,
+          "choch_up": 52,
+          "choch_dn": 53
+        },
+        "fwd_12bars_buy": {
+          "n": 108,
+          "avg_ret_pct": -0.5947,
+          "hit_pos": 0.3148,
+          "avg_mfe": 2.015,
+          "avg_mae": -2.2623
+        },
+        "fwd_12bars_sell": {
+          "n": 107,
+          "avg_ret_pct": -0.0807,
+          "hit_pos": 0.486,
+          "avg_mfe": 2.3725,
+          "avg_mae": -1.9456
+        },
+        "flip_trades": {
+          "n": 215,
+          "winrate": 0.3209,
+          "avg_ret": -0.1736,
+          "sum_ret": -37.3337,
+          "avg_mfe": 3.9825,
+          "avg_mae": -2.5436,
+          "long_n": 108,
+          "short_n": 107
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 42,
+          "sell": 57,
+          "bos_up": 27,
+          "bos_dn": 77,
+          "choch_up": 52,
+          "choch_dn": 53
+        },
+        "fwd_12bars_buy": {
+          "n": 42,
+          "avg_ret_pct": -0.599,
+          "hit_pos": 0.2619,
+          "avg_mfe": 2.1763,
+          "avg_mae": -2.2307
+        },
+        "fwd_12bars_sell": {
+          "n": 57,
+          "avg_ret_pct": -0.4539,
+          "hit_pos": 0.386,
+          "avg_mfe": 2.4694,
+          "avg_mae": -2.2674
+        },
+        "flip_trades": {
+          "n": 88,
+          "winrate": 0.375,
+          "avg_ret": -0.1368,
+          "sum_ret": -12.0409,
+          "avg_mfe": 4.2948,
+          "avg_mae": -3.5518,
+          "long_n": 38,
+          "short_n": 50
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 0,
+          "sell": 3,
+          "bos_up": 27,
+          "bos_dn": 77,
+          "choch_up": 52,
+          "choch_dn": 53
+        },
+        "fwd_12bars_buy": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "fwd_12bars_sell": {
+          "n": 3,
+          "avg_ret_pct": -1.3191,
+          "hit_pos": 0.0,
+          "avg_mfe": 2.0973,
+          "avg_mae": -1.7455
+        },
+        "flip_trades": {
+          "n": 3,
+          "winrate": 0.3333,
+          "avg_ret": 0.7959,
+          "sum_ret": 2.3878,
+          "avg_mfe": 2.9314,
+          "avg_mae": -2.5943,
+          "long_n": 0,
+          "short_n": 3
+        }
+      }
+    }
+  },
+  "AKEUSDT_5m": {
+    "symbol": "AKEUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 112,
+          "sell": 111,
+          "bos_up": 52,
+          "bos_dn": 63,
+          "choch_up": 59,
+          "choch_dn": 59
+        },
+        "fwd_12bars_buy": {
+          "n": 112,
+          "avg_ret_pct": 0.304,
+          "hit_pos": 0.4107,
+          "avg_mfe": 4.1657,
+          "avg_mae": -3.431
+        },
+        "fwd_12bars_sell": {
+          "n": 111,
+          "avg_ret_pct": 0.6741,
+          "hit_pos": 0.4324,
+          "avg_mfe": 5.6512,
+          "avg_mae": -3.6207
+        },
+        "flip_trades": {
+          "n": 223,
+          "winrate": 0.3677,
+          "avg_ret": 0.3348,
+          "sum_ret": 74.6603,
+          "avg_mfe": 7.4946,
+          "avg_mae": -4.1846,
+          "long_n": 112,
+          "short_n": 111
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 53,
+          "sell": 47,
+          "bos_up": 52,
+          "bos_dn": 63,
+          "choch_up": 59,
+          "choch_dn": 59
+        },
+        "fwd_12bars_buy": {
+          "n": 53,
+          "avg_ret_pct": 0.5541,
+          "hit_pos": 0.4528,
+          "avg_mfe": 3.9352,
+          "avg_mae": -3.3183
+        },
+        "fwd_12bars_sell": {
+          "n": 47,
+          "avg_ret_pct": 0.6991,
+          "hit_pos": 0.4043,
+          "avg_mfe": 4.4907,
+          "avg_mae": -2.7189
+        },
+        "flip_trades": {
+          "n": 88,
+          "winrate": 0.4205,
+          "avg_ret": 1.0179,
+          "sum_ret": 89.5762,
+          "avg_mfe": 7.9736,
+          "avg_mae": -5.0963,
+          "long_n": 44,
+          "short_n": 44
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 0,
+          "sell": 0,
+          "bos_up": 52,
+          "bos_dn": 63,
+          "choch_up": 59,
+          "choch_dn": 59
+        },
+        "fwd_12bars_buy": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "fwd_12bars_sell": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "flip_trades": {
+          "n": 0,
+          "winrate": null,
+          "avg_ret": null,
+          "sum_ret": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        }
+      }
+    }
+  },
+  "AGIUSDT_5m": {
+    "symbol": "AGIUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 127,
+          "sell": 126,
+          "bos_up": 51,
+          "bos_dn": 68,
+          "choch_up": 58,
+          "choch_dn": 58
+        },
+        "fwd_12bars_buy": {
+          "n": 127,
+          "avg_ret_pct": -0.0156,
+          "hit_pos": 0.4409,
+          "avg_mfe": 1.3638,
+          "avg_mae": -1.2221
+        },
+        "fwd_12bars_sell": {
+          "n": 126,
+          "avg_ret_pct": -0.3345,
+          "hit_pos": 0.3254,
+          "avg_mfe": 0.9578,
+          "avg_mae": -1.2859
+        },
+        "flip_trades": {
+          "n": 253,
+          "winrate": 0.3083,
+          "avg_ret": -0.3482,
+          "sum_ret": -88.1035,
+          "avg_mfe": 1.9848,
+          "avg_mae": -1.466,
+          "long_n": 127,
+          "short_n": 126
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 52,
+          "sell": 66,
+          "bos_up": 51,
+          "bos_dn": 68,
+          "choch_up": 58,
+          "choch_dn": 58
+        },
+        "fwd_12bars_buy": {
+          "n": 52,
+          "avg_ret_pct": 0.1151,
+          "hit_pos": 0.4615,
+          "avg_mfe": 1.6249,
+          "avg_mae": -1.2692
+        },
+        "fwd_12bars_sell": {
+          "n": 66,
+          "avg_ret_pct": -0.2434,
+          "hit_pos": 0.3485,
+          "avg_mfe": 1.113,
+          "avg_mae": -1.2563
+        },
+        "flip_trades": {
+          "n": 98,
+          "winrate": 0.4796,
+          "avg_ret": 0.0629,
+          "sum_ret": 6.1668,
+          "avg_mfe": 2.604,
+          "avg_mae": -2.1395,
+          "long_n": 42,
+          "short_n": 56
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 1,
+          "sell": 2,
+          "bos_up": 51,
+          "bos_dn": 68,
+          "choch_up": 58,
+          "choch_dn": 58
+        },
+        "fwd_12bars_buy": {
+          "n": 1,
+          "avg_ret_pct": -0.2695,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.0168,
+          "avg_mae": -1.0108
+        },
+        "fwd_12bars_sell": {
+          "n": 2,
+          "avg_ret_pct": -0.2765,
+          "hit_pos": 0.5,
+          "avg_mfe": 0.5854,
+          "avg_mae": -0.9609
+        },
+        "flip_trades": {
+          "n": 3,
+          "winrate": 0.3333,
+          "avg_ret": 0.0302,
+          "sum_ret": 0.0905,
+          "avg_mfe": 2.1042,
+          "avg_mae": -1.3364,
+          "long_n": 1,
+          "short_n": 2
+        }
+      }
+    }
+  },
+  "BICOUSDT_5m": {
+    "symbol": "BICOUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 140,
+          "sell": 140,
+          "bos_up": 58,
+          "bos_dn": 57,
+          "choch_up": 74,
+          "choch_dn": 74
+        },
+        "fwd_12bars_buy": {
+          "n": 140,
+          "avg_ret_pct": -0.1349,
+          "hit_pos": 0.4071,
+          "avg_mfe": 0.7822,
+          "avg_mae": -0.838
+        },
+        "fwd_12bars_sell": {
+          "n": 140,
+          "avg_ret_pct": -0.0768,
+          "hit_pos": 0.4714,
+          "avg_mfe": 0.8115,
+          "avg_mae": -0.8793
+        },
+        "flip_trades": {
+          "n": 280,
+          "winrate": 0.325,
+          "avg_ret": -0.2985,
+          "sum_ret": -83.5818,
+          "avg_mfe": 1.363,
+          "avg_mae": -0.9993,
+          "long_n": 140,
+          "short_n": 140
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 54,
+          "sell": 56,
+          "bos_up": 58,
+          "bos_dn": 57,
+          "choch_up": 74,
+          "choch_dn": 74
+        },
+        "fwd_12bars_buy": {
+          "n": 54,
+          "avg_ret_pct": -0.1681,
+          "hit_pos": 0.3889,
+          "avg_mfe": 0.8156,
+          "avg_mae": -0.8651
+        },
+        "fwd_12bars_sell": {
+          "n": 56,
+          "avg_ret_pct": -0.3442,
+          "hit_pos": 0.3393,
+          "avg_mfe": 0.6271,
+          "avg_mae": -1.0223
+        },
+        "flip_trades": {
+          "n": 88,
+          "winrate": 0.4432,
+          "avg_ret": -0.3152,
+          "sum_ret": -27.7367,
+          "avg_mfe": 1.5609,
+          "avg_mae": -1.6253,
+          "long_n": 43,
+          "short_n": 45
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 1,
+          "sell": 1,
+          "bos_up": 58,
+          "bos_dn": 57,
+          "choch_up": 74,
+          "choch_dn": 74
+        },
+        "fwd_12bars_buy": {
+          "n": 1,
+          "avg_ret_pct": -1.1443,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.4442,
+          "avg_mae": -1.6947
+        },
+        "fwd_12bars_sell": {
+          "n": 1,
+          "avg_ret_pct": -0.6387,
+          "hit_pos": 0.0,
+          "avg_mfe": 1.5892,
+          "avg_mae": -0.7894
+        },
+        "flip_trades": {
+          "n": 2,
+          "winrate": 0.0,
+          "avg_ret": -2.4097,
+          "sum_ret": -4.8195,
+          "avg_mfe": 1.0167,
+          "avg_mae": -2.7891,
+          "long_n": 1,
+          "short_n": 1
+        }
+      }
+    }
+  },
+  "NESAUSDT_5m": {
+    "symbol": "NESAUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 191,
+          "sell": 191,
+          "bos_up": 66,
+          "bos_dn": 62,
+          "choch_up": 60,
+          "choch_dn": 61
+        },
+        "fwd_12bars_buy": {
+          "n": 191,
+          "avg_ret_pct": -0.1229,
+          "hit_pos": 0.3979,
+          "avg_mfe": 1.0649,
+          "avg_mae": -1.1789
+        },
+        "fwd_12bars_sell": {
+          "n": 191,
+          "avg_ret_pct": -0.1842,
+          "hit_pos": 0.3874,
+          "avg_mfe": 0.8742,
+          "avg_mae": -1.1245
+        },
+        "flip_trades": {
+          "n": 382,
+          "winrate": 0.2487,
+          "avg_ret": -0.5067,
+          "sum_ret": -193.5505,
+          "avg_mfe": 1.3915,
+          "avg_mae": -1.1946,
+          "long_n": 191,
+          "short_n": 191
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 84,
+          "sell": 88,
+          "bos_up": 66,
+          "bos_dn": 62,
+          "choch_up": 60,
+          "choch_dn": 61
+        },
+        "fwd_12bars_buy": {
+          "n": 84,
+          "avg_ret_pct": -0.2907,
+          "hit_pos": 0.3929,
+          "avg_mfe": 1.0861,
+          "avg_mae": -1.2194
+        },
+        "fwd_12bars_sell": {
+          "n": 88,
+          "avg_ret_pct": -0.2005,
+          "hit_pos": 0.3977,
+          "avg_mfe": 0.8731,
+          "avg_mae": -0.9988
+        },
+        "flip_trades": {
+          "n": 122,
+          "winrate": 0.377,
+          "avg_ret": -0.614,
+          "sum_ret": -74.9092,
+          "avg_mfe": 1.8795,
+          "avg_mae": -2.2333,
+          "long_n": 56,
+          "short_n": 66
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 7,
+          "sell": 5,
+          "bos_up": 66,
+          "bos_dn": 62,
+          "choch_up": 60,
+          "choch_dn": 61
+        },
+        "fwd_12bars_buy": {
+          "n": 7,
+          "avg_ret_pct": 0.2151,
+          "hit_pos": 0.5714,
+          "avg_mfe": 1.4236,
+          "avg_mae": -0.8046
+        },
+        "fwd_12bars_sell": {
+          "n": 5,
+          "avg_ret_pct": -0.0559,
+          "hit_pos": 0.4,
+          "avg_mfe": 0.4995,
+          "avg_mae": -0.3992
+        },
+        "flip_trades": {
+          "n": 12,
+          "winrate": 0.3333,
+          "avg_ret": -0.0319,
+          "sum_ret": -0.3828,
+          "avg_mfe": 1.3939,
+          "avg_mae": -1.2758,
+          "long_n": 7,
+          "short_n": 5
+        }
+      }
+    }
+  },
+  "ONTUSDT_5m": {
+    "symbol": "ONTUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 172,
+          "sell": 172,
+          "bos_up": 64,
+          "bos_dn": 57,
+          "choch_up": 64,
+          "choch_dn": 64
+        },
+        "fwd_12bars_buy": {
+          "n": 172,
+          "avg_ret_pct": 0.0078,
+          "hit_pos": 0.4884,
+          "avg_mfe": 0.5023,
+          "avg_mae": -0.5244
+        },
+        "fwd_12bars_sell": {
+          "n": 172,
+          "avg_ret_pct": -0.1109,
+          "hit_pos": 0.4419,
+          "avg_mfe": 0.4709,
+          "avg_mae": -0.5665
+        },
+        "flip_trades": {
+          "n": 344,
+          "winrate": 0.2936,
+          "avg_ret": -0.2223,
+          "sum_ret": -76.4626,
+          "avg_mfe": 0.8088,
+          "avg_mae": -0.5344,
+          "long_n": 172,
+          "short_n": 172
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 64,
+          "sell": 73,
+          "bos_up": 64,
+          "bos_dn": 57,
+          "choch_up": 64,
+          "choch_dn": 64
+        },
+        "fwd_12bars_buy": {
+          "n": 64,
+          "avg_ret_pct": -0.0178,
+          "hit_pos": 0.5156,
+          "avg_mfe": 0.5164,
+          "avg_mae": -0.5945
+        },
+        "fwd_12bars_sell": {
+          "n": 73,
+          "avg_ret_pct": -0.0825,
+          "hit_pos": 0.4384,
+          "avg_mfe": 0.5271,
+          "avg_mae": -0.5711
+        },
+        "flip_trades": {
+          "n": 104,
+          "winrate": 0.3942,
+          "avg_ret": -0.2369,
+          "sum_ret": -24.6334,
+          "avg_mfe": 1.0213,
+          "avg_mae": -0.9924,
+          "long_n": 50,
+          "short_n": 54
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 1,
+          "sell": 3,
+          "bos_up": 64,
+          "bos_dn": 57,
+          "choch_up": 64,
+          "choch_dn": 64
+        },
+        "fwd_12bars_buy": {
+          "n": 1,
+          "avg_ret_pct": -0.3038,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.1787,
+          "avg_mae": -0.3038
+        },
+        "fwd_12bars_sell": {
+          "n": 3,
+          "avg_ret_pct": -0.6161,
+          "hit_pos": 0.3333,
+          "avg_mfe": 0.2553,
+          "avg_mae": -0.8546
+        },
+        "flip_trades": {
+          "n": 4,
+          "winrate": 0.5,
+          "avg_ret": -0.3546,
+          "sum_ret": -1.4184,
+          "avg_mfe": 0.7098,
+          "avg_mae": -1.2197,
+          "long_n": 1,
+          "short_n": 3
+        }
+      }
+    }
+  },
+  "TUTUSDT_5m": {
+    "symbol": "TUTUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 135,
+          "sell": 134,
+          "bos_up": 48,
+          "bos_dn": 68,
+          "choch_up": 61,
+          "choch_dn": 60
+        },
+        "fwd_12bars_buy": {
+          "n": 135,
+          "avg_ret_pct": -0.2482,
+          "hit_pos": 0.3704,
+          "avg_mfe": 1.1128,
+          "avg_mae": -1.3282
+        },
+        "fwd_12bars_sell": {
+          "n": 134,
+          "avg_ret_pct": -0.045,
+          "hit_pos": 0.5373,
+          "avg_mfe": 1.1283,
+          "avg_mae": -0.9824
+        },
+        "flip_trades": {
+          "n": 269,
+          "winrate": 0.3011,
+          "avg_ret": -0.4423,
+          "sum_ret": -118.9671,
+          "avg_mfe": 2.0952,
+          "avg_mae": -1.4092,
+          "long_n": 135,
+          "short_n": 134
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 62,
+          "sell": 54,
+          "bos_up": 48,
+          "bos_dn": 68,
+          "choch_up": 61,
+          "choch_dn": 60
+        },
+        "fwd_12bars_buy": {
+          "n": 62,
+          "avg_ret_pct": -0.1762,
+          "hit_pos": 0.3871,
+          "avg_mfe": 1.364,
+          "avg_mae": -1.5457
+        },
+        "fwd_12bars_sell": {
+          "n": 54,
+          "avg_ret_pct": -0.2039,
+          "hit_pos": 0.463,
+          "avg_mfe": 0.7844,
+          "avg_mae": -0.9683
+        },
+        "flip_trades": {
+          "n": 97,
+          "winrate": 0.3505,
+          "avg_ret": -0.667,
+          "sum_ret": -64.7029,
+          "avg_mfe": 2.1147,
+          "avg_mae": -2.2626,
+          "long_n": 50,
+          "short_n": 47
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 6,
+          "sell": 2,
+          "bos_up": 48,
+          "bos_dn": 68,
+          "choch_up": 61,
+          "choch_dn": 60
+        },
+        "fwd_12bars_buy": {
+          "n": 6,
+          "avg_ret_pct": -0.739,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.4782,
+          "avg_mae": -1.7011
+        },
+        "fwd_12bars_sell": {
+          "n": 2,
+          "avg_ret_pct": 1.0178,
+          "hit_pos": 0.5,
+          "avg_mfe": 1.73,
+          "avg_mae": -1.0353
+        },
+        "flip_trades": {
+          "n": 8,
+          "winrate": 0.25,
+          "avg_ret": -1.9534,
+          "sum_ret": -15.6271,
+          "avg_mfe": 1.2015,
+          "avg_mae": -3.767,
+          "long_n": 6,
+          "short_n": 2
+        }
+      }
+    }
+  },
+  "EDENUSDT_5m": {
+    "symbol": "EDENUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 165,
+          "sell": 165,
+          "bos_up": 56,
+          "bos_dn": 75,
+          "choch_up": 60,
+          "choch_dn": 60
+        },
+        "fwd_12bars_buy": {
+          "n": 165,
+          "avg_ret_pct": -0.0302,
+          "hit_pos": 0.497,
+          "avg_mfe": 0.8257,
+          "avg_mae": -0.8236
+        },
+        "fwd_12bars_sell": {
+          "n": 165,
+          "avg_ret_pct": 0.0099,
+          "hit_pos": 0.503,
+          "avg_mfe": 0.8332,
+          "avg_mae": -0.8321
+        },
+        "flip_trades": {
+          "n": 330,
+          "winrate": 0.2788,
+          "avg_ret": -0.3456,
+          "sum_ret": -114.0512,
+          "avg_mfe": 1.3183,
+          "avg_mae": -0.8847,
+          "long_n": 165,
+          "short_n": 165
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 57,
+          "sell": 73,
+          "bos_up": 56,
+          "bos_dn": 75,
+          "choch_up": 60,
+          "choch_dn": 60
+        },
+        "fwd_12bars_buy": {
+          "n": 57,
+          "avg_ret_pct": 0.0367,
+          "hit_pos": 0.5263,
+          "avg_mfe": 0.8617,
+          "avg_mae": -0.7717
+        },
+        "fwd_12bars_sell": {
+          "n": 73,
+          "avg_ret_pct": -0.027,
+          "hit_pos": 0.5342,
+          "avg_mfe": 0.7198,
+          "avg_mae": -0.7491
+        },
+        "flip_trades": {
+          "n": 104,
+          "winrate": 0.4231,
+          "avg_ret": -0.1793,
+          "sum_ret": -18.6476,
+          "avg_mfe": 1.6517,
+          "avg_mae": -1.4967,
+          "long_n": 45,
+          "short_n": 59
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 2,
+          "sell": 2,
+          "bos_up": 56,
+          "bos_dn": 75,
+          "choch_up": 60,
+          "choch_dn": 60
+        },
+        "fwd_12bars_buy": {
+          "n": 2,
+          "avg_ret_pct": 0.1384,
+          "hit_pos": 0.5,
+          "avg_mfe": 0.6223,
+          "avg_mae": -1.098
+        },
+        "fwd_12bars_sell": {
+          "n": 2,
+          "avg_ret_pct": 0.9591,
+          "hit_pos": 1.0,
+          "avg_mfe": 1.208,
+          "avg_mae": -0.5405
+        },
+        "flip_trades": {
+          "n": 4,
+          "winrate": 0.5,
+          "avg_ret": 0.3006,
+          "sum_ret": 1.2024,
+          "avg_mfe": 2.1444,
+          "avg_mae": -1.3249,
+          "long_n": 2,
+          "short_n": 2
+        }
+      }
+    }
+  },
+  "MOVRUSDT_5m": {
+    "symbol": "MOVRUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 146,
+          "sell": 145,
+          "bos_up": 73,
+          "bos_dn": 61,
+          "choch_up": 66,
+          "choch_dn": 65
+        },
+        "fwd_12bars_buy": {
+          "n": 146,
+          "avg_ret_pct": 0.0881,
+          "hit_pos": 0.4658,
+          "avg_mfe": 1.3591,
+          "avg_mae": -1.0428
+        },
+        "fwd_12bars_sell": {
+          "n": 145,
+          "avg_ret_pct": -0.4184,
+          "hit_pos": 0.4276,
+          "avg_mfe": 1.0366,
+          "avg_mae": -1.4494
+        },
+        "flip_trades": {
+          "n": 291,
+          "winrate": 0.3471,
+          "avg_ret": -0.1824,
+          "sum_ret": -53.0745,
+          "avg_mfe": 2.1843,
+          "avg_mae": -1.3261,
+          "long_n": 146,
+          "short_n": 145
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 69,
+          "sell": 46,
+          "bos_up": 73,
+          "bos_dn": 61,
+          "choch_up": 66,
+          "choch_dn": 65
+        },
+        "fwd_12bars_buy": {
+          "n": 69,
+          "avg_ret_pct": -0.1035,
+          "hit_pos": 0.4638,
+          "avg_mfe": 1.273,
+          "avg_mae": -1.2369
+        },
+        "fwd_12bars_sell": {
+          "n": 46,
+          "avg_ret_pct": -0.0582,
+          "hit_pos": 0.5435,
+          "avg_mfe": 1.0587,
+          "avg_mae": -0.9849
+        },
+        "flip_trades": {
+          "n": 88,
+          "winrate": 0.5227,
+          "avg_ret": -0.0184,
+          "sum_ret": -1.6171,
+          "avg_mfe": 2.6459,
+          "avg_mae": -2.2407,
+          "long_n": 53,
+          "short_n": 35
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 0,
+          "sell": 2,
+          "bos_up": 73,
+          "bos_dn": 61,
+          "choch_up": 66,
+          "choch_dn": 65
+        },
+        "fwd_12bars_buy": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "fwd_12bars_sell": {
+          "n": 2,
+          "avg_ret_pct": 0.5162,
+          "hit_pos": 0.5,
+          "avg_mfe": 2.3962,
+          "avg_mae": -0.3341
+        },
+        "flip_trades": {
+          "n": 2,
+          "winrate": 0.5,
+          "avg_ret": -0.2023,
+          "sum_ret": -0.4047,
+          "avg_mfe": 2.6158,
+          "avg_mae": -1.5655,
+          "long_n": 0,
+          "short_n": 2
+        }
+      }
+    }
+  },
+  "BMTUSDT_5m": {
+    "symbol": "BMTUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 148,
+          "sell": 148,
+          "bos_up": 71,
+          "bos_dn": 48,
+          "choch_up": 68,
+          "choch_dn": 69
+        },
+        "fwd_12bars_buy": {
+          "n": 148,
+          "avg_ret_pct": -0.0204,
+          "hit_pos": 0.4324,
+          "avg_mfe": 0.7665,
+          "avg_mae": -0.7697
+        },
+        "fwd_12bars_sell": {
+          "n": 148,
+          "avg_ret_pct": 0.0363,
+          "hit_pos": 0.3919,
+          "avg_mfe": 0.9489,
+          "avg_mae": -0.7833
+        },
+        "flip_trades": {
+          "n": 296,
+          "winrate": 0.3108,
+          "avg_ret": -0.2063,
+          "sum_ret": -61.073,
+          "avg_mfe": 1.3537,
+          "avg_mae": -0.8485,
+          "long_n": 148,
+          "short_n": 148
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 67,
+          "sell": 52,
+          "bos_up": 71,
+          "bos_dn": 48,
+          "choch_up": 68,
+          "choch_dn": 69
+        },
+        "fwd_12bars_buy": {
+          "n": 67,
+          "avg_ret_pct": -0.1827,
+          "hit_pos": 0.3881,
+          "avg_mfe": 0.6808,
+          "avg_mae": -0.8553
+        },
+        "fwd_12bars_sell": {
+          "n": 52,
+          "avg_ret_pct": -0.2848,
+          "hit_pos": 0.2885,
+          "avg_mfe": 0.6719,
+          "avg_mae": -0.8446
+        },
+        "flip_trades": {
+          "n": 99,
+          "winrate": 0.3232,
+          "avg_ret": -0.5367,
+          "sum_ret": -53.1305,
+          "avg_mfe": 1.2739,
+          "avg_mae": -1.5827,
+          "long_n": 57,
+          "short_n": 42
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 0,
+          "sell": 5,
+          "bos_up": 71,
+          "bos_dn": 48,
+          "choch_up": 68,
+          "choch_dn": 69
+        },
+        "fwd_12bars_buy": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "fwd_12bars_sell": {
+          "n": 5,
+          "avg_ret_pct": -1.0162,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.2864,
+          "avg_mae": -1.4327
+        },
+        "flip_trades": {
+          "n": 5,
+          "winrate": 0.0,
+          "avg_ret": -2.2652,
+          "sum_ret": -11.3258,
+          "avg_mfe": 0.4036,
+          "avg_mae": -3.0715,
+          "long_n": 0,
+          "short_n": 5
+        }
+      }
+    }
+  },
+  "MAGMAUSDT_5m": {
+    "symbol": "MAGMAUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 133,
+          "sell": 133,
+          "bos_up": 43,
+          "bos_dn": 52,
+          "choch_up": 69,
+          "choch_dn": 69
+        },
+        "fwd_12bars_buy": {
+          "n": 133,
+          "avg_ret_pct": -0.3831,
+          "hit_pos": 0.3684,
+          "avg_mfe": 2.0568,
+          "avg_mae": -2.0636
+        },
+        "fwd_12bars_sell": {
+          "n": 133,
+          "avg_ret_pct": 0.5707,
+          "hit_pos": 0.3985,
+          "avg_mfe": 2.5879,
+          "avg_mae": -1.5471
+        },
+        "flip_trades": {
+          "n": 266,
+          "winrate": 0.3421,
+          "avg_ret": -0.079,
+          "sum_ret": -21.0114,
+          "avg_mfe": 3.7692,
+          "avg_mae": -2.0091,
+          "long_n": 133,
+          "short_n": 133
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 64,
+          "sell": 49,
+          "bos_up": 43,
+          "bos_dn": 52,
+          "choch_up": 69,
+          "choch_dn": 69
+        },
+        "fwd_12bars_buy": {
+          "n": 64,
+          "avg_ret_pct": -0.2299,
+          "hit_pos": 0.3906,
+          "avg_mfe": 2.4631,
+          "avg_mae": -2.133
+        },
+        "fwd_12bars_sell": {
+          "n": 49,
+          "avg_ret_pct": 0.645,
+          "hit_pos": 0.3878,
+          "avg_mfe": 2.3968,
+          "avg_mae": -1.275
+        },
+        "flip_trades": {
+          "n": 96,
+          "winrate": 0.4062,
+          "avg_ret": -0.45,
+          "sum_ret": -43.2001,
+          "avg_mfe": 4.0366,
+          "avg_mae": -3.4731,
+          "long_n": 53,
+          "short_n": 43
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 4,
+          "sell": 2,
+          "bos_up": 43,
+          "bos_dn": 52,
+          "choch_up": 69,
+          "choch_dn": 69
+        },
+        "fwd_12bars_buy": {
+          "n": 4,
+          "avg_ret_pct": -1.3414,
+          "hit_pos": 0.5,
+          "avg_mfe": 2.2797,
+          "avg_mae": -4.0249
+        },
+        "fwd_12bars_sell": {
+          "n": 2,
+          "avg_ret_pct": 0.433,
+          "hit_pos": 0.5,
+          "avg_mfe": 0.7763,
+          "avg_mae": -1.1534
+        },
+        "flip_trades": {
+          "n": 6,
+          "winrate": 0.5,
+          "avg_ret": -1.3011,
+          "sum_ret": -7.8064,
+          "avg_mfe": 2.333,
+          "avg_mae": -4.5062,
+          "long_n": 4,
+          "short_n": 2
+        }
+      }
+    }
+  },
+  "HEIUSDT_5m": {
+    "symbol": "HEIUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 132,
+          "sell": 132,
+          "bos_up": 49,
+          "bos_dn": 59,
+          "choch_up": 72,
+          "choch_dn": 73
+        },
+        "fwd_12bars_buy": {
+          "n": 132,
+          "avg_ret_pct": 0.2046,
+          "hit_pos": 0.4015,
+          "avg_mfe": 1.2434,
+          "avg_mae": -0.8596
+        },
+        "fwd_12bars_sell": {
+          "n": 132,
+          "avg_ret_pct": -0.0795,
+          "hit_pos": 0.4848,
+          "avg_mfe": 1.1693,
+          "avg_mae": -1.0099
+        },
+        "flip_trades": {
+          "n": 264,
+          "winrate": 0.2765,
+          "avg_ret": -0.298,
+          "sum_ret": -78.6789,
+          "avg_mfe": 1.7718,
+          "avg_mae": -1.0983,
+          "long_n": 132,
+          "short_n": 132
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 48,
+          "sell": 60,
+          "bos_up": 49,
+          "bos_dn": 59,
+          "choch_up": 72,
+          "choch_dn": 73
+        },
+        "fwd_12bars_buy": {
+          "n": 48,
+          "avg_ret_pct": 0.6499,
+          "hit_pos": 0.375,
+          "avg_mfe": 1.9636,
+          "avg_mae": -0.9195
+        },
+        "fwd_12bars_sell": {
+          "n": 60,
+          "avg_ret_pct": -0.1194,
+          "hit_pos": 0.5,
+          "avg_mfe": 0.8117,
+          "avg_mae": -0.8669
+        },
+        "flip_trades": {
+          "n": 88,
+          "winrate": 0.4091,
+          "avg_ret": -0.1303,
+          "sum_ret": -11.4704,
+          "avg_mfe": 2.2512,
+          "avg_mae": -1.8238,
+          "long_n": 40,
+          "short_n": 48
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 4,
+          "sell": 0,
+          "bos_up": 49,
+          "bos_dn": 59,
+          "choch_up": 72,
+          "choch_dn": 73
+        },
+        "fwd_12bars_buy": {
+          "n": 4,
+          "avg_ret_pct": -1.2666,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.5833,
+          "avg_mae": -1.6245
+        },
+        "fwd_12bars_sell": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "flip_trades": {
+          "n": 4,
+          "winrate": 0.25,
+          "avg_ret": -1.1227,
+          "sum_ret": -4.4908,
+          "avg_mfe": 1.0337,
+          "avg_mae": -2.6571,
+          "long_n": 4,
+          "short_n": 0
+        }
+      }
+    }
+  },
+  "SCRTUSDT_5m": {
+    "symbol": "SCRTUSDT",
+    "tf": "5m",
+    "error": "no_data",
+    "bars": 0
+  },
+  "CYSUSDT_5m": {
+    "symbol": "CYSUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 114,
+          "sell": 114,
+          "bos_up": 49,
+          "bos_dn": 74,
+          "choch_up": 55,
+          "choch_dn": 56
+        },
+        "fwd_12bars_buy": {
+          "n": 114,
+          "avg_ret_pct": -0.548,
+          "hit_pos": 0.4035,
+          "avg_mfe": 1.1521,
+          "avg_mae": -1.4722
+        },
+        "fwd_12bars_sell": {
+          "n": 114,
+          "avg_ret_pct": 0.0428,
+          "hit_pos": 0.5351,
+          "avg_mfe": 1.2084,
+          "avg_mae": -1.3331
+        },
+        "flip_trades": {
+          "n": 228,
+          "winrate": 0.3421,
+          "avg_ret": -0.4545,
+          "sum_ret": -103.62,
+          "avg_mfe": 2.1757,
+          "avg_mae": -1.7211,
+          "long_n": 114,
+          "short_n": 114
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 47,
+          "sell": 50,
+          "bos_up": 49,
+          "bos_dn": 74,
+          "choch_up": 55,
+          "choch_dn": 56
+        },
+        "fwd_12bars_buy": {
+          "n": 47,
+          "avg_ret_pct": -0.7351,
+          "hit_pos": 0.4043,
+          "avg_mfe": 1.2221,
+          "avg_mae": -1.6651
+        },
+        "fwd_12bars_sell": {
+          "n": 50,
+          "avg_ret_pct": 0.107,
+          "hit_pos": 0.54,
+          "avg_mfe": 1.199,
+          "avg_mae": -1.26
+        },
+        "flip_trades": {
+          "n": 81,
+          "winrate": 0.4321,
+          "avg_ret": -0.4734,
+          "sum_ret": -38.3425,
+          "avg_mfe": 2.4452,
+          "avg_mae": -2.4458,
+          "long_n": 42,
+          "short_n": 39
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 4,
+          "sell": 0,
+          "bos_up": 49,
+          "bos_dn": 74,
+          "choch_up": 55,
+          "choch_dn": 56
+        },
+        "fwd_12bars_buy": {
+          "n": 4,
+          "avg_ret_pct": -0.8209,
+          "hit_pos": 0.25,
+          "avg_mfe": 0.8891,
+          "avg_mae": -1.0716
+        },
+        "fwd_12bars_sell": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "flip_trades": {
+          "n": 4,
+          "winrate": 0.0,
+          "avg_ret": -1.4746,
+          "sum_ret": -5.8983,
+          "avg_mfe": 1.6061,
+          "avg_mae": -3.0769,
+          "long_n": 4,
+          "short_n": 0
+        }
+      }
+    }
+  },
+  "ESUSDT_5m": {
+    "symbol": "ESUSDT",
+    "tf": "5m",
+    "error": "no_data",
+    "bars": 0
+  },
+  "BTWUSDT_5m": {
+    "symbol": "BTWUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 110,
+          "sell": 109,
+          "bos_up": 84,
+          "bos_dn": 38,
+          "choch_up": 59,
+          "choch_dn": 59
+        },
+        "fwd_12bars_buy": {
+          "n": 110,
+          "avg_ret_pct": 0.2566,
+          "hit_pos": 0.4909,
+          "avg_mfe": 2.5841,
+          "avg_mae": -2.4235
+        },
+        "fwd_12bars_sell": {
+          "n": 109,
+          "avg_ret_pct": 0.1844,
+          "hit_pos": 0.4128,
+          "avg_mfe": 4.4184,
+          "avg_mae": -2.681
+        },
+        "flip_trades": {
+          "n": 219,
+          "winrate": 0.3059,
+          "avg_ret": -0.0537,
+          "sum_ret": -11.7708,
+          "avg_mfe": 5.2026,
+          "avg_mae": -2.9549,
+          "long_n": 110,
+          "short_n": 109
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 60,
+          "sell": 46,
+          "bos_up": 84,
+          "bos_dn": 38,
+          "choch_up": 59,
+          "choch_dn": 59
+        },
+        "fwd_12bars_buy": {
+          "n": 60,
+          "avg_ret_pct": 0.2565,
+          "hit_pos": 0.4333,
+          "avg_mfe": 2.6017,
+          "avg_mae": -2.2783
+        },
+        "fwd_12bars_sell": {
+          "n": 46,
+          "avg_ret_pct": 1.0186,
+          "hit_pos": 0.413,
+          "avg_mfe": 6.3762,
+          "avg_mae": -2.9543
+        },
+        "flip_trades": {
+          "n": 98,
+          "winrate": 0.3469,
+          "avg_ret": 0.9575,
+          "sum_ret": 93.8331,
+          "avg_mfe": 7.267,
+          "avg_mae": -3.9339,
+          "long_n": 56,
+          "short_n": 42
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 1,
+          "sell": 0,
+          "bos_up": 84,
+          "bos_dn": 38,
+          "choch_up": 59,
+          "choch_dn": 59
+        },
+        "fwd_12bars_buy": {
+          "n": 1,
+          "avg_ret_pct": -1.4343,
+          "hit_pos": 0.0,
+          "avg_mfe": 3.4282,
+          "avg_mae": -2.6086
+        },
+        "fwd_12bars_sell": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "flip_trades": {
+          "n": 1,
+          "winrate": 0.0,
+          "avg_ret": -3.8302,
+          "sum_ret": -3.8302,
+          "avg_mfe": 3.4282,
+          "avg_mae": -3.9746,
+          "long_n": 1,
+          "short_n": 0
+        }
+      }
+    }
+  },
+  "PORTALUSDT_5m": {
+    "symbol": "PORTALUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 133,
+          "sell": 132,
+          "bos_up": 54,
+          "bos_dn": 54,
+          "choch_up": 65,
+          "choch_dn": 64
+        },
+        "fwd_12bars_buy": {
+          "n": 133,
+          "avg_ret_pct": -0.0293,
+          "hit_pos": 0.4436,
+          "avg_mfe": 0.9701,
+          "avg_mae": -0.8606
+        },
+        "fwd_12bars_sell": {
+          "n": 132,
+          "avg_ret_pct": -0.134,
+          "hit_pos": 0.4015,
+          "avg_mfe": 0.833,
+          "avg_mae": -0.9783
+        },
+        "flip_trades": {
+          "n": 265,
+          "winrate": 0.2868,
+          "avg_ret": -0.3767,
+          "sum_ret": -99.8199,
+          "avg_mfe": 1.5997,
+          "avg_mae": -1.1512,
+          "long_n": 133,
+          "short_n": 132
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 60,
+          "sell": 57,
+          "bos_up": 54,
+          "bos_dn": 54,
+          "choch_up": 65,
+          "choch_dn": 64
+        },
+        "fwd_12bars_buy": {
+          "n": 60,
+          "avg_ret_pct": -0.0543,
+          "hit_pos": 0.4667,
+          "avg_mfe": 1.1995,
+          "avg_mae": -1.0508
+        },
+        "fwd_12bars_sell": {
+          "n": 57,
+          "avg_ret_pct": -0.0662,
+          "hit_pos": 0.4561,
+          "avg_mfe": 0.7762,
+          "avg_mae": -0.7915
+        },
+        "flip_trades": {
+          "n": 101,
+          "winrate": 0.3861,
+          "avg_ret": -0.1844,
+          "sum_ret": -18.6255,
+          "avg_mfe": 1.8421,
+          "avg_mae": -1.6315,
+          "long_n": 50,
+          "short_n": 51
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 2,
+          "sell": 2,
+          "bos_up": 54,
+          "bos_dn": 54,
+          "choch_up": 65,
+          "choch_dn": 64
+        },
+        "fwd_12bars_buy": {
+          "n": 2,
+          "avg_ret_pct": -0.6258,
+          "hit_pos": 0.0,
+          "avg_mfe": 2.2899,
+          "avg_mae": -2.2979
+        },
+        "fwd_12bars_sell": {
+          "n": 2,
+          "avg_ret_pct": 0.1569,
+          "hit_pos": 0.5,
+          "avg_mfe": 0.7166,
+          "avg_mae": -0.8258
+        },
+        "flip_trades": {
+          "n": 4,
+          "winrate": 0.5,
+          "avg_ret": 0.5084,
+          "sum_ret": 2.0337,
+          "avg_mfe": 2.6545,
+          "avg_mae": -1.8947,
+          "long_n": 2,
+          "short_n": 2
+        }
+      }
+    }
+  },
+  "PUMPBTCUSDT_5m": {
+    "symbol": "PUMPBTCUSDT",
+    "tf": "5m",
+    "error": "no_data",
+    "bars": 0
+  },
+  "CLOUSDT_5m": {
+    "symbol": "CLOUSDT",
+    "tf": "5m",
+    "bars": 9000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 121,
+          "sell": 121,
+          "bos_up": 52,
+          "bos_dn": 63,
+          "choch_up": 56,
+          "choch_dn": 57
+        },
+        "fwd_12bars_buy": {
+          "n": 121,
+          "avg_ret_pct": -0.3657,
+          "hit_pos": 0.3719,
+          "avg_mfe": 1.0764,
+          "avg_mae": -1.2724
+        },
+        "fwd_12bars_sell": {
+          "n": 121,
+          "avg_ret_pct": -0.0534,
+          "hit_pos": 0.4545,
+          "avg_mfe": 1.4335,
+          "avg_mae": -1.3328
+        },
+        "flip_trades": {
+          "n": 242,
+          "winrate": 0.2934,
+          "avg_ret": -0.3735,
+          "sum_ret": -90.3979,
+          "avg_mfe": 2.237,
+          "avg_mae": -1.6024,
+          "long_n": 121,
+          "short_n": 121
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 57,
+          "sell": 44,
+          "bos_up": 52,
+          "bos_dn": 63,
+          "choch_up": 56,
+          "choch_dn": 57
+        },
+        "fwd_12bars_buy": {
+          "n": 57,
+          "avg_ret_pct": -0.3405,
+          "hit_pos": 0.4035,
+          "avg_mfe": 1.3391,
+          "avg_mae": -1.3728
+        },
+        "fwd_12bars_sell": {
+          "n": 44,
+          "avg_ret_pct": -0.1245,
+          "hit_pos": 0.4091,
+          "avg_mfe": 1.1501,
+          "avg_mae": -1.4297
+        },
+        "flip_trades": {
+          "n": 81,
+          "winrate": 0.3951,
+          "avg_ret": -0.0188,
+          "sum_ret": -1.5259,
+          "avg_mfe": 3.0967,
+          "avg_mae": -2.5144,
+          "long_n": 45,
+          "short_n": 36
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 2,
+          "sell": 1,
+          "bos_up": 52,
+          "bos_dn": 63,
+          "choch_up": 56,
+          "choch_dn": 57
+        },
+        "fwd_12bars_buy": {
+          "n": 2,
+          "avg_ret_pct": -0.7324,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.3037,
+          "avg_mae": -1.0994
+        },
+        "fwd_12bars_sell": {
+          "n": 1,
+          "avg_ret_pct": -0.6445,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.5665,
+          "avg_mae": -0.9804
+        },
+        "flip_trades": {
+          "n": 3,
+          "winrate": 0.6667,
+          "avg_ret": 0.035,
+          "sum_ret": 0.1049,
+          "avg_mfe": 1.9884,
+          "avg_mae": -1.2199,
+          "long_n": 2,
+          "short_n": 1
+        }
+      }
+    }
+  },
+  "VELVETUSDT_15m": {
+    "symbol": "VELVETUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 71,
+          "sell": 70,
+          "bos_up": 25,
+          "bos_dn": 38,
+          "choch_up": 39,
+          "choch_dn": 38
+        },
+        "fwd_8bars_buy": {
+          "n": 71,
+          "avg_ret_pct": -0.8257,
+          "hit_pos": 0.3662,
+          "avg_mfe": 3.1069,
+          "avg_mae": -3.697
+        },
+        "fwd_8bars_sell": {
+          "n": 70,
+          "avg_ret_pct": 0.8364,
+          "hit_pos": 0.3857,
+          "avg_mfe": 6.0245,
+          "avg_mae": -3.4357
+        },
+        "flip_trades": {
+          "n": 141,
+          "winrate": 0.383,
+          "avg_ret": 0.5816,
+          "sum_ret": 82.0028,
+          "avg_mfe": 6.3764,
+          "avg_mae": -4.1614,
+          "long_n": 71,
+          "short_n": 70
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 29,
+          "sell": 36,
+          "bos_up": 25,
+          "bos_dn": 38,
+          "choch_up": 39,
+          "choch_dn": 38
+        },
+        "fwd_8bars_buy": {
+          "n": 29,
+          "avg_ret_pct": -1.7124,
+          "hit_pos": 0.4483,
+          "avg_mfe": 2.8871,
+          "avg_mae": -4.5371
+        },
+        "fwd_8bars_sell": {
+          "n": 36,
+          "avg_ret_pct": 3.5664,
+          "hit_pos": 0.4722,
+          "avg_mfe": 9.186,
+          "avg_mae": -2.7273
+        },
+        "flip_trades": {
+          "n": 63,
+          "winrate": 0.3651,
+          "avg_ret": 2.6061,
+          "sum_ret": 164.1849,
+          "avg_mfe": 8.805,
+          "avg_mae": -5.0477,
+          "long_n": 28,
+          "short_n": 35
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 1,
+          "sell": 0,
+          "bos_up": 25,
+          "bos_dn": 38,
+          "choch_up": 39,
+          "choch_dn": 38
+        },
+        "fwd_8bars_buy": {
+          "n": 1,
+          "avg_ret_pct": 1.9562,
+          "hit_pos": 1.0,
+          "avg_mfe": 3.4368,
+          "avg_mae": -1.7091
+        },
+        "fwd_8bars_sell": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "flip_trades": {
+          "n": 1,
+          "winrate": 0.0,
+          "avg_ret": -2.6404,
+          "sum_ret": -2.6404,
+          "avg_mfe": 3.4368,
+          "avg_mae": -3.9701,
+          "long_n": 1,
+          "short_n": 0
+        }
+      }
+    }
+  },
+  "TACUSDT_15m": {
+    "symbol": "TACUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 67,
+          "sell": 66,
+          "bos_up": 19,
+          "bos_dn": 45,
+          "choch_up": 41,
+          "choch_dn": 41
+        },
+        "fwd_8bars_buy": {
+          "n": 67,
+          "avg_ret_pct": -0.7179,
+          "hit_pos": 0.5224,
+          "avg_mfe": 1.8876,
+          "avg_mae": -2.9029
+        },
+        "fwd_8bars_sell": {
+          "n": 66,
+          "avg_ret_pct": 0.4952,
+          "hit_pos": 0.4697,
+          "avg_mfe": 4.5054,
+          "avg_mae": -2.5413
+        },
+        "flip_trades": {
+          "n": 133,
+          "winrate": 0.4962,
+          "avg_ret": 0.4189,
+          "sum_ret": 55.7147,
+          "avg_mfe": 5.3054,
+          "avg_mae": -3.1372,
+          "long_n": 67,
+          "short_n": 66
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 29,
+          "sell": 28,
+          "bos_up": 19,
+          "bos_dn": 45,
+          "choch_up": 41,
+          "choch_dn": 41
+        },
+        "fwd_8bars_buy": {
+          "n": 29,
+          "avg_ret_pct": -0.7248,
+          "hit_pos": 0.4483,
+          "avg_mfe": 2.6525,
+          "avg_mae": -3.4377
+        },
+        "fwd_8bars_sell": {
+          "n": 28,
+          "avg_ret_pct": -0.8254,
+          "hit_pos": 0.5357,
+          "avg_mfe": 4.7242,
+          "avg_mae": -3.0374
+        },
+        "flip_trades": {
+          "n": 54,
+          "winrate": 0.4444,
+          "avg_ret": -0.9697,
+          "sum_ret": -52.3656,
+          "avg_mfe": 6.5573,
+          "avg_mae": -5.0528,
+          "long_n": 27,
+          "short_n": 27
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 0,
+          "sell": 1,
+          "bos_up": 19,
+          "bos_dn": 45,
+          "choch_up": 41,
+          "choch_dn": 41
+        },
+        "fwd_8bars_buy": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "fwd_8bars_sell": {
+          "n": 1,
+          "avg_ret_pct": -0.8259,
+          "hit_pos": 0.0,
+          "avg_mfe": 1.3636,
+          "avg_mae": -0.9518
+        },
+        "flip_trades": {
+          "n": 1,
+          "winrate": 0.0,
+          "avg_ret": -3.1635,
+          "sum_ret": -3.1635,
+          "avg_mfe": 1.3636,
+          "avg_mae": -3.3437,
+          "long_n": 0,
+          "short_n": 1
+        }
+      }
+    }
+  },
+  "BTRUSDT_15m": {
+    "symbol": "BTRUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 73,
+          "sell": 72,
+          "bos_up": 33,
+          "bos_dn": 24,
+          "choch_up": 39,
+          "choch_dn": 39
+        },
+        "fwd_8bars_buy": {
+          "n": 73,
+          "avg_ret_pct": 0.5151,
+          "hit_pos": 0.5205,
+          "avg_mfe": 3.9336,
+          "avg_mae": -2.908
+        },
+        "fwd_8bars_sell": {
+          "n": 72,
+          "avg_ret_pct": 0.7446,
+          "hit_pos": 0.4028,
+          "avg_mfe": 4.7518,
+          "avg_mae": -2.943
+        },
+        "flip_trades": {
+          "n": 145,
+          "winrate": 0.3862,
+          "avg_ret": 1.3258,
+          "sum_ret": 192.239,
+          "avg_mfe": 8.0734,
+          "avg_mae": -4.1728,
+          "long_n": 73,
+          "short_n": 72
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 35,
+          "sell": 18,
+          "bos_up": 33,
+          "bos_dn": 24,
+          "choch_up": 39,
+          "choch_dn": 39
+        },
+        "fwd_8bars_buy": {
+          "n": 35,
+          "avg_ret_pct": 1.7237,
+          "hit_pos": 0.6857,
+          "avg_mfe": 5.0311,
+          "avg_mae": -2.8715
+        },
+        "fwd_8bars_sell": {
+          "n": 18,
+          "avg_ret_pct": 1.9946,
+          "hit_pos": 0.5,
+          "avg_mfe": 6.8533,
+          "avg_mae": -2.5447
+        },
+        "flip_trades": {
+          "n": 47,
+          "winrate": 0.4681,
+          "avg_ret": 6.8177,
+          "sum_ret": 320.4335,
+          "avg_mfe": 14.4852,
+          "avg_mae": -4.8261,
+          "long_n": 31,
+          "short_n": 16
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 0,
+          "sell": 1,
+          "bos_up": 33,
+          "bos_dn": 24,
+          "choch_up": 39,
+          "choch_dn": 39
+        },
+        "fwd_8bars_buy": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "fwd_8bars_sell": {
+          "n": 1,
+          "avg_ret_pct": 0.3035,
+          "hit_pos": 1.0,
+          "avg_mfe": 1.2768,
+          "avg_mae": -0.6015
+        },
+        "flip_trades": {
+          "n": 1,
+          "winrate": 0.0,
+          "avg_ret": -2.0488,
+          "sum_ret": -2.0488,
+          "avg_mfe": 1.2768,
+          "avg_mae": -3.2683,
+          "long_n": 0,
+          "short_n": 1
+        }
+      }
+    }
+  },
+  "AGIUSDT_15m": {
+    "symbol": "AGIUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 64,
+          "sell": 63,
+          "bos_up": 43,
+          "bos_dn": 39,
+          "choch_up": 37,
+          "choch_dn": 36
+        },
+        "fwd_8bars_buy": {
+          "n": 64,
+          "avg_ret_pct": -0.2622,
+          "hit_pos": 0.4375,
+          "avg_mfe": 1.6524,
+          "avg_mae": -1.7347
+        },
+        "fwd_8bars_sell": {
+          "n": 63,
+          "avg_ret_pct": 0.1716,
+          "hit_pos": 0.4444,
+          "avg_mfe": 1.4951,
+          "avg_mae": -1.4075
+        },
+        "flip_trades": {
+          "n": 127,
+          "winrate": 0.4173,
+          "avg_ret": 0.3434,
+          "sum_ret": 43.6065,
+          "avg_mfe": 3.2401,
+          "avg_mae": -2.2508,
+          "long_n": 64,
+          "short_n": 63
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 29,
+          "sell": 24,
+          "bos_up": 43,
+          "bos_dn": 39,
+          "choch_up": 37,
+          "choch_dn": 36
+        },
+        "fwd_8bars_buy": {
+          "n": 29,
+          "avg_ret_pct": -0.7378,
+          "hit_pos": 0.2414,
+          "avg_mfe": 1.5549,
+          "avg_mae": -1.9845
+        },
+        "fwd_8bars_sell": {
+          "n": 24,
+          "avg_ret_pct": 0.285,
+          "hit_pos": 0.4583,
+          "avg_mfe": 1.6477,
+          "avg_mae": -1.4873
+        },
+        "flip_trades": {
+          "n": 52,
+          "winrate": 0.4231,
+          "avg_ret": 0.1295,
+          "sum_ret": 6.7343,
+          "avg_mfe": 3.1563,
+          "avg_mae": -2.9417,
+          "long_n": 28,
+          "short_n": 24
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 0,
+          "sell": 1,
+          "bos_up": 43,
+          "bos_dn": 39,
+          "choch_up": 37,
+          "choch_dn": 36
+        },
+        "fwd_8bars_buy": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "fwd_8bars_sell": {
+          "n": 1,
+          "avg_ret_pct": -0.8508,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.0991,
+          "avg_mae": -0.948
+        },
+        "flip_trades": {
+          "n": 1,
+          "winrate": 0.0,
+          "avg_ret": -0.7106,
+          "sum_ret": -0.7106,
+          "avg_mfe": 0.0991,
+          "avg_mae": -1.3029,
+          "long_n": 0,
+          "short_n": 1
+        }
+      }
+    }
+  },
+  "CASHCATUSDT_15m": {
+    "symbol": "CASHCATUSDT",
+    "tf": "15m",
+    "bars": 5597,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 80,
+          "sell": 80,
+          "bos_up": 40,
+          "bos_dn": 25,
+          "choch_up": 44,
+          "choch_dn": 44
+        },
+        "fwd_8bars_buy": {
+          "n": 80,
+          "avg_ret_pct": -0.1553,
+          "hit_pos": 0.425,
+          "avg_mfe": 4.5725,
+          "avg_mae": -4.5575
+        },
+        "fwd_8bars_sell": {
+          "n": 80,
+          "avg_ret_pct": -1.3866,
+          "hit_pos": 0.3875,
+          "avg_mfe": 3.5362,
+          "avg_mae": -4.4069
+        },
+        "flip_trades": {
+          "n": 160,
+          "winrate": 0.3625,
+          "avg_ret": -1.7651,
+          "sum_ret": -282.4142,
+          "avg_mfe": 6.7125,
+          "avg_mae": -6.0678,
+          "long_n": 80,
+          "short_n": 80
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 39,
+          "sell": 24,
+          "bos_up": 40,
+          "bos_dn": 25,
+          "choch_up": 44,
+          "choch_dn": 44
+        },
+        "fwd_8bars_buy": {
+          "n": 39,
+          "avg_ret_pct": 0.2462,
+          "hit_pos": 0.4103,
+          "avg_mfe": 4.6206,
+          "avg_mae": -3.5975
+        },
+        "fwd_8bars_sell": {
+          "n": 24,
+          "avg_ret_pct": -3.1555,
+          "hit_pos": 0.375,
+          "avg_mfe": 2.5509,
+          "avg_mae": -6.1207
+        },
+        "flip_trades": {
+          "n": 56,
+          "winrate": 0.3036,
+          "avg_ret": -3.1113,
+          "sum_ret": -174.2338,
+          "avg_mfe": 5.9981,
+          "avg_mae": -8.8941,
+          "long_n": 32,
+          "short_n": 24
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 1,
+          "sell": 1,
+          "bos_up": 40,
+          "bos_dn": 25,
+          "choch_up": 44,
+          "choch_dn": 44
+        },
+        "fwd_8bars_buy": {
+          "n": 1,
+          "avg_ret_pct": 2.6316,
+          "hit_pos": 1.0,
+          "avg_mfe": 6.001,
+          "avg_mae": -1.0121
+        },
+        "fwd_8bars_sell": {
+          "n": 1,
+          "avg_ret_pct": -12.3712,
+          "hit_pos": 0.0,
+          "avg_mfe": 3.7376,
+          "avg_mae": -13.5097
+        },
+        "flip_trades": {
+          "n": 2,
+          "winrate": 0.0,
+          "avg_ret": -14.5714,
+          "sum_ret": -29.1428,
+          "avg_mfe": 6.0937,
+          "avg_mae": -16.8023,
+          "long_n": 1,
+          "short_n": 1
+        }
+      }
+    }
+  },
+  "BMTUSDT_15m": {
+    "symbol": "BMTUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 75,
+          "sell": 74,
+          "bos_up": 47,
+          "bos_dn": 41,
+          "choch_up": 38,
+          "choch_dn": 38
+        },
+        "fwd_8bars_buy": {
+          "n": 75,
+          "avg_ret_pct": 0.0335,
+          "hit_pos": 0.4667,
+          "avg_mfe": 1.9012,
+          "avg_mae": -1.5862
+        },
+        "fwd_8bars_sell": {
+          "n": 74,
+          "avg_ret_pct": -0.0163,
+          "hit_pos": 0.5135,
+          "avg_mfe": 2.0663,
+          "avg_mae": -1.6207
+        },
+        "flip_trades": {
+          "n": 149,
+          "winrate": 0.4228,
+          "avg_ret": 0.1978,
+          "sum_ret": 29.4723,
+          "avg_mfe": 3.6623,
+          "avg_mae": -2.2674,
+          "long_n": 75,
+          "short_n": 74
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 37,
+          "sell": 25,
+          "bos_up": 47,
+          "bos_dn": 41,
+          "choch_up": 38,
+          "choch_dn": 38
+        },
+        "fwd_8bars_buy": {
+          "n": 37,
+          "avg_ret_pct": 0.0204,
+          "hit_pos": 0.4324,
+          "avg_mfe": 1.7289,
+          "avg_mae": -1.7042
+        },
+        "fwd_8bars_sell": {
+          "n": 25,
+          "avg_ret_pct": -0.2352,
+          "hit_pos": 0.56,
+          "avg_mfe": 1.3638,
+          "avg_mae": -1.5672
+        },
+        "flip_trades": {
+          "n": 60,
+          "winrate": 0.45,
+          "avg_ret": 0.3715,
+          "sum_ret": 22.2878,
+          "avg_mfe": 3.9493,
+          "avg_mae": -2.9912,
+          "long_n": 36,
+          "short_n": 24
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 6,
+          "sell": 0,
+          "bos_up": 47,
+          "bos_dn": 41,
+          "choch_up": 38,
+          "choch_dn": 38
+        },
+        "fwd_8bars_buy": {
+          "n": 6,
+          "avg_ret_pct": -0.8497,
+          "hit_pos": 0.1667,
+          "avg_mfe": 1.9901,
+          "avg_mae": -2.3512
+        },
+        "fwd_8bars_sell": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "flip_trades": {
+          "n": 6,
+          "winrate": 0.3333,
+          "avg_ret": 9.3626,
+          "sum_ret": 56.1758,
+          "avg_mfe": 14.0855,
+          "avg_mae": -4.1318,
+          "long_n": 6,
+          "short_n": 0
+        }
+      }
+    }
+  },
+  "BTWUSDT_15m": {
+    "symbol": "BTWUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 72,
+          "sell": 72,
+          "bos_up": 54,
+          "bos_dn": 24,
+          "choch_up": 36,
+          "choch_dn": 36
+        },
+        "fwd_8bars_buy": {
+          "n": 72,
+          "avg_ret_pct": -0.1304,
+          "hit_pos": 0.5278,
+          "avg_mfe": 3.7462,
+          "avg_mae": -4.9486
+        },
+        "fwd_8bars_sell": {
+          "n": 72,
+          "avg_ret_pct": -2.0185,
+          "hit_pos": 0.3194,
+          "avg_mfe": 6.3123,
+          "avg_mae": -5.8715
+        },
+        "flip_trades": {
+          "n": 144,
+          "winrate": 0.3611,
+          "avg_ret": -0.928,
+          "sum_ret": -133.6278,
+          "avg_mfe": 8.6437,
+          "avg_mae": -6.2765,
+          "long_n": 72,
+          "short_n": 72
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 31,
+          "sell": 31,
+          "bos_up": 54,
+          "bos_dn": 24,
+          "choch_up": 36,
+          "choch_dn": 36
+        },
+        "fwd_8bars_buy": {
+          "n": 31,
+          "avg_ret_pct": -0.3091,
+          "hit_pos": 0.5484,
+          "avg_mfe": 3.4191,
+          "avg_mae": -4.6847
+        },
+        "fwd_8bars_sell": {
+          "n": 31,
+          "avg_ret_pct": -2.0874,
+          "hit_pos": 0.2581,
+          "avg_mfe": 4.9148,
+          "avg_mae": -5.651
+        },
+        "flip_trades": {
+          "n": 60,
+          "winrate": 0.3833,
+          "avg_ret": -2.3196,
+          "sum_ret": -139.1759,
+          "avg_mfe": 7.6094,
+          "avg_mae": -7.8873,
+          "long_n": 31,
+          "short_n": 29
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 1,
+          "sell": 2,
+          "bos_up": 54,
+          "bos_dn": 24,
+          "choch_up": 36,
+          "choch_dn": 36
+        },
+        "fwd_8bars_buy": {
+          "n": 1,
+          "avg_ret_pct": 1.4775,
+          "hit_pos": 1.0,
+          "avg_mfe": 4.4208,
+          "avg_mae": -4.6572
+        },
+        "fwd_8bars_sell": {
+          "n": 2,
+          "avg_ret_pct": -2.3383,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.6746,
+          "avg_mae": -3.2015
+        },
+        "flip_trades": {
+          "n": 3,
+          "winrate": 0.3333,
+          "avg_ret": -0.7026,
+          "sum_ret": -2.1077,
+          "avg_mfe": 4.516,
+          "avg_mae": -6.0971,
+          "long_n": 1,
+          "short_n": 2
+        }
+      }
+    }
+  },
+  "ONGUSDT_15m": {
+    "symbol": "ONGUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 81,
+          "sell": 81,
+          "bos_up": 46,
+          "bos_dn": 40,
+          "choch_up": 30,
+          "choch_dn": 31
+        },
+        "fwd_8bars_buy": {
+          "n": 81,
+          "avg_ret_pct": 0.6562,
+          "hit_pos": 0.4321,
+          "avg_mfe": 2.577,
+          "avg_mae": -1.6625
+        },
+        "fwd_8bars_sell": {
+          "n": 81,
+          "avg_ret_pct": 0.8714,
+          "hit_pos": 0.3704,
+          "avg_mfe": 2.9051,
+          "avg_mae": -1.7904
+        },
+        "flip_trades": {
+          "n": 162,
+          "winrate": 0.3642,
+          "avg_ret": 1.0475,
+          "sum_ret": 169.6954,
+          "avg_mfe": 4.7833,
+          "avg_mae": -2.1934,
+          "long_n": 81,
+          "short_n": 81
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 39,
+          "sell": 30,
+          "bos_up": 46,
+          "bos_dn": 40,
+          "choch_up": 30,
+          "choch_dn": 31
+        },
+        "fwd_8bars_buy": {
+          "n": 39,
+          "avg_ret_pct": 1.5973,
+          "hit_pos": 0.3333,
+          "avg_mfe": 4.1233,
+          "avg_mae": -2.0839
+        },
+        "fwd_8bars_sell": {
+          "n": 30,
+          "avg_ret_pct": -0.1657,
+          "hit_pos": 0.4333,
+          "avg_mfe": 1.4939,
+          "avg_mae": -1.49
+        },
+        "flip_trades": {
+          "n": 62,
+          "winrate": 0.4677,
+          "avg_ret": 1.5233,
+          "sum_ret": 94.4425,
+          "avg_mfe": 5.9925,
+          "avg_mae": -3.0481,
+          "long_n": 36,
+          "short_n": 26
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 2,
+          "sell": 1,
+          "bos_up": 46,
+          "bos_dn": 40,
+          "choch_up": 30,
+          "choch_dn": 31
+        },
+        "fwd_8bars_buy": {
+          "n": 2,
+          "avg_ret_pct": -0.8736,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.4499,
+          "avg_mae": -1.5338
+        },
+        "fwd_8bars_sell": {
+          "n": 1,
+          "avg_ret_pct": 0.0,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.3102,
+          "avg_mae": -0.1425
+        },
+        "flip_trades": {
+          "n": 3,
+          "winrate": 0.0,
+          "avg_ret": -0.633,
+          "sum_ret": -1.8991,
+          "avg_mfe": 0.4725,
+          "avg_mae": -1.3573,
+          "long_n": 2,
+          "short_n": 1
+        }
+      }
+    }
+  },
+  "TUTUSDT_15m": {
+    "symbol": "TUTUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 75,
+          "sell": 74,
+          "bos_up": 35,
+          "bos_dn": 44,
+          "choch_up": 37,
+          "choch_dn": 37
+        },
+        "fwd_8bars_buy": {
+          "n": 75,
+          "avg_ret_pct": -0.3903,
+          "hit_pos": 0.4267,
+          "avg_mfe": 4.1665,
+          "avg_mae": -3.6267
+        },
+        "fwd_8bars_sell": {
+          "n": 74,
+          "avg_ret_pct": -1.5466,
+          "hit_pos": 0.2973,
+          "avg_mfe": 2.8338,
+          "avg_mae": -4.0824
+        },
+        "flip_trades": {
+          "n": 149,
+          "winrate": 0.4027,
+          "avg_ret": 0.1235,
+          "sum_ret": 18.4,
+          "avg_mfe": 6.7409,
+          "avg_mae": -4.9044,
+          "long_n": 75,
+          "short_n": 74
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 32,
+          "sell": 25,
+          "bos_up": 35,
+          "bos_dn": 44,
+          "choch_up": 37,
+          "choch_dn": 37
+        },
+        "fwd_8bars_buy": {
+          "n": 32,
+          "avg_ret_pct": -1.1966,
+          "hit_pos": 0.3438,
+          "avg_mfe": 3.7707,
+          "avg_mae": -4.3075
+        },
+        "fwd_8bars_sell": {
+          "n": 25,
+          "avg_ret_pct": -2.6277,
+          "hit_pos": 0.2,
+          "avg_mfe": 2.2365,
+          "avg_mae": -4.2149
+        },
+        "flip_trades": {
+          "n": 56,
+          "winrate": 0.375,
+          "avg_ret": -1.7585,
+          "sum_ret": -98.475,
+          "avg_mfe": 6.4977,
+          "avg_mae": -7.2256,
+          "long_n": 32,
+          "short_n": 24
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 1,
+          "sell": 0,
+          "bos_up": 35,
+          "bos_dn": 44,
+          "choch_up": 37,
+          "choch_dn": 37
+        },
+        "fwd_8bars_buy": {
+          "n": 1,
+          "avg_ret_pct": -3.5261,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.6015,
+          "avg_mae": -5.0071
+        },
+        "fwd_8bars_sell": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "flip_trades": {
+          "n": 1,
+          "winrate": 0.0,
+          "avg_ret": -2.9564,
+          "sum_ret": -2.9564,
+          "avg_mfe": 0.6015,
+          "avg_mae": -6.6164,
+          "long_n": 1,
+          "short_n": 0
+        }
+      }
+    }
+  },
+  "PORTALUSDT_15m": {
+    "symbol": "PORTALUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 74,
+          "sell": 73,
+          "bos_up": 44,
+          "bos_dn": 31,
+          "choch_up": 38,
+          "choch_dn": 38
+        },
+        "fwd_8bars_buy": {
+          "n": 74,
+          "avg_ret_pct": -0.0912,
+          "hit_pos": 0.4189,
+          "avg_mfe": 1.9004,
+          "avg_mae": -1.6113
+        },
+        "fwd_8bars_sell": {
+          "n": 73,
+          "avg_ret_pct": -0.0713,
+          "hit_pos": 0.4521,
+          "avg_mfe": 1.7574,
+          "avg_mae": -1.7898
+        },
+        "flip_trades": {
+          "n": 147,
+          "winrate": 0.381,
+          "avg_ret": -0.3582,
+          "sum_ret": -52.6567,
+          "avg_mfe": 3.7465,
+          "avg_mae": -2.471,
+          "long_n": 74,
+          "short_n": 73
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 40,
+          "sell": 27,
+          "bos_up": 44,
+          "bos_dn": 31,
+          "choch_up": 38,
+          "choch_dn": 38
+        },
+        "fwd_8bars_buy": {
+          "n": 40,
+          "avg_ret_pct": -0.0702,
+          "hit_pos": 0.35,
+          "avg_mfe": 2.231,
+          "avg_mae": -1.7317
+        },
+        "fwd_8bars_sell": {
+          "n": 27,
+          "avg_ret_pct": 0.6706,
+          "hit_pos": 0.4815,
+          "avg_mfe": 2.2156,
+          "avg_mae": -1.1088
+        },
+        "flip_trades": {
+          "n": 63,
+          "winrate": 0.4444,
+          "avg_ret": 0.2675,
+          "sum_ret": 16.8497,
+          "avg_mfe": 4.1281,
+          "avg_mae": -2.7942,
+          "long_n": 38,
+          "short_n": 25
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 3,
+          "sell": 2,
+          "bos_up": 44,
+          "bos_dn": 31,
+          "choch_up": 38,
+          "choch_dn": 38
+        },
+        "fwd_8bars_buy": {
+          "n": 3,
+          "avg_ret_pct": -0.2342,
+          "hit_pos": 0.3333,
+          "avg_mfe": 0.9466,
+          "avg_mae": -0.6786
+        },
+        "fwd_8bars_sell": {
+          "n": 2,
+          "avg_ret_pct": -0.0803,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.2215,
+          "avg_mae": -0.8192
+        },
+        "flip_trades": {
+          "n": 4,
+          "winrate": 0.25,
+          "avg_ret": -0.0349,
+          "sum_ret": -0.1394,
+          "avg_mfe": 1.4457,
+          "avg_mae": -1.4738,
+          "long_n": 2,
+          "short_n": 2
+        }
+      }
+    }
+  },
+  "HFTUSDT_15m": {
+    "symbol": "HFTUSDT",
+    "tf": "15m",
+    "error": "no_data",
+    "bars": 0
+  },
+  "SCRTUSDT_15m": {
+    "symbol": "SCRTUSDT",
+    "tf": "15m",
+    "error": "no_data",
+    "bars": 0
+  },
+  "NESAUSDT_15m": {
+    "symbol": "NESAUSDT",
+    "tf": "15m",
+    "bars": 4831,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 57,
+          "sell": 57,
+          "bos_up": 24,
+          "bos_dn": 25,
+          "choch_up": 36,
+          "choch_dn": 37
+        },
+        "fwd_8bars_buy": {
+          "n": 57,
+          "avg_ret_pct": 0.28,
+          "hit_pos": 0.4035,
+          "avg_mfe": 1.9999,
+          "avg_mae": -1.4288
+        },
+        "fwd_8bars_sell": {
+          "n": 57,
+          "avg_ret_pct": -0.1404,
+          "hit_pos": 0.4912,
+          "avg_mfe": 1.7443,
+          "avg_mae": -1.5595
+        },
+        "flip_trades": {
+          "n": 114,
+          "winrate": 0.4123,
+          "avg_ret": 0.4126,
+          "sum_ret": 47.0353,
+          "avg_mfe": 3.8748,
+          "avg_mae": -2.1291,
+          "long_n": 57,
+          "short_n": 57
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 21,
+          "sell": 26,
+          "bos_up": 24,
+          "bos_dn": 25,
+          "choch_up": 36,
+          "choch_dn": 37
+        },
+        "fwd_8bars_buy": {
+          "n": 21,
+          "avg_ret_pct": 0.1005,
+          "hit_pos": 0.4286,
+          "avg_mfe": 2.4556,
+          "avg_mae": -2.1685
+        },
+        "fwd_8bars_sell": {
+          "n": 26,
+          "avg_ret_pct": 0.1302,
+          "hit_pos": 0.4231,
+          "avg_mfe": 1.8418,
+          "avg_mae": -1.1765
+        },
+        "flip_trades": {
+          "n": 47,
+          "winrate": 0.383,
+          "avg_ret": -0.4422,
+          "sum_ret": -20.783,
+          "avg_mfe": 3.2216,
+          "avg_mae": -2.5241,
+          "long_n": 21,
+          "short_n": 26
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 0,
+          "sell": 2,
+          "bos_up": 24,
+          "bos_dn": 25,
+          "choch_up": 36,
+          "choch_dn": 37
+        },
+        "fwd_8bars_buy": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "fwd_8bars_sell": {
+          "n": 2,
+          "avg_ret_pct": -0.2421,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.7896,
+          "avg_mae": -0.3144
+        },
+        "flip_trades": {
+          "n": 2,
+          "winrate": 0.5,
+          "avg_ret": -1.9531,
+          "sum_ret": -3.9062,
+          "avg_mfe": 0.8206,
+          "avg_mae": -2.9718,
+          "long_n": 0,
+          "short_n": 2
+        }
+      }
+    }
+  },
+  "BEATUSDT_15m": {
+    "symbol": "BEATUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 68,
+          "sell": 67,
+          "bos_up": 25,
+          "bos_dn": 54,
+          "choch_up": 39,
+          "choch_dn": 39
+        },
+        "fwd_8bars_buy": {
+          "n": 68,
+          "avg_ret_pct": -1.0951,
+          "hit_pos": 0.3971,
+          "avg_mfe": 2.6579,
+          "avg_mae": -3.4494
+        },
+        "fwd_8bars_sell": {
+          "n": 67,
+          "avg_ret_pct": 1.2321,
+          "hit_pos": 0.4776,
+          "avg_mfe": 4.4119,
+          "avg_mae": -2.5133
+        },
+        "flip_trades": {
+          "n": 135,
+          "winrate": 0.3852,
+          "avg_ret": 0.3828,
+          "sum_ret": 51.6772,
+          "avg_mfe": 6.4012,
+          "avg_mae": -4.3297,
+          "long_n": 68,
+          "short_n": 67
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 26,
+          "sell": 35,
+          "bos_up": 25,
+          "bos_dn": 54,
+          "choch_up": 39,
+          "choch_dn": 39
+        },
+        "fwd_8bars_buy": {
+          "n": 26,
+          "avg_ret_pct": -1.0849,
+          "hit_pos": 0.5385,
+          "avg_mfe": 2.5915,
+          "avg_mae": -3.6176
+        },
+        "fwd_8bars_sell": {
+          "n": 35,
+          "avg_ret_pct": 0.8912,
+          "hit_pos": 0.4857,
+          "avg_mfe": 4.098,
+          "avg_mae": -2.67
+        },
+        "flip_trades": {
+          "n": 58,
+          "winrate": 0.431,
+          "avg_ret": 0.815,
+          "sum_ret": 47.2709,
+          "avg_mfe": 6.5044,
+          "avg_mae": -4.5678,
+          "long_n": 24,
+          "short_n": 34
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 0,
+          "sell": 0,
+          "bos_up": 25,
+          "bos_dn": 54,
+          "choch_up": 39,
+          "choch_dn": 39
+        },
+        "fwd_8bars_buy": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "fwd_8bars_sell": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "flip_trades": {
+          "n": 0,
+          "winrate": null,
+          "avg_ret": null,
+          "sum_ret": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        }
+      }
+    }
+  },
+  "HANAUSDT_15m": {
+    "symbol": "HANAUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 77,
+          "sell": 76,
+          "bos_up": 27,
+          "bos_dn": 48,
+          "choch_up": 42,
+          "choch_dn": 42
+        },
+        "fwd_8bars_buy": {
+          "n": 77,
+          "avg_ret_pct": -0.2684,
+          "hit_pos": 0.4026,
+          "avg_mfe": 1.3492,
+          "avg_mae": -1.3862
+        },
+        "fwd_8bars_sell": {
+          "n": 76,
+          "avg_ret_pct": 0.0928,
+          "hit_pos": 0.4079,
+          "avg_mfe": 1.6366,
+          "avg_mae": -1.2427
+        },
+        "flip_trades": {
+          "n": 153,
+          "winrate": 0.3856,
+          "avg_ret": -0.2957,
+          "sum_ret": -45.2496,
+          "avg_mfe": 2.934,
+          "avg_mae": -1.8993,
+          "long_n": 77,
+          "short_n": 76
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 31,
+          "sell": 32,
+          "bos_up": 27,
+          "bos_dn": 48,
+          "choch_up": 42,
+          "choch_dn": 42
+        },
+        "fwd_8bars_buy": {
+          "n": 31,
+          "avg_ret_pct": -0.4996,
+          "hit_pos": 0.3548,
+          "avg_mfe": 1.5189,
+          "avg_mae": -1.5793
+        },
+        "fwd_8bars_sell": {
+          "n": 32,
+          "avg_ret_pct": -0.3419,
+          "hit_pos": 0.3125,
+          "avg_mfe": 0.9763,
+          "avg_mae": -1.1802
+        },
+        "flip_trades": {
+          "n": 63,
+          "winrate": 0.3492,
+          "avg_ret": -0.3848,
+          "sum_ret": -24.241,
+          "avg_mfe": 2.3494,
+          "avg_mae": -2.4538,
+          "long_n": 31,
+          "short_n": 32
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 3,
+          "sell": 1,
+          "bos_up": 27,
+          "bos_dn": 48,
+          "choch_up": 42,
+          "choch_dn": 42
+        },
+        "fwd_8bars_buy": {
+          "n": 3,
+          "avg_ret_pct": -0.1167,
+          "hit_pos": 0.3333,
+          "avg_mfe": 1.6865,
+          "avg_mae": -2.1251
+        },
+        "fwd_8bars_sell": {
+          "n": 1,
+          "avg_ret_pct": -1.1146,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.1613,
+          "avg_mae": -1.4286
+        },
+        "flip_trades": {
+          "n": 4,
+          "winrate": 0.25,
+          "avg_ret": -0.1612,
+          "sum_ret": -0.645,
+          "avg_mfe": 2.9722,
+          "avg_mae": -3.0463,
+          "long_n": 3,
+          "short_n": 1
+        }
+      }
+    }
+  },
+  "SKYAI1USDT_15m": {
+    "symbol": "SKYAI1USDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 84,
+          "sell": 84,
+          "bos_up": 44,
+          "bos_dn": 36,
+          "choch_up": 38,
+          "choch_dn": 39
+        },
+        "fwd_8bars_buy": {
+          "n": 84,
+          "avg_ret_pct": -0.3552,
+          "hit_pos": 0.381,
+          "avg_mfe": 2.0548,
+          "avg_mae": -2.4997
+        },
+        "fwd_8bars_sell": {
+          "n": 84,
+          "avg_ret_pct": -0.8348,
+          "hit_pos": 0.4286,
+          "avg_mfe": 2.4066,
+          "avg_mae": -3.1358
+        },
+        "flip_trades": {
+          "n": 168,
+          "winrate": 0.375,
+          "avg_ret": -0.8617,
+          "sum_ret": -144.7585,
+          "avg_mfe": 4.2689,
+          "avg_mae": -3.6953,
+          "long_n": 84,
+          "short_n": 84
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 43,
+          "sell": 37,
+          "bos_up": 44,
+          "bos_dn": 36,
+          "choch_up": 38,
+          "choch_dn": 39
+        },
+        "fwd_8bars_buy": {
+          "n": 43,
+          "avg_ret_pct": 0.3855,
+          "hit_pos": 0.3721,
+          "avg_mfe": 2.4198,
+          "avg_mae": -2.061
+        },
+        "fwd_8bars_sell": {
+          "n": 37,
+          "avg_ret_pct": 0.0521,
+          "hit_pos": 0.5676,
+          "avg_mfe": 2.224,
+          "avg_mae": -2.2179
+        },
+        "flip_trades": {
+          "n": 74,
+          "winrate": 0.473,
+          "avg_ret": -0.0079,
+          "sum_ret": -0.5827,
+          "avg_mfe": 4.4648,
+          "avg_mae": -4.1486,
+          "long_n": 38,
+          "short_n": 36
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 1,
+          "sell": 1,
+          "bos_up": 44,
+          "bos_dn": 36,
+          "choch_up": 38,
+          "choch_dn": 39
+        },
+        "fwd_8bars_buy": {
+          "n": 1,
+          "avg_ret_pct": 2.01,
+          "hit_pos": 1.0,
+          "avg_mfe": 5.2185,
+          "avg_mae": -2.6717
+        },
+        "fwd_8bars_sell": {
+          "n": 1,
+          "avg_ret_pct": 0.0428,
+          "hit_pos": 1.0,
+          "avg_mfe": 0.9944,
+          "avg_mae": -1.7042
+        },
+        "flip_trades": {
+          "n": 2,
+          "winrate": 0.5,
+          "avg_ret": -3.5132,
+          "sum_ret": -7.0264,
+          "avg_mfe": 3.5025,
+          "avg_mae": -5.3402,
+          "long_n": 1,
+          "short_n": 1
+        }
+      }
+    }
+  },
+  "ZROUSDT_15m": {
+    "symbol": "ZROUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 85,
+          "sell": 84,
+          "bos_up": 50,
+          "bos_dn": 35,
+          "choch_up": 36,
+          "choch_dn": 36
+        },
+        "fwd_8bars_buy": {
+          "n": 85,
+          "avg_ret_pct": -0.0889,
+          "hit_pos": 0.4706,
+          "avg_mfe": 1.8536,
+          "avg_mae": -1.5682
+        },
+        "fwd_8bars_sell": {
+          "n": 84,
+          "avg_ret_pct": -0.3385,
+          "hit_pos": 0.4048,
+          "avg_mfe": 1.3279,
+          "avg_mae": -1.5046
+        },
+        "flip_trades": {
+          "n": 169,
+          "winrate": 0.3018,
+          "avg_ret": -0.3564,
+          "sum_ret": -60.232,
+          "avg_mfe": 2.8281,
+          "avg_mae": -2.2222,
+          "long_n": 85,
+          "short_n": 84
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 47,
+          "sell": 26,
+          "bos_up": 50,
+          "bos_dn": 35,
+          "choch_up": 36,
+          "choch_dn": 36
+        },
+        "fwd_8bars_buy": {
+          "n": 47,
+          "avg_ret_pct": -0.1316,
+          "hit_pos": 0.4468,
+          "avg_mfe": 1.7483,
+          "avg_mae": -1.6518
+        },
+        "fwd_8bars_sell": {
+          "n": 26,
+          "avg_ret_pct": -0.5965,
+          "hit_pos": 0.3077,
+          "avg_mfe": 1.1268,
+          "avg_mae": -1.5609
+        },
+        "flip_trades": {
+          "n": 67,
+          "winrate": 0.4179,
+          "avg_ret": 0.2101,
+          "sum_ret": 14.08,
+          "avg_mfe": 3.228,
+          "avg_mae": -2.8456,
+          "long_n": 45,
+          "short_n": 22
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 4,
+          "sell": 0,
+          "bos_up": 50,
+          "bos_dn": 35,
+          "choch_up": 36,
+          "choch_dn": 36
+        },
+        "fwd_8bars_buy": {
+          "n": 4,
+          "avg_ret_pct": 0.4449,
+          "hit_pos": 0.5,
+          "avg_mfe": 1.7929,
+          "avg_mae": -1.0656
+        },
+        "fwd_8bars_sell": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "flip_trades": {
+          "n": 4,
+          "winrate": 0.25,
+          "avg_ret": 0.5733,
+          "sum_ret": 2.2932,
+          "avg_mfe": 2.938,
+          "avg_mae": -1.5008,
+          "long_n": 4,
+          "short_n": 0
+        }
+      }
+    }
+  },
+  "ACEUSDT_15m": {
+    "symbol": "ACEUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 70,
+          "sell": 70,
+          "bos_up": 31,
+          "bos_dn": 44,
+          "choch_up": 35,
+          "choch_dn": 35
+        },
+        "fwd_8bars_buy": {
+          "n": 70,
+          "avg_ret_pct": 0.7871,
+          "hit_pos": 0.5,
+          "avg_mfe": 3.695,
+          "avg_mae": -2.441
+        },
+        "fwd_8bars_sell": {
+          "n": 70,
+          "avg_ret_pct": 0.0634,
+          "hit_pos": 0.5429,
+          "avg_mfe": 2.4999,
+          "avg_mae": -2.938
+        },
+        "flip_trades": {
+          "n": 140,
+          "winrate": 0.4143,
+          "avg_ret": -0.1527,
+          "sum_ret": -21.3815,
+          "avg_mfe": 5.8296,
+          "avg_mae": -3.8971,
+          "long_n": 70,
+          "short_n": 70
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 25,
+          "sell": 25,
+          "bos_up": 31,
+          "bos_dn": 44,
+          "choch_up": 35,
+          "choch_dn": 35
+        },
+        "fwd_8bars_buy": {
+          "n": 25,
+          "avg_ret_pct": 0.9467,
+          "hit_pos": 0.52,
+          "avg_mfe": 4.0487,
+          "avg_mae": -3.3617
+        },
+        "fwd_8bars_sell": {
+          "n": 25,
+          "avg_ret_pct": -0.0669,
+          "hit_pos": 0.48,
+          "avg_mfe": 1.9395,
+          "avg_mae": -2.2373
+        },
+        "flip_trades": {
+          "n": 47,
+          "winrate": 0.5319,
+          "avg_ret": -0.5692,
+          "sum_ret": -26.752,
+          "avg_mfe": 5.5312,
+          "avg_mae": -5.8188,
+          "long_n": 22,
+          "short_n": 25
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 2,
+          "sell": 0,
+          "bos_up": 31,
+          "bos_dn": 44,
+          "choch_up": 35,
+          "choch_dn": 35
+        },
+        "fwd_8bars_buy": {
+          "n": 2,
+          "avg_ret_pct": 0.87,
+          "hit_pos": 0.5,
+          "avg_mfe": 2.0019,
+          "avg_mae": -2.2387
+        },
+        "fwd_8bars_sell": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "flip_trades": {
+          "n": 2,
+          "winrate": 0.5,
+          "avg_ret": 1.2374,
+          "sum_ret": 2.4747,
+          "avg_mfe": 2.462,
+          "avg_mae": -2.6447,
+          "long_n": 2,
+          "short_n": 0
+        }
+      }
+    }
+  },
+  "USUSDT_15m": {
+    "symbol": "USUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 79,
+          "sell": 79,
+          "bos_up": 34,
+          "bos_dn": 47,
+          "choch_up": 35,
+          "choch_dn": 36
+        },
+        "fwd_8bars_buy": {
+          "n": 79,
+          "avg_ret_pct": 1.0943,
+          "hit_pos": 0.4937,
+          "avg_mfe": 4.6981,
+          "avg_mae": -3.2648
+        },
+        "fwd_8bars_sell": {
+          "n": 79,
+          "avg_ret_pct": -0.3696,
+          "hit_pos": 0.481,
+          "avg_mfe": 3.5581,
+          "avg_mae": -3.4232
+        },
+        "flip_trades": {
+          "n": 158,
+          "winrate": 0.3861,
+          "avg_ret": -0.2741,
+          "sum_ret": -43.3022,
+          "avg_mfe": 6.5656,
+          "avg_mae": -4.3455,
+          "long_n": 79,
+          "short_n": 79
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 27,
+          "sell": 38,
+          "bos_up": 34,
+          "bos_dn": 47,
+          "choch_up": 35,
+          "choch_dn": 36
+        },
+        "fwd_8bars_buy": {
+          "n": 27,
+          "avg_ret_pct": 0.3636,
+          "hit_pos": 0.4815,
+          "avg_mfe": 3.0814,
+          "avg_mae": -3.0643
+        },
+        "fwd_8bars_sell": {
+          "n": 38,
+          "avg_ret_pct": -0.3735,
+          "hit_pos": 0.4737,
+          "avg_mfe": 3.3922,
+          "avg_mae": -3.7125
+        },
+        "flip_trades": {
+          "n": 60,
+          "winrate": 0.5,
+          "avg_ret": 0.6177,
+          "sum_ret": 37.06,
+          "avg_mfe": 5.8981,
+          "avg_mae": -5.1684,
+          "long_n": 25,
+          "short_n": 35
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 2,
+          "sell": 0,
+          "bos_up": 34,
+          "bos_dn": 47,
+          "choch_up": 35,
+          "choch_dn": 36
+        },
+        "fwd_8bars_buy": {
+          "n": 2,
+          "avg_ret_pct": 1.1828,
+          "hit_pos": 1.0,
+          "avg_mfe": 1.6459,
+          "avg_mae": -8.7091
+        },
+        "fwd_8bars_sell": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "flip_trades": {
+          "n": 2,
+          "winrate": 0.0,
+          "avg_ret": -3.1873,
+          "sum_ret": -6.3745,
+          "avg_mfe": 2.036,
+          "avg_mae": -9.2494,
+          "long_n": 2,
+          "short_n": 0
+        }
+      }
+    }
+  },
+  "HEMIUSDT_15m": {
+    "symbol": "HEMIUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 79,
+          "sell": 78,
+          "bos_up": 46,
+          "bos_dn": 38,
+          "choch_up": 38,
+          "choch_dn": 38
+        },
+        "fwd_8bars_buy": {
+          "n": 79,
+          "avg_ret_pct": 0.1179,
+          "hit_pos": 0.4304,
+          "avg_mfe": 3.4173,
+          "avg_mae": -2.5534
+        },
+        "fwd_8bars_sell": {
+          "n": 78,
+          "avg_ret_pct": -0.571,
+          "hit_pos": 0.4231,
+          "avg_mfe": 2.3855,
+          "avg_mae": -2.8937
+        },
+        "flip_trades": {
+          "n": 157,
+          "winrate": 0.3376,
+          "avg_ret": -0.6939,
+          "sum_ret": -108.9499,
+          "avg_mfe": 5.0222,
+          "avg_mae": -4.0446,
+          "long_n": 79,
+          "short_n": 78
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 37,
+          "sell": 33,
+          "bos_up": 46,
+          "bos_dn": 38,
+          "choch_up": 38,
+          "choch_dn": 38
+        },
+        "fwd_8bars_buy": {
+          "n": 37,
+          "avg_ret_pct": -0.2627,
+          "hit_pos": 0.3784,
+          "avg_mfe": 2.9726,
+          "avg_mae": -2.2832
+        },
+        "fwd_8bars_sell": {
+          "n": 33,
+          "avg_ret_pct": -1.3811,
+          "hit_pos": 0.3333,
+          "avg_mfe": 1.901,
+          "avg_mae": -3.3242
+        },
+        "flip_trades": {
+          "n": 65,
+          "winrate": 0.3231,
+          "avg_ret": -2.0462,
+          "sum_ret": -133.0047,
+          "avg_mfe": 4.1412,
+          "avg_mae": -5.6733,
+          "long_n": 34,
+          "short_n": 31
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 2,
+          "sell": 1,
+          "bos_up": 46,
+          "bos_dn": 38,
+          "choch_up": 38,
+          "choch_dn": 38
+        },
+        "fwd_8bars_buy": {
+          "n": 2,
+          "avg_ret_pct": -1.0506,
+          "hit_pos": 0.0,
+          "avg_mfe": 1.8218,
+          "avg_mae": -1.9113
+        },
+        "fwd_8bars_sell": {
+          "n": 1,
+          "avg_ret_pct": -0.582,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.1885,
+          "avg_mae": -1.0141
+        },
+        "flip_trades": {
+          "n": 3,
+          "winrate": 0.6667,
+          "avg_ret": 0.6491,
+          "sum_ret": 1.9472,
+          "avg_mfe": 3.4233,
+          "avg_mae": -4.4309,
+          "long_n": 2,
+          "short_n": 1
+        }
+      }
+    }
+  },
+  "STORJUSDT_15m": {
+    "symbol": "STORJUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 70,
+          "sell": 70,
+          "bos_up": 33,
+          "bos_dn": 54,
+          "choch_up": 33,
+          "choch_dn": 33
+        },
+        "fwd_8bars_buy": {
+          "n": 70,
+          "avg_ret_pct": -0.3565,
+          "hit_pos": 0.3714,
+          "avg_mfe": 1.944,
+          "avg_mae": -1.8046
+        },
+        "fwd_8bars_sell": {
+          "n": 70,
+          "avg_ret_pct": 0.4843,
+          "hit_pos": 0.4571,
+          "avg_mfe": 2.6084,
+          "avg_mae": -1.4765
+        },
+        "flip_trades": {
+          "n": 140,
+          "winrate": 0.3786,
+          "avg_ret": -0.0975,
+          "sum_ret": -13.644,
+          "avg_mfe": 3.8052,
+          "avg_mae": -2.3328,
+          "long_n": 70,
+          "short_n": 70
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 35,
+          "sell": 28,
+          "bos_up": 33,
+          "bos_dn": 54,
+          "choch_up": 33,
+          "choch_dn": 33
+        },
+        "fwd_8bars_buy": {
+          "n": 35,
+          "avg_ret_pct": -0.5069,
+          "hit_pos": 0.2571,
+          "avg_mfe": 2.6114,
+          "avg_mae": -2.1624
+        },
+        "fwd_8bars_sell": {
+          "n": 28,
+          "avg_ret_pct": -0.1449,
+          "hit_pos": 0.4286,
+          "avg_mfe": 1.0167,
+          "avg_mae": -1.4344
+        },
+        "flip_trades": {
+          "n": 60,
+          "winrate": 0.4,
+          "avg_ret": -0.9012,
+          "sum_ret": -54.0726,
+          "avg_mfe": 2.846,
+          "avg_mae": -3.1552,
+          "long_n": 33,
+          "short_n": 27
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 3,
+          "sell": 0,
+          "bos_up": 33,
+          "bos_dn": 54,
+          "choch_up": 33,
+          "choch_dn": 33
+        },
+        "fwd_8bars_buy": {
+          "n": 3,
+          "avg_ret_pct": 2.1527,
+          "hit_pos": 0.6667,
+          "avg_mfe": 6.3819,
+          "avg_mae": -1.3013
+        },
+        "fwd_8bars_sell": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "flip_trades": {
+          "n": 3,
+          "winrate": 0.3333,
+          "avg_ret": 0.7694,
+          "sum_ret": 2.3083,
+          "avg_mfe": 7.8896,
+          "avg_mae": -3.2555,
+          "long_n": 3,
+          "short_n": 0
+        }
+      }
+    }
+  },
+  "VANRYUSDT_15m": {
+    "symbol": "VANRYUSDT",
+    "tf": "15m",
+    "error": "no_data",
+    "bars": 0
+  },
+  "CYSUSDT_15m": {
+    "symbol": "CYSUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 68,
+          "sell": 68,
+          "bos_up": 33,
+          "bos_dn": 40,
+          "choch_up": 36,
+          "choch_dn": 36
+        },
+        "fwd_8bars_buy": {
+          "n": 68,
+          "avg_ret_pct": -0.6146,
+          "hit_pos": 0.3824,
+          "avg_mfe": 2.5825,
+          "avg_mae": -3.8747
+        },
+        "fwd_8bars_sell": {
+          "n": 68,
+          "avg_ret_pct": 0.807,
+          "hit_pos": 0.4118,
+          "avg_mfe": 4.2781,
+          "avg_mae": -3.4767
+        },
+        "flip_trades": {
+          "n": 136,
+          "winrate": 0.4191,
+          "avg_ret": 1.1985,
+          "sum_ret": 162.997,
+          "avg_mfe": 7.4469,
+          "avg_mae": -4.9091,
+          "long_n": 68,
+          "short_n": 68
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 24,
+          "sell": 26,
+          "bos_up": 33,
+          "bos_dn": 40,
+          "choch_up": 36,
+          "choch_dn": 36
+        },
+        "fwd_8bars_buy": {
+          "n": 24,
+          "avg_ret_pct": -1.002,
+          "hit_pos": 0.25,
+          "avg_mfe": 1.5593,
+          "avg_mae": -2.8571
+        },
+        "fwd_8bars_sell": {
+          "n": 26,
+          "avg_ret_pct": -1.1825,
+          "hit_pos": 0.3077,
+          "avg_mfe": 3.2173,
+          "avg_mae": -4.709
+        },
+        "flip_trades": {
+          "n": 47,
+          "winrate": 0.4468,
+          "avg_ret": -1.6272,
+          "sum_ret": -76.4794,
+          "avg_mfe": 5.5589,
+          "avg_mae": -6.8919,
+          "long_n": 23,
+          "short_n": 24
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 1,
+          "sell": 1,
+          "bos_up": 33,
+          "bos_dn": 40,
+          "choch_up": 36,
+          "choch_dn": 36
+        },
+        "fwd_8bars_buy": {
+          "n": 1,
+          "avg_ret_pct": -3.1758,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.3693,
+          "avg_mae": -4.5052
+        },
+        "fwd_8bars_sell": {
+          "n": 1,
+          "avg_ret_pct": -1.4563,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.0,
+          "avg_mae": -2.508
+        },
+        "flip_trades": {
+          "n": 2,
+          "winrate": 0.5,
+          "avg_ret": -1.9548,
+          "sum_ret": -3.9095,
+          "avg_mfe": 1.6204,
+          "avg_mae": -5.316,
+          "long_n": 1,
+          "short_n": 1
+        }
+      }
+    }
+  },
+  "EDENUSDT_15m": {
+    "symbol": "EDENUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 75,
+          "sell": 75,
+          "bos_up": 39,
+          "bos_dn": 37,
+          "choch_up": 41,
+          "choch_dn": 42
+        },
+        "fwd_8bars_buy": {
+          "n": 75,
+          "avg_ret_pct": -0.1384,
+          "hit_pos": 0.4133,
+          "avg_mfe": 1.5204,
+          "avg_mae": -1.5713
+        },
+        "fwd_8bars_sell": {
+          "n": 75,
+          "avg_ret_pct": -0.0907,
+          "hit_pos": 0.4933,
+          "avg_mfe": 1.6275,
+          "avg_mae": -1.8037
+        },
+        "flip_trades": {
+          "n": 150,
+          "winrate": 0.4067,
+          "avg_ret": 0.2529,
+          "sum_ret": 37.9379,
+          "avg_mfe": 3.4503,
+          "avg_mae": -2.1737,
+          "long_n": 75,
+          "short_n": 75
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 35,
+          "sell": 32,
+          "bos_up": 39,
+          "bos_dn": 37,
+          "choch_up": 41,
+          "choch_dn": 42
+        },
+        "fwd_8bars_buy": {
+          "n": 35,
+          "avg_ret_pct": -0.4064,
+          "hit_pos": 0.3429,
+          "avg_mfe": 1.9026,
+          "avg_mae": -1.9259
+        },
+        "fwd_8bars_sell": {
+          "n": 32,
+          "avg_ret_pct": -0.3981,
+          "hit_pos": 0.4062,
+          "avg_mfe": 1.4761,
+          "avg_mae": -1.8086
+        },
+        "flip_trades": {
+          "n": 62,
+          "winrate": 0.4194,
+          "avg_ret": 0.2226,
+          "sum_ret": 13.8019,
+          "avg_mfe": 3.6268,
+          "avg_mae": -2.6839,
+          "long_n": 31,
+          "short_n": 31
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 4,
+          "sell": 0,
+          "bos_up": 39,
+          "bos_dn": 37,
+          "choch_up": 41,
+          "choch_dn": 42
+        },
+        "fwd_8bars_buy": {
+          "n": 4,
+          "avg_ret_pct": 1.9559,
+          "hit_pos": 0.75,
+          "avg_mfe": 3.7915,
+          "avg_mae": -1.9878
+        },
+        "fwd_8bars_sell": {
+          "n": 0,
+          "avg_ret_pct": null,
+          "hit_pos": null,
+          "avg_mfe": null,
+          "avg_mae": null
+        },
+        "flip_trades": {
+          "n": 4,
+          "winrate": 0.75,
+          "avg_ret": 3.0242,
+          "sum_ret": 12.0967,
+          "avg_mfe": 11.1673,
+          "avg_mae": -2.3372,
+          "long_n": 4,
+          "short_n": 0
+        }
+      }
+    }
+  },
+  "SQDUSDT_15m": {
+    "symbol": "SQDUSDT",
+    "tf": "15m",
+    "bars": 6000,
+    "modes": {
+      "raw": {
+        "counts": {
+          "buy": 85,
+          "sell": 84,
+          "bos_up": 39,
+          "bos_dn": 38,
+          "choch_up": 41,
+          "choch_dn": 41
+        },
+        "fwd_8bars_buy": {
+          "n": 85,
+          "avg_ret_pct": 0.0043,
+          "hit_pos": 0.4118,
+          "avg_mfe": 1.2743,
+          "avg_mae": -1.3488
+        },
+        "fwd_8bars_sell": {
+          "n": 84,
+          "avg_ret_pct": -0.2085,
+          "hit_pos": 0.4048,
+          "avg_mfe": 1.1667,
+          "avg_mae": -1.4188
+        },
+        "flip_trades": {
+          "n": 169,
+          "winrate": 0.3491,
+          "avg_ret": -0.5975,
+          "sum_ret": -100.9743,
+          "avg_mfe": 2.2171,
+          "avg_mae": -1.9994,
+          "long_n": 85,
+          "short_n": 84
+        }
+      },
+      "struct": {
+        "counts": {
+          "buy": 33,
+          "sell": 38,
+          "bos_up": 39,
+          "bos_dn": 38,
+          "choch_up": 41,
+          "choch_dn": 41
+        },
+        "fwd_8bars_buy": {
+          "n": 33,
+          "avg_ret_pct": 0.116,
+          "hit_pos": 0.3939,
+          "avg_mfe": 1.6419,
+          "avg_mae": -1.2483
+        },
+        "fwd_8bars_sell": {
+          "n": 38,
+          "avg_ret_pct": -0.2861,
+          "hit_pos": 0.3421,
+          "avg_mfe": 0.9452,
+          "avg_mae": -1.3092
+        },
+        "flip_trades": {
+          "n": 66,
+          "winrate": 0.3788,
+          "avg_ret": -0.7914,
+          "sum_ret": -52.233,
+          "avg_mfe": 2.4632,
+          "avg_mae": -2.8159,
+          "long_n": 31,
+          "short_n": 35
+        }
+      },
+      "struct_zone": {
+        "counts": {
+          "buy": 2,
+          "sell": 3,
+          "bos_up": 39,
+          "bos_dn": 38,
+          "choch_up": 41,
+          "choch_dn": 41
+        },
+        "fwd_8bars_buy": {
+          "n": 2,
+          "avg_ret_pct": -1.0991,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.3134,
+          "avg_mae": -1.4368
+        },
+        "fwd_8bars_sell": {
+          "n": 3,
+          "avg_ret_pct": -0.5262,
+          "hit_pos": 0.0,
+          "avg_mfe": 0.4012,
+          "avg_mae": -1.5908
+        },
+        "flip_trades": {
+          "n": 5,
+          "winrate": 0.4,
+          "avg_ret": -0.1588,
+          "sum_ret": -0.7938,
+          "avg_mfe": 2.3398,
+          "avg_mae": -3.2653,
+          "long_n": 2,
+          "short_n": 3
+        }
+      }
+    }
+  }
+}

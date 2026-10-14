@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ru" data-ui-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sCalp — Chart · Spot · Futures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/app.css?v=55" />
+  </head>
+  <body>
+    <div class="app-shell app-dual app-chart page-trade">
+      <aside class="brand-rail">
+        <div class="rail-top">
+          <div class="logo">
+            <span class="logo-mark">S</span>
+            <div class="logo-text" data-rail="title">
+              <strong>sCalp</strong>
+              <em data-el="profile-name">Profile</em>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="icon-btn rail-hide-btn"
+            id="btn-hide-rail"
+            title="Скрыть панель"
+          >
+            «
+          </button>
+        </div>
+        <p class="brand-copy" data-rail="copy">
+          График с индикаторами и инструментами, два стакана Spot/Futures, профиль и история
+          тикеров.
+        </p>
+        <div class="rail-actions" data-rail="buttons">
+          <button type="button" class="btn primary" id="btn-api" title="Настройки">Настройки</button>
+          <button type="button" class="btn ghost" id="btn-screener" data-page="screener" title="Скринер">
+            Скринер
+          </button>
+          <button type="button" class="btn ghost" id="btn-top25" data-page="top25" title="Топ-25: список или графики">
+            Топ-25
+          </button>
+          <button type="button" class="btn ghost" id="btn-atr30" data-page="atr30" title="Топ-25 по ATR за 30 дней">
+            ATR 30д
+          </button>
+          <button type="button" class="btn ghost" id="btn-visualizer" data-page="visualizer" title="Топ-25 — графики TV">
+            Графики
+          </button>
+          <button type="button" class="btn ghost" id="btn-workb" data-page="workb" title="Workb — списки + TV-графики">
+            Workb
+          </button>
+          <button type="button" class="btn ghost" id="btn-rsi-boll" data-page="rsi-boll" title="RSI + Bollinger → Telegram">
+            RSI+Boll
+          </button>
+          <button type="button" class="btn ghost" id="btn-smc-flow" data-page="smc-flow" title="Open SMC Flow backtest">
+            SMC Flow
+          </button>
+          <button type="button" class="btn ghost" id="btn-learn" data-page="learn" title="Обучение скальпингу">
+            Скальпинг
+          </button>
+          <button type="button" class="btn ghost" id="btn-windows" title="Окна">Окна</button>
+          <button type="button" class="btn ghost" id="btn-chart" title="График">График</button>
+          <a class="btn ghost" id="btn-docs" data-rail="docs" href="../docs/index.html" title="Docs"
+            >Docs</a
+          >
+        </div>
+        <ul class="agent-map" data-rail="agents">
+          <li><strong>LayoutAgent</strong> — размер / положение</li>
+          <li><strong>ChartAgent</strong> — свечи / индикаторы / tools</li>
+          <li><strong>TradeAgent</strong> — лимит / маркет из DOM</li>
+          <li><strong>ProfileAgent</strong> — профиль</li>
+          <li><strong>HistoryAgent</strong> — история тикеров</li>
+          <li><strong>ScreenerAgent</strong> — крипты с биржи</li>
+          <li><strong>Top25 / ATR30</strong> — ликвидные лидеры волы</li>
+          <li><strong>Dom ×2</strong> — spot + futures</li>
+        </ul>
+      </aside>
+
+      <button type="button" class="rail-fab" id="btn-show-rail" title="Показать панель / настройки" hidden>
+        S
+      </button>
+
+      <div class="main-stack">
+        <nav class="page-tabs" id="page-tabs" aria-label="Разделы">
+          <button type="button" class="page-tab active" data-page="trade">Торговля</button>
+          <button type="button" class="page-tab" data-page="screener">Скринер</button>
+          <button type="button" class="page-tab" data-page="top25">Топ-25</button>
+          <button type="button" class="page-tab" data-page="atr30">ATR 30д</button>
+          <button type="button" class="page-tab" data-page="visualizer">Графики</button>
+          <button type="button" class="page-tab" data-page="workb">Workb</button>
+          <button type="button" class="page-tab" data-page="rsi-boll">RSI+Boll</button>
+          <button type="button" class="page-tab" data-page="smc-flow">SMC Flow</button>
+          <button type="button" class="page-tab" data-page="learn">Скальпинг</button>
+        </nav>
+
+        <div class="trade-view" id="trade-view">
+          <section id="chart-root" class="chart-panel"></section>
+          <div class="doms-band" id="doms-band">
+            <div id="history-bar" class="history-bar"></div>
+            <main class="workspace workspace-dual">
+              <div id="dom-spot" class="dom dom-spot"></div>
+              <div id="dom-futures" class="dom dom-futures"></div>
+            </main>
+          </div>
+        </div>
+
+        <section id="screener-root" class="screener-page" hidden></section>
+        <section id="top25-root" class="top25-page" hidden></section>
+        <section id="atr30-root" class="atr30-page" hidden></section>
+        <section id="viz-root" class="viz-page" hidden></section>
+        <section id="workb-root" class="workb-page" hidden></section>
+        <section id="rsi-boll-root" class="rsi-boll-page" hidden></section>
+        <section id="smc-flow-root" class="smc-flow-page" hidden></section>
+        <section id="learn-root" class="learn-page" hidden></section>
+      </div>
+    </div>
+
+    <script src="./vendor/lightweight-charts.js"></script>
+    <script src="./js/agents/Bus.js?v=32"></script>
+    <script src="./js/agents/PaneBus.js?v=32"></script>
+    <script src="./js/agents/Config.js?v=49"></script>
+    <script src="./js/agents/ExchangeGate.js?v=32"></script>
+    <script src="./js/agents/Indicators.js?v=38"></script>
+    <script src="./js/agents/TickersAgent.js?v=32"></script>
+    <script src="./js/agents/SymbolsAgent.js?v=47"></script>
+    <script src="./js/agents/SettingsAgent.js?v=32"></script>
+    <script src="./js/agents/ApiAgent.js?v=32"></script>
+    <script src="./js/agents/ProfileAgent.js?v=46"></script>
+    <script src="./js/agents/HistoryAgent.js?v=32"></script>
+    <script src="./js/agents/HistoryBarAgent.js?v=32"></script>
+    <script src="./js/agents/ScreenerAgent.js?v=41"></script>
+    <script src="./js/agents/ScreenerUiAgent.js?v=44"></script>
+    <script src="./js/agents/Top25Agent.js?v=41"></script>
+    <script src="./js/agents/Top25UiAgent.js?v=43"></script>
+    <script src="./js/agents/Atr30Agent.js?v=37"></script>
+    <script src="./js/agents/Atr30UiAgent.js?v=37"></script>
+    <script src="./js/agents/VisualizerUiAgent.js?v=40"></script>
+    <script src="./js/agents/SymbolTagAgent.js?v=1"></script>
+    <script src="./js/agents/UserMarkersAgent.js?v=1"></script>
+    <script src="./js/agents/LwcChartAgent.js?v=54"></script>
+    <script src="./js/agents/WorkbUiAgent.js?v=4"></script>
+    <script src="./js/agents/LearnScalpUiAgent.js?v=32"></script>
+    <script src="./js/agents/RsiBollUiAgent.js?v=1"></script>
+    <script src="./js/agents/SmcFlowUiAgent.js?v=1"></script>
+    <script src="./js/agents/CoinglassAgent.js?v=32"></script>
+    <script src="./js/agents/TelegramAlertAgent.js?v=57"></script>
+    <script src="./js/agents/TradeAgent.js?v=34"></script>
+    <script src="./js/agents/MarketAgent.js?v=32"></script>
+    <script src="./js/agents/DomAgent.js?v=36"></script>
+    <script src="./js/agents/ChartAgent.js?v=34"></script>
+    <script src="./js/agents/LayoutAgent.js?v=32"></script>
+    <script src="./js/agents/LayoutUi.js?v=32"></script>
+    <script src="./js/agents/SettingsUiAgent.js?v=58"></script>
+    <script src="./js/app.js?v=51"></script>
+  </body>
+</html>

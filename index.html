@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sCalp — Панель запуска</title>
+    <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0e14;
+        --panel: #121820;
+        --line: #2a3544;
+        --text: #e8eef6;
+        --muted: #8b9bb0;
+        --accent: #f0b429;
+        --bid: #3ecf8e;
+        --ask: #e85d6a;
+        --font: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+        --mono: 'IBM Plex Mono', Consolas, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; min-height: 100%; }
+      body {
+        font-family: var(--font);
+        color: var(--text);
+        background:
+          radial-gradient(1000px 520px at 12% -10%, #1a2f42 0%, transparent 55%),
+          radial-gradient(800px 400px at 100% 0%, #1a2218 0%, transparent 50%),
+          var(--bg);
+        line-height: 1.45;
+      }
+      .wrap { max-width: 880px; margin: 0 auto; padding: 40px 20px 64px; }
+      .brand { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+      .mark {
+        width: 48px; height: 48px; border-radius: 10px; display: grid; place-items: center;
+        background: linear-gradient(145deg, #f0b429, #c9881a); color: #111; font-weight: 700; font-size: 22px;
+      }
+      h1 { margin: 0; font-size: clamp(26px, 5vw, 36px); letter-spacing: 0.02em; }
+      .sub { margin: 0; color: var(--muted); font-size: 14px; }
+      .status {
+        display: inline-flex; align-items: center; gap: 8px; margin: 16px 0 24px;
+        padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px;
+        background: rgba(0,0,0,.28); font-family: var(--mono); font-size: 12px; color: var(--muted);
+      }
+      .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ask); }
+      .dot.ok { background: var(--bid); }
+      .banner {
+        padding: 14px 16px; margin-bottom: 22px; border-radius: 12px;
+        border: 1px solid rgba(240,180,41,.4);
+        background: linear-gradient(160deg, rgba(240,180,41,.12), transparent 60%), var(--panel);
+      }
+      .banner strong { color: var(--accent); }
+      .banner code, .banner pre {
+        font-family: var(--mono); font-size: 12px; color: #d7e0ea;
+      }
+      .banner pre {
+        margin: 10px 0 0; padding: 10px 12px; overflow: auto;
+        background: #070a0e; border: 1px solid var(--line); border-radius: 8px;
+      }
+      .banner p { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+      .label {
+        margin: 0 0 10px; font-size: 12px; letter-spacing: 0.08em;
+        text-transform: uppercase; color: var(--muted);
+      }
+      .btns {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+        margin-bottom: 22px;
+      }
+      button.btn, a.btn {
+        appearance: none; display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
+        width: 100%; padding: 14px 14px; border-radius: 12px; border: 1px solid var(--line);
+        background: var(--panel); color: var(--text); text-decoration: none; cursor: pointer;
+        text-align: left; font: inherit; transition: border-color .15s, transform .15s;
+      }
+      button.btn:hover, a.btn:hover {
+        border-color: var(--accent); transform: translateY(-1px); text-decoration: none;
+      }
+      button.btn:disabled {
+        opacity: 0.45; cursor: not-allowed; transform: none;
+      }
+      button.btn.primary, a.btn.primary {
+        border-color: rgba(240,180,41,.5);
+        background: linear-gradient(160deg, rgba(240,180,41,.14), transparent 55%), var(--panel);
+      }
+      button.btn.danger { border-color: rgba(232,93,106,.45); }
+      .btn .k { font-family: var(--mono); font-size: 11px; color: var(--accent); text-transform: uppercase; }
+      .btn .t { font-size: 16px; font-weight: 600; }
+      .btn .d { font-size: 12px; color: var(--muted); }
+      .docs {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px;
+      }
+      .docs a {
+        padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px;
+        background: rgba(0,0,0,.22); color: var(--text); text-decoration: none; font-size: 13px;
+      }
+      .docs a:hover { border-color: var(--accent); color: var(--accent); }
+      .foot {
+        margin-top: 28px; color: var(--muted); font-size: 12px; font-family: var(--mono);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="brand">
+        <span class="mark">S</span>
+        <div>
+          <h1>sCalp</h1>
+          <p class="sub">Панель запуска</p>
+        </div>
+      </div>
+
+      <div class="status" id="status">
+        <span class="dot" id="dot"></span>
+        <span id="status-text">проверка…</span>
+      </div>
+
+      <div class="banner" id="banner">
+        <strong>Сначала сервер</strong>
+        <p>Браузер не может запустить Python. Один раз кликни скрипт в папке проекта:</p>
+        <pre>./ЗАПУСК.sh
+# или двойной клик: sCalp.desktop</pre>
+        <p>Остановка: <code>./СТОП.sh</code> · открыть раздел: <code>./open.sh terminal</code></p>
+      </div>
+
+      <p class="label">Сервер</p>
+      <div class="btns" id="server-btns">
+        <button type="button" class="btn primary" id="btn-copy-start" data-copy="./ЗАПУСК.sh">
+          <span class="k">script</span>
+          <span class="t">Скопировать ЗАПУСК.sh</span>
+          <span class="d">Вставь в терминал в папке SCALP</span>
+        </button>
+        <button type="button" class="btn" id="btn-copy-stop" data-copy="./СТОП.sh">
+          <span class="k">script</span>
+          <span class="t">Скопировать СТОП.sh</span>
+          <span class="d">Остановить сервер</span>
+        </button>
+        <button type="button" class="btn" id="btn-retry">
+          <span class="k">check</span>
+          <span class="t">Проверить снова</span>
+          <span class="d">Статус http://127.0.0.1:4173</span>
+        </button>
+      </div>
+
+      <p class="label">Открыть</p>
+      <div class="btns" id="app-btns">
+        <a class="btn primary" data-path="/local/" href="/local/">
+          <span class="k">main</span>
+          <span class="t">Терминал</span>
+          <span class="d">Стакан · график · скринер</span>
+        </a>
+        <a class="btn" data-path="/docs/" href="/docs/">
+          <span class="k">docs</span>
+          <span class="t">Документация</span>
+          <span class="d">Обзор и разделы</span>
+        </a>
+        <a class="btn" data-path="/local/tv-redirect.html" href="/local/tv-redirect.html">
+          <span class="k">tool</span>
+          <span class="t">TradingView</span>
+          <span class="d">Редирект на TV</span>
+        </a>
+        <a class="btn" data-path="/react.html" href="/react.html">
+          <span class="k">alt</span>
+          <span class="t">React</span>
+          <span class="d">Нужен npm run dev</span>
+        </a>
+      </div>
+
+      <p class="label">Документация</p>
+      <nav class="docs">
+        <a data-path="/docs/index.html" href="/docs/index.html">Обзор</a>
+        <a data-path="/docs/architecture.html" href="/docs/architecture.html">Архитектура</a>
+        <a data-path="/docs/agents.html" href="/docs/agents.html">Агенты</a>
+        <a data-path="/docs/api.html" href="/docs/api.html">API</a>
+        <a data-path="/docs/dom.html" href="/docs/dom.html">Стакан</a>
+        <a data-path="/docs/events.html" href="/docs/events.html">События</a>
+        <a data-path="/docs/local.html" href="/docs/local.html">Local</a>
+      </nav>
+
+      <p class="foot" id="foot"></p>
+    </div>
+
+    <script>
+      (function () {
+        var BASE = 'http://127.0.0.1:4173'
+        var dot = document.getElementById('dot')
+        var text = document.getElementById('status-text')
+        var banner = document.getElementById('banner')
+        var foot = document.getElementById('foot')
+        var appBtns = document.querySelectorAll('#app-btns a, .docs a')
+
+        function abs(path) {
+          return BASE + path
+        }
+
+        // Always point to local server so file:// and http:// both work the same
+        appBtns.forEach(function (a) {
+          var path = a.getAttribute('data-path')
+          if (path) a.setAttribute('href', abs(path))
+        })
+
+        function setEnabled(on) {
+          appBtns.forEach(function (a) {
+            if (on) {
+              a.removeAttribute('aria-disabled')
+              a.style.pointerEvents = ''
+              a.style.opacity = ''
+            } else {
+              a.setAttribute('aria-disabled', 'true')
+              a.style.pointerEvents = 'none'
+              a.style.opacity = '0.45'
+            }
+          })
+          banner.style.display = on ? 'none' : ''
+        }
+
+        function check() {
+          text.textContent = 'проверка…'
+          return fetch(abs('/') + '?_=' + Date.now(), { method: 'HEAD', cache: 'no-store', mode: 'cors' })
+            .catch(function () {
+              return fetch(abs('/local/'), { method: 'HEAD', cache: 'no-store', mode: 'no-cors' }).then(function () {
+                return { ok: true, noCors: true }
+              })
+            })
+            .then(function (r) {
+              var ok = r && (r.ok || r.type === 'opaque' || r.noCors)
+              if (ok) {
+                dot.classList.add('ok')
+                text.textContent = 'сервер ONLINE · ' + BASE
+                setEnabled(true)
+                foot.textContent = 'Открыто с ' + location.href
+              } else {
+                throw new Error('down')
+              }
+            })
+            .catch(function () {
+              dot.classList.remove('ok')
+              text.textContent = 'сервер OFFLINE · запусти ./ЗАПУСК.sh'
+              setEnabled(false)
+              foot.textContent = 'Панель: ' + location.href
+            })
+        }
+
+        document.getElementById('btn-retry').addEventListener('click', check)
+        document.querySelectorAll('[data-copy]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var cmd = btn.getAttribute('data-copy')
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(cmd).then(function () {
+                var old = btn.querySelector('.t').textContent
+                btn.querySelector('.t').textContent = 'Скопировано'
+                setTimeout(function () { btn.querySelector('.t').textContent = old }, 1200)
+              })
+            } else {
+              prompt('Скопируй команду:', cmd)
+            }
+          })
+        })
+
+        check()
+        setInterval(check, 4000)
+      })()
+    </script>
+  </body>
+</html>

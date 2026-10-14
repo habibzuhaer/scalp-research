@@ -1,0 +1,131 @@
+{
+  "universe": {
+    "top_5m": [
+      "ONGUSDT",
+      "BTRUSDT",
+      "VELVETUSDT",
+      "ARIAUSDT",
+      "TACUSDT",
+      "CASHCATUSDT",
+      "TMXUSDT",
+      "AKEUSDT",
+      "AGIUSDT",
+      "BICOUSDT",
+      "NESAUSDT",
+      "ONTUSDT",
+      "TUTUSDT",
+      "EDENUSDT",
+      "MOVRUSDT",
+      "BMTUSDT",
+      "MAGMAUSDT",
+      "HEIUSDT",
+      "SCRTUSDT",
+      "CYSUSDT",
+      "ESUSDT",
+      "BTWUSDT",
+      "PORTALUSDT",
+      "PUMPBTCUSDT",
+      "CLOUSDT"
+    ],
+    "top_15m": [
+      "VELVETUSDT",
+      "TACUSDT",
+      "BTRUSDT",
+      "AGIUSDT",
+      "CASHCATUSDT",
+      "BMTUSDT",
+      "BTWUSDT",
+      "ONGUSDT",
+      "TUTUSDT",
+      "PORTALUSDT",
+      "HFTUSDT",
+      "SCRTUSDT",
+      "NESAUSDT",
+      "BEATUSDT",
+      "HANAUSDT",
+      "SKYAI1USDT",
+      "ZROUSDT",
+      "ACEUSDT",
+      "USUSDT",
+      "HEMIUSDT",
+      "STORJUSDT",
+      "VANRYUSDT",
+      "CYSUSDT",
+      "EDENUSDT",
+      "SQDUSDT"
+    ],
+    "generated_at": "2026-10-03 15:03",
+    "params": {
+      "swing_len": 10,
+      "st_atr": 10,
+      "st_factor": 3.0,
+      "fee_side": 0.0006,
+      "modes": {
+        "raw": "Supertrend Buy/Sell only",
+        "struct": "Buy/Sell filtered by structure trend",
+        "struct_zone": "struct + Buy in Discount / Sell in Premium"
+      }
+    }
+  },
+  "by_tf_mode": {
+    "15m|raw": {
+      "symbols": 22,
+      "trades": 3246,
+      "avg_winrate": 0.3877,
+      "avg_ret_pct": -0.0043,
+      "median_sum_ret_pct": 2.378,
+      "avg_mfe": 5.0877,
+      "avg_mae": -3.4491
+    },
+    "15m|struct": {
+      "symbols": 22,
+      "trades": 1289,
+      "avg_winrate": 0.4172,
+      "avg_ret_pct": -0.0613,
+      "median_sum_ret_pct": -10.6829,
+      "avg_mfe": 5.3187,
+      "avg_mae": -4.5207
+    },
+    "15m|struct_zone": {
+      "symbols": 22,
+      "trades": 56,
+      "avg_winrate": 0.2651,
+      "avg_ret_pct": -1.0845,
+      "median_sum_ret_pct": -1.8991,
+      "avg_mfe": 3.5506,
+      "avg_mae": -4.3677
+    },
+    "5m|raw": {
+      "symbols": 22,
+      "trades": 5864,
+      "avg_winrate": 0.3119,
+      "avg_ret_pct": -0.2724,
+      "median_sum_ret_pct": -81.0405,
+      "avg_mfe": 2.4649,
+      "avg_mae": -1.5873
+    },
+    "5m|struct": {
+      "symbols": 22,
+      "trades": 2041,
+      "avg_winrate": 0.4063,
+      "avg_ret_pct": -0.1665,
+      "median_sum_ret_pct": -18.6365,
+      "avg_mfe": 2.8838,
+      "avg_mae": -2.4203
+    },
+    "5m|struct_zone": {
+      "symbols": 22,
+      "trades": 95,
+      "avg_winrate": 0.3169,
+      "avg_ret_pct": -0.6975,
+      "median_sum_ret_pct": -1.4701,
+      "avg_mfe": 2.4314,
+      "avg_mae": -2.5778
+    }
+  },
+  "notes": [
+    "Signals only on bar close (no intrabar). Matches Pine Open_SMC_Flow.pine.",
+    "Flip sim: enter on Buy/Sell close, exit opposite or max_hold; fee 6bps/side.",
+    "fwd_*bars: close-to-close after N bars without stop \u2014 diagnostic only."
+  ]
+}

@@ -1,0 +1,161 @@
+//@version=5
+// Open SMC Flow — открытый аналог Phantom Flow
+//
+// Явное поведение (без перерисовки сигналов):
+// 1) Пивоты: ta.pivothigh/low(swingLen) — уровень подтверждается через swingLen баров.
+// 2) BOS / CHoCH: только по закрытию бара (barstate.isconfirmed).
+//    - Пробой последнего активного swing high/low close'ом.
+//    - Против текущего trend → CHoCH (пунктир), иначе BOS (сплошная).
+//    - trend: 1 бычий, -1 медвежий, 0 ещё не задан (первый пробой = BOS).
+// 3) Premium / Discount / Equilibrium — dealing range от ПОСЛЕДНЕГО подтверждённого
+//    swing high И последнего swing low (обновляется только на новых пивотах).
+//    - Discount  = нижняя половина [lo .. mid]
+//    - Premium   = верхняя половина [mid .. hi]
+//    - Equilibrium = узкая полоса вокруг mid (± eqHalfFrac от диапазона)
+// 4) Buy / Sell = Supertrend flip, только на закрытии бара.
+//    Опционально: фильтр по структуре и/или зоне (Discount/Premium).
+// 5) Алерты ставить "Once Per Bar Close".
+indicator("Open SMC Flow", shorttitle="SMC Flow", overlay=true,
+     max_lines_count=500, max_labels_count=500, max_boxes_count=10)
+
+// ───────────── Inputs ─────────────
+swingLen   = input.int(10, "Swing length (пивоты)", minval=2, group="Структура")
+showStruct = input.bool(true, "Показывать BOS / CHoCH", group="Структура")
+
+showZones  = input.bool(true, "Показывать Premium / Equilibrium / Discount", group="Зоны")
+zoneBars   = input.int(60, "Ширина зон (баров назад)", minval=5, group="Зоны")
+eqHalfFrac = input.float(0.025, "Equilibrium (±доля диапазона)", minval=0.005, maxval=0.1, step=0.005, group="Зоны")
+
+stAtr      = input.int(10, "ATR период", minval=1, group="Трейлинг-стоп (Buy/Sell)")
+stFactor   = input.float(3.0, "ATR множитель", minval=0.1, step=0.1, group="Трейлинг-стоп (Buy/Sell)")
+showBg     = input.bool(true, "Фон по направлению тренда", group="Трейлинг-стоп (Buy/Sell)")
+filterStruct = input.bool(true, "Buy/Sell только по структуре", group="Трейлинг-стоп (Buy/Sell)",
+     tooltip="Buy только при bullish trend (или trend=0), Sell только при bearish trend (или trend=0)")
+filterZone   = input.bool(false, "Buy в Discount / Sell в Premium", group="Трейлинг-стоп (Buy/Sell)")
+
+smaLen     = input.int(40, "SMA (hl2) период", minval=1, group="Прочее")
+
+bullCol    = input.color(#26a69a, "Цвет бычий", group="Цвета")
+bearCol    = input.color(#ef5350, "Цвет медвежий", group="Цвета")
+
+// ───────────── Свинги и структура ─────────────
+ph = ta.pivothigh(high, swingLen, swingLen)
+pl = ta.pivotlow(low, swingLen, swingLen)
+
+var float hiLvl = na
+var int   hiBar = na
+var bool  hiAct = false
+var float loLvl = na
+var int   loBar = na
+var bool  loAct = false
+var int   trend = 0
+
+// Dealing range: только от подтверждённых пивотов (не растягиваем каждым high/low)
+var float rangeHi = na
+var float rangeLo = na
+
+if not na(ph)
+    hiLvl := ph
+    hiBar := bar_index - swingLen
+    hiAct := true
+    rangeHi := ph
+if not na(pl)
+    loLvl := pl
+    loBar := bar_index - swingLen
+    loAct := true
+    rangeLo := pl
+
+bool bosUp   = false
+bool bosDn   = false
+bool chochUp = false
+bool chochDn = false
+
+bool brkUp = barstate.isconfirmed and hiAct and not na(hiLvl) and close > hiLvl
+bool brkDn = barstate.isconfirmed and loAct and not na(loLvl) and close < loLvl
+
+if brkUp
+    isChoch = trend == -1
+    chochUp := isChoch
+    bosUp   := not isChoch
+    if showStruct
+        line.new(hiBar, hiLvl, bar_index, hiLvl, color=bullCol,
+             style=isChoch ? line.style_dashed : line.style_solid)
+        label.new(math.round((hiBar + bar_index) / 2), hiLvl, isChoch ? "CHoCH" : "BOS",
+             style=label.style_label_down, color=color.new(color.black, 100),
+             textcolor=bullCol, size=size.small)
+    trend := 1
+    hiAct := false
+
+if brkDn and not brkUp
+    isChoch = trend == 1
+    chochDn := isChoch
+    bosDn   := not isChoch
+    if showStruct
+        line.new(loBar, loLvl, bar_index, loLvl, color=bearCol,
+             style=isChoch ? line.style_dashed : line.style_solid)
+        label.new(math.round((loBar + bar_index) / 2), loLvl, isChoch ? "CHoCH" : "BOS",
+             style=label.style_label_up, color=color.new(color.black, 100),
+             textcolor=bearCol, size=size.small)
+    trend := -1
+    loAct := false
+
+// ───────────── Premium / Discount / Equilibrium ─────────────
+var box premBox = box.new(na, na, na, na, border_color=na, bgcolor=color.new(bearCol, 88),
+     text="Premium", text_color=bearCol, text_size=size.small, text_halign=text.align_right)
+var box eqBox   = box.new(na, na, na, na, border_color=na, bgcolor=color.new(color.gray, 78),
+     text="Equilibrium", text_color=color.gray, text_size=size.small, text_halign=text.align_right)
+var box discBox = box.new(na, na, na, na, border_color=na, bgcolor=color.new(bullCol, 88),
+     text="Discount", text_color=bullCol, text_size=size.small, text_halign=text.align_right)
+
+bool haveRange = not na(rangeHi) and not na(rangeLo) and rangeHi > rangeLo
+float midLvl = haveRange ? (rangeHi + rangeLo) * 0.5 : na
+bool inDiscount = haveRange and close <= midLvl
+bool inPremium  = haveRange and close >= midLvl
+
+if showZones and barstate.islast and haveRange
+    rng = rangeHi - rangeLo
+    x1 = math.max(bar_index - zoneBars, 0)
+    x2 = bar_index + 10
+    eqHalf = eqHalfFrac * rng
+    // Premium: верхняя половина [mid .. hi]
+    box.set_lefttop(premBox, x1, rangeHi)
+    box.set_rightbottom(premBox, x2, midLvl)
+    // Equilibrium: узкая полоса вокруг mid
+    box.set_lefttop(eqBox, x1, midLvl + eqHalf)
+    box.set_rightbottom(eqBox, x2, midLvl - eqHalf)
+    // Discount: нижняя половина [lo .. mid]
+    box.set_lefttop(discBox, x1, midLvl)
+    box.set_rightbottom(discBox, x2, rangeLo)
+
+// ───────────── ATR-трейлинг (Supertrend) + Buy/Sell ─────────────
+[st, dir] = ta.supertrend(stFactor, stAtr)
+dirChg = ta.change(dir)
+bool stBuy  = barstate.isconfirmed and not na(dirChg) and dirChg < 0
+bool stSell = barstate.isconfirmed and not na(dirChg) and dirChg > 0
+
+bool structOkBuy  = not filterStruct or trend >= 0
+bool structOkSell = not filterStruct or trend <= 0
+bool zoneOkBuy    = not filterZone or inDiscount
+bool zoneOkSell   = not filterZone or inPremium
+
+bool buySig  = stBuy  and structOkBuy  and zoneOkBuy
+bool sellSig = stSell and structOkSell and zoneOkSell
+
+plot(not na(dir) and dir < 0 ? st : na, "Trail up",   color=bullCol, style=plot.style_linebr, linewidth=2)
+plot(not na(dir) and dir > 0 ? st : na, "Trail down", color=bearCol, style=plot.style_linebr, linewidth=2)
+bgcolor(showBg and not na(dir) ? color.new(dir < 0 ? bullCol : bearCol, 93) : na)
+
+plotshape(buySig,  title="Buy",  style=shape.labelup,   location=location.belowbar,
+     color=bullCol, text="Buy",  textcolor=color.white, size=size.small)
+plotshape(sellSig, title="Sell", style=shape.labeldown, location=location.abovebar,
+     color=bearCol, text="Sell", textcolor=color.white, size=size.small)
+
+plot(ta.sma(hl2, smaLen), "SMA hl2", color=color.orange, linewidth=1)
+
+// ───────────── Алерты (ставить "Once Per Bar Close") ─────────────
+alertcondition(buySig,   "Buy",        "Трейлинг: разворот вверх")
+alertcondition(sellSig,  "Sell",       "Трейлинг: разворот вниз")
+alertcondition(bosUp,    "BOS up",     "BOS вверх")
+alertcondition(bosDn,    "BOS down",   "BOS вниз")
+alertcondition(chochUp,  "CHoCH up",   "CHoCH вверх")
+alertcondition(chochDn,  "CHoCH down", "CHoCH вниз")

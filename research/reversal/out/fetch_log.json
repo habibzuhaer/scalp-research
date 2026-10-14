@@ -1,0 +1,238 @@
+[
+  {
+    "symbol": "ONGUSDT",
+    "tf": "5m",
+    "ok": true,
+    "bars": 9000,
+    "from": "2026-09-01 11:00",
+    "to": "2026-10-02 16:55"
+  },
+  {
+    "symbol": "BTRUSDT",
+    "tf": "5m",
+    "ok": true,
+    "bars": 9000,
+    "from": "2026-09-01 11:00",
+    "to": "2026-10-02 16:55"
+  },
+  {
+    "symbol": "VELVETUSDT",
+    "tf": "5m",
+    "ok": true,
+    "bars": 9000,
+    "from": "2026-09-01 11:00",
+    "to": "2026-10-02 16:55"
+  },
+  {
+    "symbol": "ARIAUSDT",
+    "tf": "5m",
+    "ok": true,
+    "bars": 9000,
+    "from": "2026-09-01 11:00",
+    "to": "2026-10-02 16:55"
+  },
+  {
+    "symbol": "TACUSDT",
+    "tf": "5m",
+    "ok": true,
+    "bars": 9000,
+    "from": "2026-09-01 11:00",
+    "to": "2026-10-02 16:55"
+  },
+  {
+    "symbol": "CASHCATUSDT",
+    "tf": "5m",
+    "ok": true,
+    "bars": 9000,
+    "from": "2026-09-01 11:00",
+    "to": "2026-10-02 16:55"
+  },
+  {
+    "symbol": "TMXUSDT",
+    "tf": "5m",
+    "ok": true,
+    "bars": 9000,
+    "from": "2026-09-01 11:00",
+    "to": "2026-10-02 16:55"
+  },
+  {
+    "symbol": "AKEUSDT",
+    "tf": "5m",
+    "ok": true,
+    "bars": 9000,
+    "from": "2026-09-01 11:05",
+    "to": "2026-10-02 17:00"
+  },
+  {
+    "symbol": "AGIUSDT",
+    "tf": "5m",
+    "ok": true,
+    "bars": 9000,
+    "from": "2026-09-01 11:00",
+    "to": "2026-10-02 16:55"
+  },
+  {
+    "symbol": "BICOUSDT",
+    "tf": "5m",
+    "ok": true,
+    "bars": 9000,
+    "from": "2026-09-01 11:00",
+    "to": "2026-10-02 16:55"
+  },
+  {
+    "symbol": "NESAUSDT",
+    "tf": "5m",
+    "ok": true,
+    "bars": 9000,
+    "from": "2026-09-01 11:00",
+    "to": "2026-10-02 16:55"
+  },
+  {
+    "symbol": "ONTUSDT",
+    "tf": "5m",
+    "ok": true,
+    "bars": 9000,
+    "from": "2026-09-01 11:00",
+    "to": "2026-10-02 16:55"
+  },
+  {
+    "symbol": "TUTUSDT",
+    "tf": "5m",
+    "ok": true,
+    "bars": 9000,
+    "from": "2026-09-01 11:00",
+    "to": "2026-10-02 16:55"
+  },
+  {
+    "symbol": "EDENUSDT",
+    "tf": "5m",
+    "ok": true,
+    "bars": 9000,
+    "from": "2026-09-01 11:00",
+    "to": "2026-10-02 16:55"
+  },
+  {
+    "symbol": "MOVRUSDT",
+    "tf": "5m",
+    "ok": true,
+    "bars": 9000,
+    "from": "2026-09-01 11:00",
+    "to": "2026-10-02 16:55"
+  },
+  {
+    "symbol": "VELVETUSDT",
+    "tf": "15m",
+    "ok": true,
+    "bars": 6000,
+    "from": "2026-08-01 05:15",
+    "to": "2026-10-02 17:00"
+  },
+  {
+    "symbol": "TACUSDT",
+    "tf": "15m",
+    "ok": true,
+    "bars": 6000,
+    "from": "2026-08-01 05:15",
+    "to": "2026-10-02 17:00"
+  },
+  {
+    "symbol": "BTRUSDT",
+    "tf": "15m",
+    "ok": true,
+    "bars": 6000,
+    "from": "2026-08-01 05:15",
+    "to": "2026-10-02 17:00"
+  },
+  {
+    "symbol": "AGIUSDT",
+    "tf": "15m",
+    "ok": true,
+    "bars": 6000,
+    "from": "2026-08-01 05:00",
+    "to": "2026-10-02 16:45"
+  },
+  {
+    "symbol": "CASHCATUSDT",
+    "tf": "15m",
+    "ok": true,
+    "bars": 5597,
+    "from": "2026-08-05 10:00",
+    "to": "2026-10-02 17:00"
+  },
+  {
+    "symbol": "BMTUSDT",
+    "tf": "15m",
+    "ok": true,
+    "bars": 6000,
+    "from": "2026-08-01 05:00",
+    "to": "2026-10-02 16:45"
+  },
+  {
+    "symbol": "BTWUSDT",
+    "tf": "15m",
+    "ok": true,
+    "bars": 6000,
+    "from": "2026-08-01 05:15",
+    "to": "2026-10-02 17:00"
+  },
+  {
+    "symbol": "ONGUSDT",
+    "tf": "15m",
+    "ok": true,
+    "bars": 6000,
+    "from": "2026-08-01 05:15",
+    "to": "2026-10-02 17:00"
+  },
+  {
+    "symbol": "TUTUSDT",
+    "tf": "15m",
+    "ok": true,
+    "bars": 6000,
+    "from": "2026-08-01 05:15",
+    "to": "2026-10-02 17:00"
+  },
+  {
+    "symbol": "PORTALUSDT",
+    "tf": "15m",
+    "ok": true,
+    "bars": 6000,
+    "from": "2026-08-01 05:15",
+    "to": "2026-10-02 17:00"
+  },
+  {
+    "symbol": "HFTUSDT",
+    "tf": "15m",
+    "ok": false,
+    "err": "short"
+  },
+  {
+    "symbol": "SCRTUSDT",
+    "tf": "15m",
+    "ok": false,
+    "err": "short"
+  },
+  {
+    "symbol": "NESAUSDT",
+    "tf": "15m",
+    "ok": true,
+    "bars": 4831,
+    "from": "2026-08-13 09:30",
+    "to": "2026-10-02 17:00"
+  },
+  {
+    "symbol": "BEATUSDT",
+    "tf": "15m",
+    "ok": true,
+    "bars": 6000,
+    "from": "2026-08-01 05:00",
+    "to": "2026-10-02 16:45"
+  },
+  {
+    "symbol": "HANAUSDT",
+    "tf": "15m",
+    "ok": true,
+    "bars": 6000,
+    "from": "2026-08-01 05:15",
+    "to": "2026-10-02 17:00"
+  }
+]

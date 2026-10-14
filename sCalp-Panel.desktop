@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=sCalp Panel
+Comment=Кнопки запуска sCalp (скрипты)
+Exec=/usr/bin/python3 "/home/shb2bp/SCALP/панель.py"
+Path=/home/shb2bp/SCALP
+Icon=/home/shb2bp/SCALP/public/favicon.svg
+Terminal=false
+Categories=Network;Finance;
+StartupNotify=true
