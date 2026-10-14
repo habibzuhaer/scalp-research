@@ -1,1 +1,3 @@
-scalp-research: open crypto strategy notebooks with sample bars and written results — no exchange keys. https://habibzuhaer.github.io/scalp-research/
+/scalp-research: CScalp-style terminal with agent modules, plus open reversal / RSI×Boll / SMC research. Full source. No exchange keys.
+https://habibzuhaer.github.io/scalp-research/
+https://github.com/habibzuhaer/scalp-research
